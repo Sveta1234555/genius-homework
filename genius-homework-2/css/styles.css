@@ -69,6 +69,13 @@
   --color-black: #000;
 }
 
+/* Base */
+
+* {
+  /* размеры блока padding  border  отсчитывать внутрь блока */
+  box-sizing: border-box;
+}
+
 body {
   /* font-family: "Play", sans-serif; */
 
