@@ -86,16 +86,38 @@ body {
   color: var(--color-primary-bluedark);
 }
 
+/* УБрать дефолт margin-top всем заголовкам и параграфам*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
 ul {
   list-style-type: none;
 }
 
 /* Hero-section*/
+
+.hero-section {
+  /* к Блок1 */
+  /* padding: 1358px 1175px 337px 397px; */
+  /* к «Group 46196» */
+  padding: 123px 729px 157px 244px;
+}
+
 /* .above-title {
   font-size: 18px;
 } */
 
+/* h1 "beauty zone" */
 .hero-title {
+  /* УБрать дефолт margin-bottom этому заголовку */
+  margin-bottom: 0;
   color: var(--color-primary-blue);
   font-family: Play, sans-serif;
   text-align: left;
