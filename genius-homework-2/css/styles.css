@@ -101,6 +101,16 @@ ul {
   list-style-type: none;
 }
 
+/* Section all  */
+/* одинаковый класс всем секциям, кроме header,footer,hero-section */
+.section {
+  /* расстояния 96 между секциями - по 48 вертикальным отступам каждый соседний 
+  1.верхняя секция padding-bottom и 2. Нижняя соседняя секция padding-top  */
+  /* горизонтальные- 0 */
+  padding: 48px 0;
+}
+
+
 /* Hero-section*/
 
 .hero-section {
