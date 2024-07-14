@@ -89,6 +89,9 @@ body {
   /* center в доминантные задают? нужен в 1. .under-button 2. section h2 3.  .section-why-us-p 4. h3 ...
   ПОка убираю здесь . м.б. отменять его будет больше , чем назначать. ПОзже  */
   /* text-align: center; */
+
+  /* по-умолч margin body есть. убрать */
+  margin: 0;
 }
 
 /* УБрать дефолт margin-top всем заголовкам и параграфам*/
@@ -115,6 +118,19 @@ ul {
   padding: 48px 0;
 }
 
+/* Container for center */
+.container {
+  /* width: 1240px; */
+  /* надо чтобы сайт не менял размеры при изменении адаптив-размеров (экрана)  */
+  width: 100%;
+  /* max-width: 1240px; */
+  /* 1288=1240+24*2   т.к. padiing (ниже установлен "padding: 0 24px;") из-за установленного box-sizing (отсчет отступов вовнутрь) не учитываются, их надо добавить */
+  max-width: 1288px;
+  /* центрировать контейнер container относително макс размера горизонтально */
+  margin: 0 auto;
+  /* чтобы слева-справа не прирлипал к границе - внутренний отступ  в контейнере сделать: */
+  padding: 0 24px;
+}
 
 /* Hero-section*/
 
@@ -218,19 +234,29 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 /* Main */
 /* Main Button*/
 .button-primary {
-  /* padding: 16px 32px;
-  width: 219px;
+  /* до параграфа под кнопкой */
+  margin-bottom: 14px;
+  /* до текста кнопки */
+  padding: 16px 32px;
+  /* width: 219px;
   height: 53px; */
   color: var(--color-primary-white);
   font-weight: 600;
-  background-color: var(--color-primary-blue);
-  border: 1px solid var(--color-black);
-  border-radius: 32px;
-  padding: 16px 32px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  /*доминантные  18 и 1.2,но не унаследовались почему-то*/
+  /* font-size: 18px; */
+  /* 21/18=1.2 */
+  /* line-height: 1.2; */
 
-  width: 219px;
-  height: 53px;
+  background-color: var(--color-primary-blue);
+  /* border: 1px solid var(--color-black); */
+  border-radius: 32px;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
+
+
+
+  /* gap: 10px; */
+  /* opacity: 0px; */
+
 }
 
 .button-primary:hover {
@@ -238,11 +264,17 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   color: var(--color-primary-bluedark);
   cursor: pointer;
 
-  border: 2px solid #2b7fff;
+  border: 2px solid var(--color-primary-blue);
   border-radius: 32px;
-  padding: 16px 32px;
-  width: 219px;
-  height: 53px;
+  /* padding: 16px 32px; наследует от самой кнопки */
+  /* width: 219px;
+  height: 53px; 
+   top: 102px;
+  left: 20px; 
+
+  gap: 10px;
+  opacity: 0px;
+*/
 }
 
 .under-button {
