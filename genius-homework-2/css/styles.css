@@ -105,6 +105,10 @@ p {
   margin-top: 0;
 }
 
+address {
+  font-style: normal;
+}
+
 ul {
   /* пока всем ul - margin сверху снизу 0 */
   margin: 0;
@@ -160,7 +164,6 @@ span –плохо, br …
  Потом вса-равно блоки из них делать,
 чтобы позиционировать квадратиком по всем грницам. */
 
-
 /*  Hero   h1 отдельно:  
 p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
@@ -173,7 +176,6 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   /* тени нет */
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
-
 
 /*2. Hero h1   -  big beauty zone*/
 
@@ -196,14 +198,12 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
   /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
   text-stroke: 4px rgba(0, 0, 0, 0.25); */
-  /* тени нет: */
+  /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
   /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
 
   /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
   /* margin-top: 16px; */
   /* padding-top: 16px; */
-
-
 
   /* font-style: italic; */
   /* text-transform: capitalize; */
@@ -212,8 +212,6 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   word-spacing: 4px;
   white-space: nowrap; */
 }
-
-
 
 /* Header */
 .header-link {
@@ -233,33 +231,42 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   color: var(--color-primary-blue);
 } */
 
+.icon-link-ul {
+  display: flex;
+  flex-flow: row wrap;
+  background: white;
+}
+
 /* Main */
 /* Main Button*/
 .button-primary {
-  /* до параграфа под кнопкой */
-  margin-bottom: 14px;
+  /* button1 Замовити дзвінок         Roboto 600 18/21   219x53  mrg-bt снизу 14
+     button2 Записатись безкоштовно   Roboto 600 18/21   281x53  mrg-bt снизу 8 */
+
+  font-family: inherit;
+  /* font-family: "Roboto", sans-serif; button не наследует стиль font от body. что лучше по опыту- inherit или заново указывать font? */
+  font-size: 18px;
+  /*доминантные  18px и 1.2,но не унаследовались от body . ф12 дает 13px, а не 18*/
+  /* и не помещается 18 при указанных width height кнопкт???  помещается font 16 */
+  font-weight: 600;
+  /* 21/18=1.2 */
+  line-height: 1.2;
+  /* ТОже непонятно - line-height наследует или нет. скорее нет */
+
   /* до текста кнопки */
   /* padding: 16px 32px; сделать на 2 меньше из-за border 2px*/
   padding: 14px 30px;
   /* width: 219px;
   height: 53px; */
   color: var(--color-primary-white);
-  font-weight: 600;
-  /*доминантные  18 и 1.2,но не унаследовались почему-то. ф12 дает 13px, а не 18*/
-  font-size: 18px;
-  /* 21/18=1.2 */
-  line-height: 1.2;
 
   background-color: var(--color-primary-blue);
   /* border: 1px solid var(--color-black); */
   border-radius: 32px;
   /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
 
-
-
   /* gap: 10px; */
   /* opacity: 0px; */
-
 }
 
 .button-primary:hover {
@@ -268,7 +275,7 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   cursor: pointer;
 
   border: 2px solid var(--color-primary-blue);
-  border-radius: 32px;
+  /* border-radius: 32px; наследует от самой кнопки */
   /* padding: 16px 32px; наследует от самой кнопки */
   /* width: 219px;
   height: 53px; 
@@ -278,6 +285,15 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   gap: 10px;
   opacity: 0px;
 */
+}
+
+.hero-section .button-primary {
+  /* 2 button in page. width -разные */
+  /* width: 219px; */
+  width: 100%;
+  max-width: 219px;
+  /* отступ снизу до параграфа под кнопкой */
+  margin-bottom: 14px;
 }
 
 .under-button {
@@ -296,6 +312,9 @@ section h2 {
   font-family: "Play", sans-serif;
   font-size: 64px;
   font-weight: 700;
+  /*74px/64px =1.16 ~ 1.2 наследует*/
+  /* line-height: 1.2; */
+
   /* ДЛя всех h2 всех секций 48. ДЛя 2-й секции - отдельный класс - только во 2й 40px */
   margin-bottom: 48px;
   text-align: center;
@@ -304,8 +323,6 @@ section h2 {
 h2 span {
   color: var(--color-primary-blue);
 }
-
-
 
 /* Section 2 about us */
 
@@ -319,6 +336,7 @@ h2 span {
 .beauty-zone-h2 {
   /* span in h2*/
   text-transform: capitalize;
+  font-weight: 700;
   /* line-height =1.2    74.05/64=1/1=1.15 округл до 1.2 - доминантный возьмется */
 }
 
@@ -328,17 +346,17 @@ h2 span {
   padding-top: 0;
   /*между 2 и 3й секциями не 96, а 176. 128=176-48 (pdgtop 3й секции  одинаковые)*/
   padding-bottom: 128px;
-
 }
 
 .about-us-p {
   font-size: 22px;
+  /* font-weight: 400; наследует */
+
   /* 38/22 */
   line-height: 1.7;
   /* тени нет */
   /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
 }
-
 
 /* последний параграф - 0px. все параграфы этого класса обнулить margin-bottom, 
   чтобы потом непоследнему p сделать отступ 40) */
@@ -355,7 +373,6 @@ h2 span {
   margin-bottom: 0px;
 }
 
-
 /* Так - все элементы, и звездочки. Тип p надо выделить */
 /* .section-about-us :not(:last-child) { */
 
@@ -364,11 +381,17 @@ h2 span {
   margin-bottom: 40px;
 }
 
-
 .beauty-zone {
+  /* span in p */
   text-transform: capitalize;
   font-weight: 600;
 }
+
+/* можно  так  font-weight: 700; сделать для h2 , если одинак классы beauty-zone*/
+/* .about-us-title span {
+  background-color: red;
+  font-weight: 700;
+} */
 
 /* Section why us */
 .section-why-us-p {
@@ -396,7 +419,6 @@ h3 {
   color: var(--color-primary-white);
   /* 26/22=1.2 доминантная*/
   /* line-height: 1.2; */
-
 }
 
 /* Section contacts */
@@ -407,17 +429,30 @@ h3 {
   color: var(--color-primary-white);
 }
 
-.form-signupfree-free {
+.signup-free-p-free {
+  /* или .signup-free-p span{} */
+  /* span "безкоштовно" на форме  */
   color: var(--color-primary-blue);
 }
 
+/* .signup-free-p span {
+  background-color: red;
+} */
+
 .signup-free-input {
   font-size: 13px;
+  /* 400 и 15/13=1.2 дефолт */
+  color: var(--color-primary-white);
 }
 
 .signup-free .button-primary {
-  width: 281px;
+  /* width: 281px; */
+  width: 100%;
+  max-width: 281px;
+  /* Width, height не задавать в px, надо в %, и   max-width: 1240px; */
   /* height: 53px; */
+  /* отступ снизу до параграфа под кнопкой */
+  margin-bottom: 8px;
 }
 
 .signup-free .under-button {
@@ -434,17 +469,26 @@ h3 {
 .footer-link {
   color: var(--color-primary-white);
   font-size: 16px;
-  line-height: 1.1;
+  /* 16/19 =1.18  1.2 default */
   text-decoration: none;
 }
 
-
-/* между Li - снизу 16, кроме последнего */
+/* между Li -ссылками - снизу 16, кроме последнего */
 .footer-ul li:not(:last-child) {
   margin-bottom: 16px;
 }
 
 .footer-ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* между Li -адресами - снизу 16 у всех, включая последний */
+address li {
+  margin-bottom: 16px;
+}
+
+/* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
+.icon-link-ul li {
   margin-bottom: 0;
 }
 
@@ -454,7 +498,17 @@ h3 {
   /* text-decoration: underline; */
 }
 
+/* .footer-last li:not(:last-child) { */
+/* .confidens { */
+/* background-color: red; */
+/* f12 отражает, но поверх текста нижнего, реально не отодвигает :*/
+/* margin-bottom: 16px; */
+/* } */
+
 .copyrigt {
+  /* иначе a от p не подвинулось, только mrgn-top */
+  margin-top: 16px;
+  margin-bottom: 0;
   font-size: 13px;
   color: var(--color-secondary-greylight);
 }
