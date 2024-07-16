@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title lang="en">Beauty Zone Svet</title>
     <!-- Fonts -->
-    <!--Font play --700 400-->
+    <!--Font play 700 400-->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
       rel="stylesheet"
     /> -->
-    <!-- Font Roboto  --900 700 400 -->
+    <!-- Font Roboto  900 700 400 -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,8 +49,31 @@
               <a class="header-link" href="#section-contacts">Контакти</a>
             </li>
           </ul>
+          <!-- <div> -->
+          <ul class="icon-link-ul">
+            <li>
+              <a class="icon-link" href="tel:+38(096)0000007">
+                <img
+                  src="./images/telephone.svg"
+                  alt="Иконка телефона + 38 (096) 000 00 07"
+                />
+              </a>
+            </li>
+            <li>
+              <a class="icon-link" href=""></a>
+              <img src="./images/facebook.svg" alt="Иконка facebook" />
+            </li>
+            <li>
+              <a class="icon-link" href=""></a>
+              <img src="./images/instagram.svg" alt="Иконка Instagram" />
+            </li>
+          </ul>
+          <!-- </div> -->
         </nav>
         <!-- 3 contacts -->
+        <!-- <img src="./images/telephone.svg" alt="Иконка телефона" />
+      <img src="./images/facebook.svg" alt="Иконка facebook" />
+      <img src="./images/instagram.svg" alt="Иконка Instagram" /> -->
       </div>
     </header>
     <main>
@@ -71,6 +94,10 @@
         <p class="under-button">
           Запишись та отримай безкоштовну консультацію нашого косметолога
         </p>
+        <img
+          src="./images/photoWoman.jpg"
+          alt="Жінка лікар виконує косметологічну процедуру клієнтці"
+        />
       </section>
       <section class="section-about-us section" id="section-about-us">
         <div class="container">
@@ -172,9 +199,9 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
           <div class="signup-free">
-            <p>
+            <p class="signup-free-p">
               Запишіться
-              <span class="form-signupfree-free">безкоштовно</span> та отримайте
+              <span class="signup-free-p-free">безкоштовно</span> та отримайте
               подарунок
             </p>
             <p class="signup-free-input">Ваше ім'я та прізвище</p>
@@ -193,64 +220,95 @@
     </main>
     <footer>
       <div class="container">
-        <nav>
-          <!-- Logo and menu  -->
-
-          <a href="#">
-            <img
-              src="./images/logo.svg"
-              alt="Логотип косметологічної клініки Beauty Zone"
-          /></a>
-          <ul class="footer-ul">
-            <li>
-              <a class="footer-link" href="#section-about-us"> Про нас</a>
-            </li>
-            <li><a class="footer-link" href="#section-why-us">Чому ми</a></li>
-            <li>
-              <a class="footer-link" href="#section-our-procedures"
-                >Наші процедури</a
-              >
-            </li>
-            <li>
-              <a class="footer-link" href="#section-contacts">Контакти</a>
-            </li>
-          </ul>
-        </nav>
-        <address>
-          <ul>
-            <li>
-              <a class="footer-link" href="tel:+38(096)0000007"
-                >+ 38 (096) 000 00 07</a
-              >
-            </li>
-            <li>
-              <a class="footer-link" href="mailto:beautyzone@gmail.com"
-                >beautyzone@gmail.com</a
-              >
-            </li>
-            <li>
-              <a
-                class="footer-link"
-                href="https://maps.app.goo.gl/fEm7gbNJra5HX7Uf8"
-                target="_blank"
-                >Україна, м. Київ, вул. Тараса Шевченка 5</a
-              >
-            </li>
-            <li>
-              <a href="#"><!-- telephone-receiver icon  --></a>
-            </li>
-            <li>
-              <a href="#"><!-- facebook icon  --></a>
-            </li>
-            <li>
-              <a href="#"><!-- instagramm icon  --></a>
-            </li>
-          </ul>
-        </address>
-        <a class="footer-link" href="#" target="_blank"
-          >Політика конфіденційності</a
+        <div
+          style="
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #011c44;
+          "
         >
-        <p class="copyrigt">&copy; 2022 Дані захищені</p>
+          <nav>
+            <!-- Logo and menu  -->
+
+            <a href="#">
+              <img
+                src="./images/logo.svg"
+                alt="Логотип косметологічної клініки Beauty Zone"
+            /></a>
+            <ul class="footer-ul">
+              <li>
+                <a class="footer-link" href="#section-about-us"> Про нас</a>
+              </li>
+              <li><a class="footer-link" href="#section-why-us">Чому ми</a></li>
+              <li>
+                <a class="footer-link" href="#section-our-procedures"
+                  >Наші процедури</a
+                >
+              </li>
+              <li>
+                <a class="footer-link" href="#section-contacts">Контакти</a>
+              </li>
+            </ul>
+          </nav>
+          <address>
+            <ul>
+              <li>
+                <a class="footer-link" href="tel:+38(096)0000007"
+                  >+ 38 (096) 000 00 07</a
+                >
+              </li>
+              <li>
+                <a class="footer-link" href="mailto:beautyzone@gmail.com"
+                  >beautyzone@gmail.com</a
+                >
+              </li>
+              <li>
+                <a
+                  class="footer-link"
+                  href="https://maps.app.goo.gl/fEm7gbNJra5HX7Uf8"
+                  target="_blank"
+                  >Україна, м. Київ, вул. Тараса Шевченка 5</a
+                >
+              </li>
+            </ul>
+
+            <ul class="icon-link-ul">
+              <li>
+                <a class="icon-link" href="tel:+38(096)0000007">
+                  <img
+                    src="./images/telephone.svg"
+                    alt="Иконка телефона + 38 (096) 000 00 07"
+                  />
+                </a>
+              </li>
+              <li>
+                <a class="icon-link" href=""></a>
+                <img src="./images/facebook.svg" alt="Иконка facebook" />
+              </li>
+              <li>
+                <a class="icon-link" href=""></a>
+                <img src="./images/instagram.svg" alt="Иконка Instagram" />
+              </li>
+            </ul>
+          </address>
+          <!-- <ul class="footer-last">
+            <li>
+              <a class="footer-link" href="#" target="_blank"
+                >Політика конфіденційності</a
+              >
+            </li>
+            <li><p class="copyrigt">&copy; 2022 Дані захищені</p></li>
+          </ul> -->
+
+          <a class="footer-link" href="#" target="_blank"
+            >Політика конфіденційності</a
+          >
+
+          <p class="copyrigt">&copy; 2022 Дані захищені</p>
+
+          <img src="./images/PhotoRoom.jpg" alt="Фото пляшечок з ліками" />
+        </div>
       </div>
     </footer>
   </body>
