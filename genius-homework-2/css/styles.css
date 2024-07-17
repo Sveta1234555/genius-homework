@@ -374,14 +374,49 @@ h2 span {
 }
 
 .about-us-ul-img {
-  max-width: 500px;
+  /* список img размер для разного выравнивания элементов li влево вправо */
+  max-width: 499px;
+  width: 100%;
+}
+
+.about-us-ul-img img {
+  /* размер картинок для установки расстояния между  ними по вертикали */
+  background-color: blue;
+  max-width: 327px;
+  max-height: 327px;
+}
+
+.about-us-ul-img :last-child {
+  /* background-color: red; */
+  /* img нижняя вправо */
+  text-align: right;
+}
+
+.about-us-ul-img :first-child {
+  background-color: green;
+  /* img верхн влево итак  */
+  /* text-align: left; */
+  margin-bottom: 40px;
+}
+
+.about-us-ul-img li:last-child {
+  background-color: red;
+}
+
+.about-us-content {
+  /* ширина блока с текстом, чтобы отступы между текстом и картинками */
+  max-width: 709px;
 }
 
 .about-us-title {
   /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
   margin-bottom: 40px;
+  /* картинка первая выше текста на 40px */
+  padding-top: 40px;
   /* все h2 center, кроме этого */
   text-align: left;
+  /* для переноса текста - как на макете, буква "в" нас 2й строке */
+  max-width: 529px;
 }
 
 .beauty-zone-h2 {
