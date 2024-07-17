@@ -126,7 +126,7 @@ ul {
   padding: 48px 0;
 }
 
-/* Container for center */
+/* Container for center общий, у всех секци одинаковый*/
 .container {
   /* width: 1240px; */
   /* надо чтобы сайт не менял размеры при изменении адаптив-размеров (экрана)  */
@@ -161,8 +161,6 @@ ul {
   /* для разделить в nav лого и меню (слева)  при уменьшении размера экрана */
   gap: 40px;
 }
-
-
 
 .header-menu {
   /* Элементы меню расположить горизонтально */
@@ -229,6 +227,8 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   font-size: 140px;
   /*Line height  114 / font-size 140  */
   line-height: 0.81;
+  /* в 2 строки beauty zone big */
+  max-width: 530px;
 
   /* border-radius: 2px 2px 2px 116px; */
   /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
@@ -267,8 +267,6 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
   /* text-decoration: underline; */
 }
-
-
 
 /* .header-link:visited {
   color: var(--color-primary-blue);
@@ -346,6 +344,8 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   color: var(--color-secondary-grey1);
   /* 18/12=1.5 */
   line-height: 1.5;
+  /* текст ограничить по ширине вмесТо br, чтобы перенос на 2ю строку был  */
+  max-width: 238px;
   text-align: center;
 }
 
@@ -368,6 +368,14 @@ h2 span {
 }
 
 /* Section 2 about us */
+
+.about-us-container {
+  display: flex;
+}
+
+.about-us-ul-img {
+  max-width: 500px;
+}
 
 .about-us-title {
   /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
