@@ -367,17 +367,106 @@ h2 span {
   color: var(--color-primary-blue);
 }
 
-/* Section 2 about us */
+/* Section 2 About us */
+
+.section-about-us {
+  /* убрать от одинаковых отступов между .section для между 1-2 отступ. тут иначе, пока неясно как /
+  pad-bot=0  остается для 2-й, надо*/
+  padding-top: 0;
+  /*между 2 и 3й секциями не 96, а 176. 128=176-48 (pdgtop 3й секции  одинаковые)*/
+  padding-bottom: 128px;
+}
 
 .about-us-container {
   /*чтобы горизонтально расположить: текстоввая часть слева - 2 картинки справа */
   display: flex;
-  /* Не вижу. что меняет особо, но пусть. ДЛя адаптации скорее */
+  /* ДЛя адаптива .  + max-width 709 в .about-us-content  */
   justify-content: space-between;
   /* между div c  текстами слева и ul c картинками справа */
   gap: 34px;
 }
 
+.about-us-content {
+  /* ширина блока с текстом на макете так. */
+  max-width: 709px;
+  /*+ justify-content: space-between; .about-us-container  */
+}
+
+
+
+/* About-us-title */
+.about-us-title {
+  /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
+  margin-bottom: 40px;
+  /* картинка первая выше текста на 40px */
+  padding-top: 40px;
+  /* все h2 center, кроме этого */
+  text-align: left;
+  /* для переноса текста - как на макете, буква "в" на 2й строке */
+  max-width: 529px;
+}
+
+.beauty-zone-h2 {
+  /* span in h2*/
+  text-transform: capitalize;
+  font-weight: 700;
+  /* line-height =1.2    74.05/64=1/1=1.15 округл до 1.2 - доминантный возьмется */
+}
+
+/* About-us-text */
+.about-us-p {
+  font-size: 22px;
+  /* font-weight: 400; наследует */
+
+  /* 38/22 */
+  line-height: 1.7;
+  /* тени нет */
+  /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+/* последний параграф - 0px. все параграфы этого класса обнулить margin-bottom, 
+  чтобы потом непоследнему p сделать отступ 40) */
+/* .about-us-p {  
+  margin-bottom: 0px;
+} */
+
+.section-about-us p:last-of-type {
+  /* последнему параграфу обнулить отступ снизу (или можно всем параграфам секции 2 обнулить отступ снизу в .about-us-p {}).
+        Чтобы потом НЕПОСЛЕДНИМ p сделать отступ margin-bottom 40) */
+  /* Легче здесь было бы - параграфам сделать margin-top=40, margin-bottom=0 , 
+  а h2 обнулить сверху-снизу margin. 
+  Но - принято margin-bottom задавать внутри родительских */
+  margin-bottom: 0px;
+  /* для переноса текста в p1 - как на макете, не получится ограничением max-width. 
+  На макете слишком разные строки по длите - одной длиной не получится. 
+   br делать.
+     НО- br при изменении размера экрана некрасиво скачут. Лучше вообще убрать. Одну оставить br первую. и последнюю*/
+  /* max-width: 603px; для перенести на2ю строку "та"*/
+}
+
+/* Так - все элементы, и звездочки. Тип p надо выделить */
+/* .section-about-us :not(:last-child) { */
+
+.section-about-us p:not(:last-of-type) {
+  /* параграф от следующего отделяется 40 px. НЕ ПОСЛЕДНИЙ. вдруг добавят параграф, добавляла -ок) */
+  margin-bottom: 40px;
+  /* для переноса текста в p1 - как на макете, буква "з догляду" на 2й строке . или br*/
+  max-width: 670px;
+}
+
+.beauty-zone {
+  /* span in p */
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+/* можно  так  font-weight: 700; сделать для h2 , если одинак классы beauty-zone*/
+/* .about-us-title span {
+  background-color: red;
+  font-weight: 700;
+} */
+
+/* Abou-us Image */
 .about-us-ul-img {
   /* список img размер для разного выравнивания элементов li влево вправо */
   max-width: 499px;
@@ -431,89 +520,45 @@ h2 span {
       да. указание типа первого дочернего li помогло, исключив img из .about-us-ul-img: first-child */
 }
 
-.about-us-content {
-  /* ширина блока с текстом на макете так. м.б. ненадо */
-  max-width: 709px;
+
+/* Section 3 Why us */
+
+.why-us-list {
+  /* расположить список горизоантально */
+  display: flex;
+  /*на макете так:*/
+  gap: 56px;
+  /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
+  flex-wrap: wrap;
 }
 
-.about-us-title {
-  /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
-  margin-bottom: 40px;
-  /* картинка первая выше текста на 40px */
-  padding-top: 40px;
-  /* все h2 center, кроме этого */
-  text-align: left;
-  /* для переноса текста - как на макете, буква "в" на 2й строке */
-  max-width: 529px;
+.why-us-item {
+  /* border: 1px solid lightgray; */
+  border: 1px solid var(--color-primary-white);
+  /*remove временный*/
+  border-radius: 32px;
+  /* Из макета: */
+  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+  padding: 24px 32px;
+  /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
+  flex-basis: calc((100% - 112px) / 3);
+  text-align: center;
+  /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
+    5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
+     Думаю – предмет разговора с дизайнером). И некритично. !!!
+     Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
+    можно будет padding-top для ul задать одинаково больше. */
 }
 
-.beauty-zone-h2 {
-  /* span in h2*/
-  text-transform: capitalize;
-  font-weight: 700;
-  /* line-height =1.2    74.05/64=1/1=1.15 округл до 1.2 - доминантный возьмется */
+.why-us-img {
+  max-width: 48px;
+  max-height: 48px;
+  margin-bottom: 8px;
+  /* так в ф12 рас чет 48х48 отражает,     без этого -40ч44 */
+  width: 100%;
+  /* margin: 5px 102px 8px 102px; */
 }
 
-.section-about-us {
-  /* убрать от одинаковых отступов между .section для между 1-2 отступ. тут иначе, пока неясно как /
-  pad-bot=0  остается для 2-й, надо*/
-  padding-top: 0;
-  /*между 2 и 3й секциями не 96, а 176. 128=176-48 (pdgtop 3й секции  одинаковые)*/
-  padding-bottom: 128px;
-}
-
-.about-us-p {
-  font-size: 22px;
-  /* font-weight: 400; наследует */
-
-  /* 38/22 */
-  line-height: 1.7;
-  /* тени нет */
-  /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-/* последний параграф - 0px. все параграфы этого класса обнулить margin-bottom, 
-  чтобы потом непоследнему p сделать отступ 40) */
-/* .about-us-p {  
-  margin-bottom: 0px;
-} */
-
-.section-about-us p:last-of-type {
-  /* последнему параграфу обнулить отступ снизу (или можно всем параграфам секции 2 обнулить отступ снизу в .about-us-p {}).
-        Чтобы потом НЕПОСЛЕДНИМ p сделать отступ margin-bottom 40) */
-  /* Легче здесь было бы - параграфам сделать margin-top=40, margin-bottom=0 , 
-  а h2 обнулить сверху-снизу margin. 
-  Но - принято margin-bottom задавать внутри родительских */
-  margin-bottom: 0px;
-  /* для переноса текста в p1 - как на макете, не получится ограничением max-width. 
-  На макете слишком разные строки по длите - одной длиной не получится. 
-   br*/
-  /* max-width: 603px; для перенести на2ю строку "та"*/
-}
-
-/* Так - все элементы, и звездочки. Тип p надо выделить */
-/* .section-about-us :not(:last-child) { */
-
-.section-about-us p:not(:last-of-type) {
-  /* параграф от следующего отделяется 40 px. НЕ ПОСЛЕДНИЙ. вдруг добавят параграф, добавляла -ок) */
-  margin-bottom: 40px;
-  /* для переноса текста в p1 - как на макете, буква "з догляду" на 2й строке . или br*/
-  max-width: 670px;
-}
-
-.beauty-zone {
-  /* span in p */
-  text-transform: capitalize;
-  font-weight: 600;
-}
-
-/* можно  так  font-weight: 700; сделать для h2 , если одинак классы beauty-zone*/
-/* .about-us-title span {
-  background-color: red;
-  font-weight: 700;
-} */
-
-/* Section why us */
 .section-why-us-p {
   /* <p> дефолтный убрать mrg-b*/
   margin-bottom: 0;
@@ -523,7 +568,27 @@ h2 span {
   text-align: center;
 }
 
-/* Section procedure */
+
+
+/* Section 4 procedure */
+.procedure-list {
+  /* расположить список горизоантально */
+  display: flex;
+  /*на макете так:*/
+  gap: 16px;
+  /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
+  flex-wrap: wrap;
+}
+
+
+.procedure-item {
+  border: 1px solid lightgray;
+  /* Из макета: */
+  border-radius: 120px 4px;
+  /* 32 px это 2 gap по 16 px . Гибкое расстояние меду блочками*/
+  flex-basis: calc((100% - 32px) / 3);
+  text-align: center;
+}
 
 /* h3 без класса, других h3 нет. только На картинках процедур */
 h3 {
@@ -541,7 +606,7 @@ h3 {
   /* line-height: 1.2; */
 }
 
-/* Section contacts */
+/* Section 5 contacts */
 /* form sign up free */
 .signup-free p:first-child {
   font-size: 22px;
@@ -573,6 +638,7 @@ h3 {
   /* height: 53px; */
   /* отступ снизу до параграфа под кнопкой */
   margin-bottom: 8px;
+
 }
 
 .signup-free .under-button {
