@@ -632,6 +632,8 @@ h3 {
   justify-content: space-between;
   /* между картой слева и div формы справа */
   gap: 32px;
+  /* отцентрировать этот flex относительно внешнего container */
+  margin: 0 auto;
 }
 
 .contacts-container iframe {
