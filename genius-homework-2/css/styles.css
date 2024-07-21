@@ -572,27 +572,42 @@ h2 span {
 
 /* Section 4 procedure */
 .procedure-list {
-  /* расположить список горизоантально */
+  /* расположить список горизонтально */
   display: flex;
-  /*на макете так:*/
+  /*на макете :*/
   gap: 16px;
+  /* на всю ширину распределить (отцентрировалось) */
+  justify-content: space-between;
   /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
   flex-wrap: wrap;
 }
 
 
 .procedure-item {
-  border: 1px solid lightgray;
-  /* Из макета: */
-  border-radius: 120px 4px;
-  /* 32 px это 2 gap по 16 px . Гибкое расстояние меду блочками*/
+  /* background-color: red; */
+  /* перенесла в img пока 
+  max-width: 344px;
+  max-height: 456px; */
+  /* width: 100%;  ничего не меняет пока */
+
+  /* задать размер элементу для переноса на след. строку браузером по wrap.
+   32 px это 2 gap по 16 px . Гибкое расстояние между блочками*/
   flex-basis: calc((100% - 32px) / 3);
   text-align: center;
 }
 
+.procedure-item img {
+  max-width: 344px;
+  max-height: 456px;
+  /* width: 100%;  ничего не меняет */
+  /* border: 1px solid red; */
+  /* Из макета: */
+  border-radius: 4px 120px;
+}
+
 /* h3 без класса, других h3 нет. только На картинках процедур */
 h3 {
-  /* до процедуры де.,   Rectangle 5080,   Rectangle 5081 .
+  /* до процедуры де.,   Rectangle 5080,   Rectangle 5081  снизу от текста h3.
       пока относительно себя (h3) - ни о чем в браузере. Для позже*/
   /* margin: 372px 77px 32px 115px; */
   /* пока вместо по-умолч для h3 22px сделать 32 */
@@ -606,7 +621,7 @@ h3 {
   /* line-height: 1.2; */
 }
 
-/* Section 5 contacts */
+/* Section 5 Contacts */
 /* form sign up free */
 .signup-free p:first-child {
   font-size: 22px;
