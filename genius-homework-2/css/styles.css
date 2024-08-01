@@ -275,7 +275,9 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 .icon-link-ul {
   display: flex;
   flex-flow: row wrap;
+  /* вернуться!!! */
   background: white;
+  /* background: transparent; */
 }
 
 /* Main */
@@ -732,7 +734,8 @@ h3 {
 .footer-container {
   /*  общий внешний .container 1440x278 */
   /* этот .footer-container 1240x166 */
-  background-color: red;
+  /* background-color: red; */
+  background: var(--color-primary-bluedark);
   border: 1px solid black;
   max-width: 1240px;
   width: 100%;
@@ -801,6 +804,8 @@ address li {
   max-height: 42px;
   width: 100%;
   justify-content: space-between;
+  /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
+  /* background-color: transparent; */
 }
 
 /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
