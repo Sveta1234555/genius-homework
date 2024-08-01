@@ -729,6 +729,37 @@ h3 {
 }
 
 /* Footer */
+.footer-container {
+  /*  общий внешний .container 1440x278 */
+  /* этот .footer-container 1240x166 */
+  background-color: red;
+  border: 1px solid black;
+  max-width: 1240px;
+  width: 100%;
+  /* 4 блока (логотип+ nav+ address+copyright) стали горизонтально рядом
+        но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
+  display: flex;
+  /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
+  /* align-items: center; */
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
+  /* для разделить все 4 блока внутри при уменьшении размера экрана */
+  /* gap: 186px; */
+  padding: 56px 100px;
+
+
+
+  /* ДЛя адаптива .    */
+  /* max-width: 1240px; */
+
+  justify-content: space-between;
+
+  /* отцентрировать этот flex относительно внешнего container */
+  /* margin: 0 auto; */
+
+
+}
+
 
 .footer-link {
   color: var(--color-primary-white);
@@ -746,9 +777,30 @@ h3 {
   margin-bottom: 0;
 }
 
+.footer-address-ul {
+  /* сузить блок адресов */
+  max-width: 192px;
+  max-height: 166px;
+  width: 100%;
+
+}
+
+/* .footer-address-ul li:last-child {
+  max-width: 203;
+} */
+
+
 /* между Li -адресами - снизу 16 у всех, включая последний */
 address li {
   margin-bottom: 16px;
+}
+
+.icon-link-ul {
+  /* 174x42 */
+  max-width: 174px;
+  max-height: 42px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
@@ -760,6 +812,14 @@ address li {
 .footer-link:hover {
   color: var(--color-primary-blue);
   /* text-decoration: underline; */
+}
+
+.icon-link-ul img {
+  /* margin-bottom: 0; */
+  /* ??? */
+  /* картинку как 42 42 сдеать? max-width: 42px; */
+  max-height: 42px;
+  width: 100%;
 }
 
 /* .footer-last li:not(:last-child) { */
