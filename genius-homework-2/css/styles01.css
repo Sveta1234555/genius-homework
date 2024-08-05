@@ -275,9 +275,7 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 .icon-link-ul {
   display: flex;
   flex-flow: row wrap;
-  /* вернуться!!! */
   background: white;
-  /* background: transparent; */
 }
 
 /* Main */
@@ -394,6 +392,8 @@ h2 span {
   /*+ justify-content: space-between; .about-us-container  */
 }
 
+
+
 /* About-us-title */
 .about-us-title {
   /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
@@ -484,6 +484,7 @@ h2 span {
   */
 }
 
+
 .about-us-ul-img :last-child {
   /* background-color: red; */
   /* img нижняя вправо */
@@ -518,6 +519,7 @@ h2 span {
       Или надо выдеить при назначении margin-bottom: 40px; тип – список li, исключив картиинку . 
       да. указание типа первого дочернего li помогло, исключив img из .about-us-ul-img: first-child */
 }
+
 
 /* Section 3 Why us */
 
@@ -566,6 +568,8 @@ h2 span {
   text-align: center;
 }
 
+
+
 /* Section 4 procedure */
 .procedure-list {
   /* расположить список горизонтально */
@@ -577,6 +581,7 @@ h2 span {
   /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
   flex-wrap: wrap;
 }
+
 
 .procedure-item {
   /* background-color: red; */
@@ -637,6 +642,7 @@ h3 {
  */
   border-radius: 32px;
   border-color: transparent;
+
 }
 
 /* form sign up free */
@@ -658,6 +664,7 @@ h3 {
 }
 
 .signup-free p:first-child {
+
   font-size: 22px;
   font-weight: 600;
   color: var(--color-primary-white);
@@ -723,43 +730,6 @@ h3 {
 
 /* Footer */
 
-.footer {
-  /* пока на весь экран по горизонтали. позже наверное*/
-  /* png - Прозрачная картинка */
-  background-image: url("../images/footer-background.png");
-  background-color: var(--color-primary-bluedark);
-  background-repeat: no-repeat;
-  background-position: center top;
-  /* background-size: cover; */
-}
-
-.footer-container {
-  /*  общий внешний .container 1440x278 */
-  /* этот .footer-container 1240x166 */
-  /* background-color: red; */
-  border: 4px solid var(--color-secondary-bluedark);
-  max-width: 1240px;
-  width: 100%;
-  /* 4 блока (логотип+ nav+ address+copyright) стали горизонтально рядом
-        но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
-  display: flex;
-  /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
-  /* align-items: center; */
-  /* align-items: flex-start; */
-  /* justify-content: flex-start; */
-  /* для разделить все 4 блока внутри при уменьшении размера экрана */
-  /* gap: 186px; */
-  padding: 56px 100px;
-
-  /* ДЛя адаптива .    */
-  /* max-width: 1240px; */
-
-  justify-content: space-between;
-
-  /* отцентрировать этот flex относительно внешнего container */
-  /* margin: 0 auto; */
-}
-
 .footer-link {
   color: var(--color-primary-white);
   font-size: 16px;
@@ -776,30 +746,9 @@ h3 {
   margin-bottom: 0;
 }
 
-.footer-address-ul {
-  /* сузить блок адресов */
-  max-width: 192px;
-  max-height: 166px;
-  width: 100%;
-}
-
-/* .footer-address-ul li:last-child {
-  max-width: 203;
-} */
-
 /* между Li -адресами - снизу 16 у всех, включая последний */
 address li {
   margin-bottom: 16px;
-}
-
-.icon-link-ul {
-  /* 174x42 */
-  max-width: 174px;
-  max-height: 42px;
-  width: 100%;
-  justify-content: space-between;
-  /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
-  /* background-color: transparent; */
 }
 
 /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
@@ -811,14 +760,6 @@ address li {
 .footer-link:hover {
   color: var(--color-primary-blue);
   /* text-decoration: underline; */
-}
-
-.icon-link-ul img {
-  /* margin-bottom: 0; */
-  /* ??? */
-  /* картинку как 42 42 сдеать? max-width: 42px; */
-  max-height: 42px;
-  width: 100%;
 }
 
 /* .footer-last li:not(:last-child) { */
