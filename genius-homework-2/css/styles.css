@@ -1,100 +1,74 @@
+/* poppins-300 - latin */
 @font-face {
   font-display: swap;
-  font-family: "Play";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/play-v19-latin-regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Play";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/play-v19-latin-700.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Roboto";
-  font-weight: 100;
-  src: url("../fonts/roboto-v30-cyrillic_latin-100.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Roboto";
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
   font-weight: 300;
-  src: url("../fonts/roboto-v30-cyrillic_latin-300.woff2") format("woff2");
+  src: url("../fonts/poppins-v21-latin-300.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* poppins-regular - latin */
 @font-face {
   font-display: swap;
-  font-family: "Roboto";
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
   font-weight: 400;
-  src: url("../fonts/roboto-v30-cyrillic_latin-regular.woff2") format("woff2");
+  src: url("../fonts/poppins-v21-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* poppins-600 - latin */
 @font-face {
   font-display: swap;
-  font-family: "Roboto";
-  font-weight: 500;
-  src: url("../fonts/roboto-v30-cyrillic_latin-500.woff2") format("woff2");
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
+  font-weight: 600;
+  src: url("../fonts/poppins-v21-latin-600.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* poppins-900 - latin */
 @font-face {
   font-display: swap;
-  font-family: "Roboto";
-  font-weight: 700;
-  src: url("../fonts/roboto-v30-cyrillic_latin-700.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Roboto";
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
   font-weight: 900;
-  src: url("../fonts/roboto-v30-cyrillic_latin-900.woff2") format("woff2");
+  src: url("../fonts/poppins-v21-latin-900.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 :root {
-  --color-primary-white: #fff;
-  --color-primary-blue: #2b7fff;
-  --color-primary-bluedark: #011c44;
-
-  --color-secondary-grey1: #4a4a4a;
-  --color-secondary-grey2: #4a4a4a;
-  --color-secondary-greylight: #747272;
-  --color-secondary-bluedark: #011f4a;
-  --color-secondary-yellow: #ffd02b;
-  --color-black: #000;
+  --color-primary-dark: #31261a;
+  --color-primary-light: #faf4ea;
+  --color-secondary-dark: #a28268;
+  --color-brand-dark: #465929;
+  --color-brand-normal: #819b57;
+  --color-brand-light: #cfcfbc;
+  --color-background: #faf4ea;
+  /* #A28268; */
 }
 
 /* Base */
-
 * {
   /* размеры блока padding  border  отсчитывать внутрь блока */
   box-sizing: border-box;
 }
 
 body {
-  /* font-family: "Play", sans-serif; */
-
-  /* Доминантный */
-  font-family: "Roboto", sans-serif;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  color: var(--color-primary-bluedark);
-  /* 21/18=1.2 */
-  line-height: 1.2;
-  /* center в доминантные задают? нужен в 1. .under-button 2. section h2 3.  .section-why-us-p 4. h3 ...
-  ПОка убираю здесь . м.б. отменять его будет больше , чем назначать. ПОзже  */
-  /* text-align: center; */
-
-  /* по-умолч margin body есть. убрать */
+  line-height: 1.5;
   margin: 0;
 }
 
-/* УБрать дефолт margin-top всем заголовкам и параграфам*/
 h1,
 h2,
 h3,
@@ -110,150 +84,192 @@ address {
 }
 
 ul {
-  /* пока всем ul - margin сверху снизу 0 */
   margin: 0;
   padding: 0;
   /* убрать значки кружков перед элементами списка ВСЕХ на странице. селектор тэга ul, без классов*/
   list-style-type: none;
 }
 
-/* Section all  */
-/* одинаковый класс всем секциям, кроме header,footer,hero-section */
+/* Для скрыть визуально h2 в section. Но для браузера останется. так надо */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .section {
-  /* расстояния 96 между секциями - по 48 вертикальным отступам каждый соседний 
-  1.верхняя секция padding-bottom и 2. Нижняя соседняя секция padding-top  */
-  /* горизонтальные- 0 */
   padding: 48px 0;
 }
 
-/* Container for center общий, у всех секци одинаковый*/
 .container {
   /* width: 1240px; */
-  /* надо чтобы сайт не менял размеры при изменении адаптив-размеров (экрана)  */
+  /* надо чтобы сайт не менял размеры при изменении адаптив размеров,  типа экрана  */
   width: 100%;
   /* max-width: 1240px; */
-  /* 1288=1240+24*2   т.к. padiing (ниже установлен "padding: 0 24px;") из-за установленного box-sizing (отсчет отступов вовнутрь) не учитываются, их надо добавить */
+  /* 1288=1240+24*2   т.к. padiing из-за установленного box-sizing не учитываются, их надо добавить */
   max-width: 1288px;
-  /* центрировать контейнер container относително макс размера горизонтально */
+  /* центрировать контейнер div class=container относително макс размераы горизонатльно */
   margin: 0 auto;
-  /* чтобы слева-справа не прирлипал к границе - внутренний отступ  в контейнере сделать: */
   padding: 0 24px;
 }
 
+/* button */
+/* Разница отображения для неактивной кнопки */
+/* .button {
+  border: 4px solid violet;
+}
+
+.button[disabled] {
+  border: 4px solid black;
+} */
+
+/* .main-section {
+  color: blue;
+}
+
+.main-section>h1 {
+  color: aqua;
+}
+
+.main-section>p {
+  color: green;
+} */
+
+/* Псевдоклассы состояния */
+.button {
+  padding: 16px 32px;
+  color: var(--color-primary-light);
+  font-weight: 600;
+  background-color: var(--color-brand-normal);
+  border: 2px solid var(--color-brand-normal);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* специфичность */
+/* <button class="button" type="button">Замовити дзвінок</button> */
+/* этот приоритетнее, специфичнее */
+/* .button.button[type='button'] {
+  color: red;
+} */
+
+/* .button.button[type='button'] { */
+/* nav .button { */
+
+/* header .button {
+  color: blueviolet;
+} */
+
+.button:hover {
+  color: color-brand-dark;
+  background-color: transparent;
+}
+
+/* .button:focus {
+  color: palevioletred;
+}
+
+.button:active {
+  color: yellowgreen;
+} */
+
+/* каскадность */
+/* .button {
+  color: brown;
+
+
+} */
+
+/* link */
+/* меню списком header и footer */
+.link {
+  color: var(--color-primary-light);
+  /* убрать значки кружков перед элементами списка */
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-brand-normal);
+  /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
+   Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
+   Лучше - убрать увеличение шрифта hover. Выделения цветом достаточно */
+  /* font-weight: 600; */
+}
+
 /* Header */
+.header {
+  background-color: lightgrey;
+}
+
 .header-container {
-  /* 2 блока (логотип+ меню   и   иконки) стали горизонтально рядом
-    но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
+  /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
+  но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
   display: flex;
-  /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
+  /* сделать кнопку не растянутой stretch (по-умолч), а центрированной по вертикали */
   align-items: center;
-  /* для разделить nav и иконки при уменьшении размера экрана */
+  /* для разделить nav и кнопку при уменьшении размера экрана */
   gap: 40px;
 }
 
 .header-nav {
   /* для расположить горизонтально рядом лого и меню в nav навигации */
   display: flex;
-  /* лого и меню - центрированной по вертикали*/
   align-items: center;
-  /* nav занял все соб. место, 3 лого связи уехали вправо */
   flex-grow: 1;
-  /* для разделить в nav лого и меню (слева)  при уменьшении размера экрана */
+  /* для разделить в nav лого и меню ы при уменьшении размера экрана */
   gap: 40px;
 }
 
 .header-menu {
-  /* Элементы меню расположить горизонтально */
+  /* это класс <ul> */
+  /* для меню расположить горизонтально */
   display: flex;
   /* для задать расстояние между элементами меню */
-  gap: 56px;
-  /* Чтобы меню заняло все свободно место в родительском элементе nav (класс  .header-nav) :   часть займет лого, а все оставшееся - меню ul */
+  gap: 64px;
+  /* align-items: center; */
+  /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
+  часть займет лого, а все оставшееся - меню ul */
   flex-grow: 1;
-  /* выравнять элементы меню по главной горизонтальной оси (в рамках занятого им (меню) места nav) */
+  /* выравнять по гоавной горизонтальной оси */
   justify-content: center;
 }
 
-/* Hero-section*/
-
+/* hero-section */
 .hero-section {
-  /* к Блок1 */
-  /* padding: 1358px 1175px 337px 397px; */
-  /* к «Group 46196» */
-  /* width: 1501.96px;
-    height: 687.93px;
-    top: -0.6px;
-    left: -38px;
-    gap: 0px;
-    opacity: 0px; */
-  padding: 123px 729px 157px 244px;
-  background-color: burlywood;
+  padding: 272px 0;
+  /* background-color: burlywood; */
+  /* background-image: url('../images/couple-in-bakery.jpg'); */
+  /* background-repeat: no-repeat; */
+  /* background-position: 20px 40px; */
+  /* background-position: right bottom; */
+  /* background-position: right; */
+  /* top по Y - чтобы оставались лица при вписывании картинки по background-size: cover */
+  /* background-position: center top; */
+  /* Не сохраняет пропорции */
+  /* background-size: 1000px 400px; */
+  /* background-size: cover; */
+  /* fixed При прокрутке - не двигается: */
+  /* background-attachment: fixed; */
+
   background-image: url("../images/hero-section-background.jpg");
   background-repeat: no-repeat;
-  /* позиционирвоание - позже , h1 ездит , img большая  */
-  background-position: center bottom;
+  background-position: center top;
   background-size: cover;
+
+  /* вместо 4х правил - все в одно: но так - лучше не делать*/
+  /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
 }
 
-/* .above-title {
-  font-size: 18px;
-} */
-
-/* Hero-title */
-
-/* Плохой вариант  (единый h1  = mini + span big),
-не нравится мне пока
-1. Шрифт мелкий все равно браузером увеличиватеся. А он доминантный,
-заново задавать здесь дял вернуть на доминантный или … 
-a. Менять доминантный – уже что-то на этом основано ниже. Не буду пока 
-2. 16px между обеспечивать – пробовала – пока без div никак,
-span –плохо, br … 
-Пока оставлю p mini + h1 big .
- Потом вса-равно блоки из них делать,
-чтобы позиционировать квадратиком по всем грницам. */
-
-/*  Hero   h1 отдельно:  
-p mini "Косметологічна клініка" + h1 big "beauty zone" */
-
-/*1. Косметологічна клініка   mini-text  p параграфом*/
-.hero-title-mini {
-  /* меняем дефолтный для <p> margin-bottom 18px на 16 px по дизайну*/
-  margin-bottom: 16px;
-  /* font все из доминанта 18px 400  1.2 */
-  color: var(--color-primary-bluedark);
-  /* тени нет */
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-/*2. Hero h1   -  big beauty zone*/
-
-.hero-title-big {
-  /* УБрать дефолт margin-bottom этому заголовку (аж 116 был дефолт)*/
-  /* Пока оставлю 40 - снизу до кнопки, пменять потом мб на 0!!!!!!!! После div */
-  margin-bottom: 40px;
-
-  color: var(--color-primary-blue);
-  font-family: Play, sans-serif;
-  text-align: left;
-  font-weight: 700;
-  text-transform: capitalize;
-  font-size: 140px;
-  /*Line height  114 / font-size 140  */
-  line-height: 0.81;
-  /* в 2 строки beauty zone big */
-  max-width: 530px;
-
-  /* border-radius: 2px 2px 2px 116px; */
-  /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
-  /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
-  /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
-  text-stroke: 4px rgba(0, 0, 0, 0.25); */
-  /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
-  /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
-
-  /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
-  /* margin-top: 16px; */
-  /* padding-top: 16px; */
-
+/* h1 сучасна пекарня */
+.hero-title {
+  margin-bottom: 0;
+  color: var(--color-primary-light);
+  text-align: center;
+  font-size: 128px;
+  font-weight: 900;
   /* font-style: italic; */
   /* text-transform: capitalize; */
   /* text-shadow: 2px 2px 4px violet;
@@ -262,601 +278,342 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   white-space: nowrap; */
 }
 
-/* Header */
-.header-link {
-  /* color: var(--color-primary-bluedark); доминантный/ Но не отработало без указания здесь цвета . М.б. это нажатый ранее цвет ссылки. Нет. доббавляла нов li - цвет неправильный*/
-  color: var(--color-primary-bluedark);
-  /* font-size: 18px; */
-  text-decoration: none;
-}
-
-.header-link:hover {
-  color: var(--color-primary-blue);
-  /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
-   Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
-   Лучше - убрать увеличение шрифта при наведении hover. Выделения цветом достаточно */
-  /* font-weight: 700; */
-
-  /* text-decoration: underline; */
-}
-
-/* .header-link:visited {
-  color: var(--color-primary-blue);
+/* .hero-title span {
+  color: var(--color-brand-normal);
 } */
 
-.icon-link-ul {
+.hero-title .accent {
+  /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
+  color: var(--color-brand-normal);
+}
+
+/* advantages section */
+
+.advantages-section {
+  /* перенсен сюда bcgr из .advantages-list. чтобы фон растягивался с section до границ. слева справа */
+  background: var(--color-brand-normal);
+  /* отступы сверху-снизу от меню padding 16 top bottom. padding дочернего элемента div внутри родительского section advantages-section */
+  padding: 16px 0;
+}
+
+.advantages-list {
+  /* ul */
+  /* для разместить элементыменю горизонтально */
   display: flex;
-  flex-flow: row wrap;
-  /* вернуться!!! */
-  background: white;
-  /* background: transparent; */
+  /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
+  justify-content: space-between;
+  /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
+  gap: 40px;
+  /* color: var(--color-primary-light); перенесен в .advantages-item*/
+  /* background: var(--color-brand-normal); перенсен в .advantages-section*/
 }
 
-/* Main */
-/* Main Button*/
-.button-primary {
-  /* button1 Замовити дзвінок         Roboto 600 18/21   219x53  mrg-bt снизу 14
-     button2 Записатись безкоштовно   Roboto 600 18/21   281x53  mrg-bt снизу 8 */
-
-  font-family: inherit;
-  /* font-family: "Roboto", sans-serif; button не наследует стиль font от body. что лучше по опыту- inherit или заново указывать font? */
-  font-size: 18px;
-  /*доминантные  18px и 1.2,но не унаследовались от body . ф12 дает 13px, а не 18*/
-  /* и не помещается 18 при указанных width height кнопкт???  помещается font 16 */
-  font-weight: 600;
-  /* 21/18=1.2 */
-  line-height: 1.2;
-  /* ТОже непонятно - line-height наследует или нет. скорее нет */
-
-  /* до текста кнопки */
-  /* padding: 16px 32px; сделать на 2 меньше из-за border 2px*/
-  padding: 14px 30px;
-  /* width: 219px;
-  height: 53px; */
-  color: var(--color-primary-white);
-
-  background-color: var(--color-primary-blue);
-  /* border: 1px solid var(--color-black); */
-  border-radius: 32px;
-  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
-
-  /* gap: 10px; */
-  /* opacity: 0px; */
+.advantages-item {
+  /* li */
+  /* цвет перенесен из .advantages-list сюда */
+  color: var(--color-primary-light);
+  font-size: 20px;
+  font-weight: 300;
 }
 
-.button-primary:hover {
-  background-color: transparent;
-  color: var(--color-primary-bluedark);
-  cursor: pointer;
+/* класс стал ненужен, т.к. color наследуется от указанного в селекторе body
+color там указан как основной для всей страницы.
+Но оставим. надо будет выделять часть текста особым форматом с пом. span  */
+/* .section-title {
+  color: var(--color-primary-dark);
+} */
 
-  border: 2px solid var(--color-primary-blue);
-  /* border-radius: 32px; наследует от самой кнопки */
-  /* padding: 16px 32px; наследует от самой кнопки */
-  /* width: 219px;
-  height: 53px; 
-   top: 102px;
-  left: 20px; 
-
-  gap: 10px;
-  opacity: 0px;
-*/
-}
-
-.hero-section .button-primary {
-  /* 2 button in page. width -разные */
-  /* width: 219px; */
-  width: 100%;
-  max-width: 219px;
-  /* отступ снизу до параграфа под кнопкой */
-  margin-bottom: 14px;
-}
-
-.under-button {
-  margin-bottom: 0;
-  /* font-family: "Roboto", sans-serif; */
-  font-size: 12px;
-  color: var(--color-secondary-grey1);
-  /* 18/12=1.5 */
-  line-height: 1.5;
-  /* текст ограничить по ширине вмесТо br, чтобы перенос на 2ю строку был  */
-  max-width: 238px;
-  text-align: center;
-}
-
-/* Main h2*/
-/* Для всех section h2  : */
-section h2 {
-  font-family: "Play", sans-serif;
+.section-title {
   font-size: 64px;
-  font-weight: 700;
-  /*74px/64px =1.16 ~ 1.2 наследует*/
-  /* line-height: 1.2; */
-
-  /* ДЛя всех h2 всех секций 48. ДЛя 2-й секции - отдельный класс - только во 2й 40px */
-  margin-bottom: 48px;
-  text-align: center;
-}
-
-h2 span {
-  color: var(--color-primary-blue);
-}
-
-/* Section 2 About us */
-
-.section-about-us {
-  /* убрать от одинаковых отступов между .section для между 1-2 отступ. тут иначе, пока неясно как /
-  pad-bot=0  остается для 2-й, надо*/
-  padding-top: 0;
-  /*между 2 и 3й секциями не 96, а 176. 128=176-48 (pdgtop 3й секции  одинаковые)*/
-  padding-bottom: 128px;
-}
-
-.about-us-container {
-  /*чтобы горизонтально расположить: текстоввая часть слева - 2 картинки справа */
-  display: flex;
-  /* ДЛя адаптива .  + max-width 709 в .about-us-content  */
-  justify-content: space-between;
-  /* между div c  текстами слева и ul c картинками справа */
-  gap: 34px;
-}
-
-.about-us-content {
-  /* ширина блока с текстом на макете так. */
-  max-width: 709px;
-  /*+ justify-content: space-between; .about-us-container  */
-}
-
-/* About-us-title */
-.about-us-title {
-  /* h2 отличается от всех h2 отступ снизу 40px, поэтому этоу h2 отдельный класс */
-  margin-bottom: 40px;
-  /* картинка первая выше текста на 40px */
-  padding-top: 40px;
-  /* все h2 center, кроме этого */
-  text-align: left;
-  /* для переноса текста - как на макете, буква "в" на 2й строке */
-  max-width: 529px;
-}
-
-.beauty-zone-h2 {
-  /* span in h2*/
-  text-transform: capitalize;
-  font-weight: 700;
-  /* line-height =1.2    74.05/64=1/1=1.15 округл до 1.2 - доминантный возьмется */
-}
-
-/* About-us-text */
-.about-us-p {
-  font-size: 22px;
-  /* font-weight: 400; наследует */
-
-  /* 38/22 */
-  line-height: 1.7;
-  /* тени нет */
-  /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-/* последний параграф - 0px. все параграфы этого класса обнулить margin-bottom, 
-  чтобы потом непоследнему p сделать отступ 40) */
-/* .about-us-p {  
-  margin-bottom: 0px;
-} */
-
-.section-about-us p:last-of-type {
-  /* последнему параграфу обнулить отступ снизу (или можно всем параграфам секции 2 обнулить отступ снизу в .about-us-p {}).
-        Чтобы потом НЕПОСЛЕДНИМ p сделать отступ margin-bottom 40) */
-  /* Легче здесь было бы - параграфам сделать margin-top=40, margin-bottom=0 , 
-  а h2 обнулить сверху-снизу margin. 
-  Но - принято margin-bottom задавать внутри родительских */
-  margin-bottom: 0px;
-  /* для переноса текста в p1 - как на макете, не получится ограничением max-width. 
-  На макете слишком разные строки по длите - одной длиной не получится. 
-   br делать.
-     НО- br при изменении размера экрана некрасиво скачут. Лучше вообще убрать. Одну оставить br первую. и последнюю*/
-  /* max-width: 603px; для перенести на2ю строку "та"*/
-}
-
-/* Так - все элементы, и звездочки. Тип p надо выделить */
-/* .section-about-us :not(:last-child) { */
-
-.section-about-us p:not(:last-of-type) {
-  /* параграф от следующего отделяется 40 px. НЕ ПОСЛЕДНИЙ. вдруг добавят параграф, добавляла -ок) */
-  margin-bottom: 40px;
-  /* для переноса текста в p1 - как на макете, буква "з догляду" на 2й строке . или br*/
-  max-width: 670px;
-}
-
-.beauty-zone {
-  /* span in p */
-  text-transform: capitalize;
-  font-weight: 600;
-}
-
-/* можно  так  font-weight: 700; сделать для h2 , если одинак классы beauty-zone*/
-/* .about-us-title span {
-  background-color: red;
-  font-weight: 700;
-} */
-
-/* Abou-us Image */
-.about-us-ul-img {
-  /* список img размер для разного выравнивания элементов li влево вправо */
-  max-width: 499px;
-  /* таки ненадо – уезжает из-за этого ф12 картинка нижняя на 1px под границу вниз области ul 695: */
-  /* max-height: 695px; */
-  /* Влияет на расположение картинок к разным краям. если убрать - четко одна под одной, без сдвигов влево вправо :*/
-  width: 100%;
-
-  /* max-height: 695px; */
-  /* ненадо – уезжала область списка с картинками снизу за div .about-us-container 1240x783.
-   а about-us-ul-img 499x695. 695+40=735 по высоте картинки+40. 
-   Т.е. 735 < 783. норм.
-    А что уезжает вниз за границу div?
-    ф12  -  Margin-bottom у самих картинок. Убрать
-  */
-}
-
-.about-us-ul-img :last-child {
-  /* background-color: red; */
-  /* img нижняя вправо */
-  text-align: right;
-}
-
-/* Было так (без li - добавляло отступ снизу ОБЕИМ картинкам) */
-/* .about-us-ul-img :first-child { */
-
-.about-us-ul-img li:first-child {
-  /* background-color: green; */
-  /* img верхн влево итак  */
-  /* text-align: left; */
-  /* отступ между картинками 40px */
-  margin-bottom: 40px;
-}
-
-/* .about-us-ul-img li:last-child {
-  background-color: red;
-} */
-
-.about-us-ul-img img {
-  /* размер картинок для установки расстояния между  ними по вертикали */
-  /* background-color: blue; */
-  max-width: 327px;
-  max-height: 327px;
-  /* не убрало в области картинок отступ . */
-  /* margin-bottom: 0; */
-  /* Да,
-      он ниже назначается. Или наследоание от li,
-      - послденее назначение срабатывает.
-      Или надо выдеить при назначении margin-bottom: 40px; тип – список li, исключив картиинку . 
-      да. указание типа первого дочернего li помогло, исключив img из .about-us-ul-img: first-child */
-}
-
-/* Section 3 Why us */
-
-.why-us-list {
-  /* расположить список горизоантально */
-  display: flex;
-  /*на макете так:*/
-  gap: 56px;
-  /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
-  flex-wrap: wrap;
-}
-
-.why-us-item {
-  /* border: 1px solid lightgray; */
-  border: 1px solid var(--color-primary-white);
-  /*remove временный*/
-  border-radius: 32px;
-  /* Из макета: */
-  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
-  padding: 24px 32px;
-  /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
-  flex-basis: calc((100% - 112px) / 3);
-  text-align: center;
-  /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
-    5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
-     Думаю – предмет разговора с дизайнером). И некритично. !!!
-     Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
-    можно будет padding-top для ul задать одинаково больше. */
-}
-
-.why-us-img {
-  max-width: 48px;
-  max-height: 48px;
-  margin-bottom: 8px;
-  /* так в ф12 рас чет 48х48 отражает,     без этого -40ч44 */
-  width: 100%;
-  /* margin: 5px 102px 8px 102px; */
-}
-
-.section-why-us-p {
-  /* <p> дефолтный убрать mrg-b*/
-  margin-bottom: 0;
-  color: var(--color-black);
-  /* 18/12=1.3 */
+  font-weight: 900;
+  /* 1.3 = 84px (line-height) / 64px (font-size) */
   line-height: 1.3;
+}
+
+/* если  рядом с заголовком h2 (его класс section-title) есть класс centered - центрировать его */
+.section-title.centered {
   text-align: center;
 }
 
-/* Section 4 procedure */
-.procedure-list {
-  /* расположить список горизонтально */
+/* если внутри класса section-title (это общий класс заголовков h2) есть класс accent, то цвет задать всем*/
+.section-title .accent {
+  color: var(--color-brand-dark);
+}
+
+/* Traditions section */
+/* чтобы между1 и 2й секциями сделать 96,а пока есть 48.
+Внимание! ДОбалвлен класс секции 2й через пробел.
+в html :     <section class="traditions-section section" id="traditions-section"> 
+Это в css обращение к class, а не к id. 
+К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
+.traditions-section {
+  padding-top: 96px;
+}
+
+/* div включает все содржимое секции Традиции (H2, p,p, img)*/
+.traditions-container {
+  /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
   display: flex;
-  /*на макете :*/
-  gap: 16px;
-  /* на всю ширину распределить (отцентрировалось) */
+  /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
+расстояние 104px. Раздвигаем эти 2 div с пом. gap */
+  /* gap: 100px; делаем иначе размещение (H2, p,p) и img  2.1 +2.2+2.3.  и в div .traditions-content . 
+  2.1. gap меньше (при уменьшении будет не статично 100, а меньше)  
+  2.2 .traditions-content     max-width: 710px; 
+  2.3.   раздвинуть по сторонам элементы , к краям
+   */
+  /* 2.1 +2.2+2.3  */
+  /* 2.2. ограничить div content с текстом размером 710 по ширине В div .traditions-content*/
+  /* max-width: 710px; */
+  /*2.3. раздвинуть по сторонам элементы , к краям*/
   justify-content: space-between;
-  /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
-  flex-wrap: wrap;
+  /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
+  gap: 40px;
 }
 
-.procedure-item {
-  /* background-color: red; */
-  /* перенесла в img пока 
-  max-width: 344px;
-  max-height: 456px; */
-  /* width: 100%;  ничего не меняет пока */
-
-  /* задать размер элементу для переноса на след. строку браузером по wrap.
-   32 px это 2 gap по 16 px . Гибкое расстояние между блочками*/
-  flex-basis: calc((100% - 32px) / 3);
-  text-align: center;
+.traditions-content {
+  /* 2.2. ограничить div content с текстом размером 710 по ширине */
+  max-width: 710px;
 }
 
-.procedure-item img {
-  max-width: 344px;
-  max-height: 456px;
-  /* width: 100%;  ничего не меняет */
-  /* border: 1px solid red; */
-  /* Из макета: */
-  border-radius: 4px 120px;
+/* отступ от h2 до p в секции 2 traditions (теперь3)  */
+.traditions-title {
+  margin-bottom: 42px;
 }
 
-.procedure-card {
-  /* пока так градиент на 3х картинках процедур. позже слоями наверное */
-  /* max-width: 344px;
-  height: 456px; */
-  background-image: linear-gradient(
-    180.05deg,
-    rgba(1, 28, 68, 0) 48.53%,
-    rgba(1, 28, 68, 0.725825) 84.61%,
-    #011c44 101.39%
-  );
-  border-radius: 4px 120px;
-}
-
-/* h3 без класса, других h3 нет. только На картинках процедур */
-h3 {
-  /* до процедуры де.,   Rectangle 5080,   Rectangle 5081  снизу от текста h3 .
-      пока относительно себя (h3) - ни о чем в браузере. Для позже*/
-  /* margin: 372px 77px 32px 115px; */
-  /* пока вместо по-умолч для h3 22px сделать 32 */
-  margin-bottom: 32px;
-  font-size: 22px;
-  /* должен наследоваться 400, но нет, здесь получается font-weight=700. Надо указать */
-  font-weight: 400;
-  text-align: center;
-  color: var(--color-primary-white);
-  /* 26/22=1.2 доминантная*/
-  /* line-height: 1.2; */
-}
-
-/* Section 5 Contacts */
-/* 1059x602 */
-.contacts-container {
-  /* 1059x480 - без h2 */
-  /*чтобы горизонтально расположить:   карта слева - форма справа */
-  display: flex;
-  /* ДЛя адаптива .  + max-width 709   */
-  max-width: 1059px;
-  justify-content: space-between;
-  /* между картой слева и div формы справа */
-  gap: 32px;
-  /* отцентрировать этот flex относительно внешнего container */
-  margin: 0 auto;
-}
-
-.contacts-container iframe {
-  /* max-width: 605px;
-  max-height: 481px;
- */
-  border-radius: 32px;
-  border-color: transparent;
-}
-
-/* form sign up free */
-.signup-free {
-  /* 423x481 */
-  max-width: 423px;
-  max-height: 481px;
-  background-color: var(--color-primary-bluedark);
-  border: 4px solid var(--color-secondary-bluedark);
-  border-radius: 32px;
-  /* justify-content: space-between; */
-  padding: 48px 56px;
-}
-
-.signup-free-p {
-  max-width: 274px;
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.signup-free p:first-child {
-  font-size: 22px;
+/* .traditions-text span { */
+.traditions-text .brand {
+  color: var(--color-brand-normal);
   font-weight: 600;
-  color: var(--color-primary-white);
 }
 
-.signup-free-p-free {
-  /* или .signup-free-p span{} */
-  /* span "безкоштовно" на форме  */
-  color: var(--color-primary-blue);
+/* через пробел - это вложенный класс любого уровня (через ">" вложенный только первого уровня)
+<p class="traditions-text">
+      <span class="brand uppercase">shop bakery</span>
+*/
+.traditions-text .uppercase {
+  text-transform: uppercase;
 }
 
-/* .signup-free-p span {
+/* Ограничить ширину текста половной всего блока . произвольно сами решили . вместо br */
+/* ограничить ширину только2-го параграфа <p>   2 способа. ПОдробнее пробы nth-child() см. inf8_2.txt*/
+/* .traditions-text:nth-child(3) {
+  max-width: 360px;
+} */
+/* .traditions-text:last-child {
+  max-width: 340px;
+} */
+
+/* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
+<p class="traditions-text limited"> 
+У .traditions-text есть еще и класс limited  .          */
+.traditions-text.limited {
+  max-width: 330px;
+}
+
+/* Так работает тоже: */
+/* .traditions-content .limited {
   background-color: red;
 } */
 
-.signup-free-input {
-  font-size: 13px;
-  /* 400 и 15/13=1.2 дефолт */
-  color: var(--color-primary-white);
-  border-radius: 32px;
-  border: 2px solid var(--color-secondary-greylight);
-  padding: 18px 33px;
-  /* между всеми полями ввода и до кнопки сверху */
-  margin-bottom: 16px;
+/* .traditions-container .limited {
+  background-color: aqua;
+} */
+
+/* Chefs section */
+.chefs-title {
+  /* чтобы в 2 строки h2 стал, как на макете Фигма */
+  /* max-width: 520px;  так в 3 строки, а не 2 */
+  max-width: 532px;
+  /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
+  /* margin-bottom: 80px; */
+  /* 0 auto добавлено для центрирования h2 относительно своей секции. Класс centered - здесь недостасточно */
+  margin: 0 auto 80px;
 }
 
-.signup-free-input:hover {
-  /* не видно серого как на KIT, все синее вернуться!!! */
-  background-color: transparent;
-}
+/* Псевдоэлемент (after before):   для h2*/
+.chefs-title::before,
+.chefs-title::after {
+  /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
+  display: block;
+  width: 352px;
 
-.signup-button {
-  /* для расположить кнопку с текстом под ней - по центру и ппо нужному width */
-  max-width: 281px;
-  max-height: 97px;
-  width: 100%;
-  text-align: center;
-}
+  /* height: 2px;  вариант2 реализации
+  background-color: #CFCFBC; */
+  border: 2px solid var(--color-brand-light);
+  content: "";
 
-.signup-free .button-primary {
-  /* width: 281px; */
-  width: 100%;
-  max-width: 281px;
-  /* Width, height не задавать в px, надо в %, и   max-width: 1240px; */
-  /* height: 53px; */
-  /* отступ снизу до параграфа под кнопкой */
-  margin-bottom: 8px;
-}
-
-.signup-free .under-button {
-  /* background-color: red; */
-  color: var(--color-secondary-greylight);
-  /* для переноса текста */
-  max-width: 213px;
-  /* text-align: center; */
-  margin: 0 auto;
-}
-
-.privacy-policy {
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-}
-
-/* Footer */
-
-.footer {
-  /* пока на весь экран по горизонтали. позже наверное*/
-  /* png - Прозрачная картинка */
-  background-image: url("../images/footer-background.png");
-  background-color: var(--color-primary-bluedark);
-  background-repeat: no-repeat;
-  background-position: center top;
+  /* мод10 Для добавить svg Через псевдоэлемент - не получилось */
+  /* height: 50px;
+  background-image: url("../images/logo.svg");
+  position: absolute;
+  background-repeat: no-repeat; */
   /* background-size: cover; */
 }
 
-.footer-container {
-  /*  общий внешний .container 1440x278 */
-  /* этот .footer-container 1240x166 */
-  /* background-color: red; */
-  border: 4px solid var(--color-secondary-bluedark);
-  max-width: 1240px;
-  width: 100%;
-  /* 4 блока (логотип+ nav+ address+copyright) стали горизонтально рядом
-        но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
-  display: flex;
-  /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
-  /* align-items: center; */
-  /* align-items: flex-start; */
-  /* justify-content: flex-start; */
-  /* для разделить все 4 блока внутри при уменьшении размера экрана */
-  /* gap: 186px; */
-  padding: 56px 100px;
-
-  /* ДЛя адаптива .    */
-  /* max-width: 1240px; */
-
-  justify-content: space-between;
-
-  /* отцентрировать этот flex относительно внешнего container */
-  /* margin: 0 auto; */
+.chef-photo {
+  /* Обрезать фотки шефов Настя ВЛад слева снизу */
+  border-radius: 4px 4px 4px 200px;
+  /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
+  box-shadow: -16px 16px 0 0 var(--color-primary-light),
+    -16px 16px 0 2px var(--color-secondary-dark);
 }
 
-.footer-link {
-  color: var(--color-primary-white);
+.chef-title {
+  /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 600;
+  /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+}
+
+/* Formats section */
+.format-item {
+  /* 40 px это 2 gap по 20 px */
+  flex-basis: calc((100% - 40px) / 3);
+}
+
+.format-card {
+  height: 444px;
+  padding: 24px;
+  background-image: linear-gradient(180deg,
+      rgba(49, 38, 26, 0) 55.21%,
+      rgba(49, 38, 26, 0.71) 72.92%,
+      var(--color-primary-dark) 100%);
+  /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
+  /*remove*/
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  /* тень */
+  /* box-shadow: 2px 2px 4px 4px violet;
+  box-shadow: 0px -10px 4px -5px violet; */
+  /* многослойная тень */
+  /* box-shadow: 2px 2px 4px 4px violet, 4px 4px 8px 8px gold; */
+}
+
+.formats-list {
+  /* расположить карточки горизоантально */
+  display: flex;
+  flex-wrap: wrap;
+  /*переносить карточки из расч. 100% / 3*/
+  gap: 20px;
+  /*на макете так*/
+}
+
+.formats-title {
+  /* от h2 Walrus...  до p */
+  margin-bottom: 80px;
+}
+
+.format-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.format-text {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Carousel */
+.carousel-button {
+  /* центрировать кнопку */
+  display: flex;
+  /* по основной оси */
+  align-items: center;
+  /* по вспомогательной оси, вертикально : */
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  /* Кнопочка кругленька */
+  border-radius: 50%;
+  /* исправить по-умолч что добавил браузер кнопке */
+  background-color: transparent;
+  border: 1px solid var(--color-primary-dark);
+  padding: 0;
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-arrow {}*/
+  fill: var(--color-primary-dark);
+  /* курсор ручкой над кнопкой */
+  cursor: pointer;
+}
+
+
+.carousel-button:hover {
+  /* наведение на кнопку круглую со стрелкой - фон темно-зел */
+  background-color: var(--color-primary-dark);
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
+  fill: var(--color-primary-light);
+}
+
+/* ушло из-за наслеlования fill */
+/* .carousel-button:hover .carousel-arrow { */
+/* наведение на кнопку круглую со стрелкой - сама стрелка иконка svg внутри кнопки становится светлой */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя.hover */
+/* fill: var(--color-primary-light); */
+/* } */
+
+/* ушло из-за наслеlования fill */
+/* .carousel-arrow { */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя */
+/* fill: var(--color-primary-dark); */
+/* } */
+
+/* Contacts section */
+.contact-title {
+  /* от h2 Приеднуйся...  до p Заповни форму */
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.address-link {
+  color: var(--color-primary-light);
   font-size: 16px;
-  /* 16/19 =1.18  1.2 default */
+  font-weight: 300;
   text-decoration: none;
 }
 
-/* между Li -ссылками - снизу 16, кроме последнего */
-.footer-ul li:not(:last-child) {
-  margin-bottom: 16px;
+.address-link:hover {
+  color: var(--color-brand-normal);
 }
 
-.footer-ul li:last-child {
-  margin-bottom: 0;
+.address-icon {
+  fill: var(--color-primary-light);
+  /* обводка иконки  */
+  /* stroke: red; */
 }
 
-.footer-address-ul {
-  /* сузить блок адресов */
-  max-width: 192px;
-  max-height: 166px;
-  width: 100%;
+.address-icon:hover {
+  fill: var(--color-brand-normal);
 }
 
-/* .footer-address-ul li:last-child {
-  max-width: 203;
+.address-copyright {
+  font-size: 14px;
+  /* 400 inheryt от body} */
+}
+
+.footer {
+  /* background-image: url('../images/footer-background.jpg'); */
+  /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
+  background-image: url("../images/footer-background.png");
+  background-color: var(--color-primary-dark);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* .test-box {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  margin: 20px auto;
+  background-image: linear-gradient(gold, blue);
+  background-image: linear-gradient(gold, green, blue);
+  background-image: linear-gradient(gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to left, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to right, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to top, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to bottom, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(45deg, gold 50%, green 50%, green 70%, blue 100%);
+  background-image: linear-gradient(45deg, gold 50%, green 50%, green 70%, blue 70%, blue 100%);
+  background-image: radial-gradient(gold 50%, green 50%, green 70%, blue 70%, blue 100%);
+  background-image: radial-gradient(gold 50%,  green 70%, blue 100%);
 } */
-
-/* между Li -адресами - снизу 16 у всех, включая последний */
-address li {
-  margin-bottom: 16px;
-}
-
-.icon-link-ul {
-  /* 174x42 */
-  max-width: 174px;
-  max-height: 42px;
-  width: 100%;
-  justify-content: space-between;
-  /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
-  /* background-color: transparent; */
-}
-
-/* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
-.icon-link-ul li {
-  margin-bottom: 0;
-}
-
-/* вопрос - в макете ничем не отличается выделенный элемент меню нвигации */
-.footer-link:hover {
-  color: var(--color-primary-blue);
-  /* text-decoration: underline; */
-}
-
-.icon-link-ul img {
-  /* margin-bottom: 0; */
-  /* ??? */
-  /* картинку как 42 42 сдеать? max-width: 42px; */
-  max-height: 42px;
-  width: 100%;
-}
-
-/* .footer-last li:not(:last-child) { */
-/* .confidens { */
-/* background-color: red; */
-/* f12 отражает, но поверх текста нижнего, реально не отодвигает :*/
-/* margin-bottom: 16px; */
-/* } */
-
-.copyrigt {
-  /* иначе a от p не подвинулось, только mrgn-top */
-  margin-top: 16px;
-  margin-bottom: 0;
-  font-size: 13px;
-  color: var(--color-secondary-greylight);
-}
