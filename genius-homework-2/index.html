@@ -159,9 +159,29 @@
             </ul>
           </div>
           <!-- Для фона будет звездочки-->
-          <img src="./images/star3small.svg" alt="star3 for design small" />
-          <img src="./images/star2mid.svg" alt="star2 for design middle" />
-          <img src="./images/star1big.svg" alt="star1 for design big" />
+          <!-- Оптимизированная , так не отражается <svg></svg> -->
+          <svg width="15" height="16">
+            <use href="./images/star3small.svg"></use>
+          </svg>
+
+          <img
+            width="15"
+            height="16"
+            src="./images/star3small.svg"
+            alt="star3 for design small"
+          />
+          <img
+            width="35"
+            height="35"
+            src="./images/star2mid.svg"
+            alt="star2 for design middle"
+          />
+          <img
+            width="56"
+            height="56"
+            src="./images/star1big.svg"
+            alt="star1 for design big"
+          />
         </div>
       </section>
       <section class="section" id="section-why-us">
