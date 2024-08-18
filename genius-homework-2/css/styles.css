@@ -588,7 +588,15 @@ h2 span {
   text-align: center;
 }
 
-/* Section 4 procedure */
+/* Section 4 - procedure */
+.procedures-container {
+  display: flex;
+  /* центрировать 3 flex-элемента внутри */
+  align-items: center;
+  /* между кнопками и div из 3-х карточек с обеих сторон*/
+  gap: 32px;
+}
+
 .procedure-list {
   /* расположить список горизонтально */
   display: flex;
