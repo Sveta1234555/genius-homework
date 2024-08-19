@@ -638,12 +638,10 @@ h2 span {
   /* пока так градиент на 3х картинках процедур. позже слоями наверное */
   /* max-width: 344px;
   height: 456px; */
-  background-image: linear-gradient(
-    180.05deg,
-    rgba(1, 28, 68, 0) 48.53%,
-    rgba(1, 28, 68, 0.725825) 84.61%,
-    #011c44 101.39%
-  );
+  background-image: linear-gradient(180.05deg,
+      rgba(1, 28, 68, 0) 48.53%,
+      rgba(1, 28, 68, 0.725825) 84.61%,
+      #011c44 101.39%);
   border-radius: 4px 120px;
 }
 
@@ -709,6 +707,12 @@ h3 {
 
 /* Section 5 Contacts */
 /* 1059x602 */
+.contact-section {
+  /* только последней секции, для обеспечить расстояние до футера 96
+  эти 96 и установить, а не 48 пополам , как было для отступов между секциями выше */
+  padding-bottom: 96px;
+}
+
 .contacts-container {
   /* 1059x480 - без h2 */
   /*чтобы горизонтально расположить:   карта слева - форма справа */
@@ -722,7 +726,12 @@ h3 {
   margin: 0 auto;
 }
 
-.contacts-container iframe {
+/* .contacts-container iframe { */
+.contact-map {
+  /* чтобы карта не сжималась после flex родителю и gap. Она в БЗ и не сжималась */
+  flex-shrink: 0;
+  /* убрать рамку вокруг map. Ее и нет нет (из-за border-color: transparent; )*/
+  border: none;
   /* max-width: 605px;
   max-height: 481px;
  */
