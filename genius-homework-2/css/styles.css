@@ -173,7 +173,6 @@ ul {
   justify-content: center;
 }
 
-
 .address-icon-header {
   fill: var(--color-primary-bluedark);
 }
@@ -591,10 +590,15 @@ h2 span {
 /* Section 4 - procedure */
 .procedures-container {
   display: flex;
-  /* центрировать 3 flex-элемента внутри */
+  /* центрировать кнопки - стрелки по вертикали в этом flex-родителе */
   align-items: center;
   /* между кнопками и div из 3-х карточек с обеих сторон*/
   gap: 32px;
+  /* Центрировать элементы в flex по осн гориз оси. 
+  Иначе справа остается место до края от кнопки, а слева - нет
+  Так - поровну слева и справа остается до края. 
+  Это из-за ширина общего div 1240, а ширина div procedures сложением всех элеемнтов и отступов меньше. 1216 */
+  justify-content: center;
 }
 
 .procedure-list {
@@ -634,10 +638,12 @@ h2 span {
   /* пока так градиент на 3х картинках процедур. позже слоями наверное */
   /* max-width: 344px;
   height: 456px; */
-  background-image: linear-gradient(180.05deg,
-      rgba(1, 28, 68, 0) 48.53%,
-      rgba(1, 28, 68, 0.725825) 84.61%,
-      #011c44 101.39%);
+  background-image: linear-gradient(
+    180.05deg,
+    rgba(1, 28, 68, 0) 48.53%,
+    rgba(1, 28, 68, 0.725825) 84.61%,
+    #011c44 101.39%
+  );
   border-radius: 4px 120px;
 }
 
@@ -675,6 +681,8 @@ h3 {
   align-items: center;
   /* по вспомогательной оси, вертикально : */
   justify-content: center;
+  /* чтобы круглые кнопки не сжимались до эллипса после display-flex новому div "formats-container" */
+  flex-shrink: 0;
   /* курсор ручкой над кнопкой */
   cursor: pointer;
   /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-arrow {}*/
@@ -698,9 +706,6 @@ h3 {
 /* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку -родителя */
 /* fill: var(--color-primary-bluedark); */
 /* } */
-
-
-
 
 /* Section 5 Contacts */
 /* 1059x602 */
@@ -915,7 +920,6 @@ address li {
 /* margin-bottom: 16px; */
 /* } */
 
-
 .address-icon {
   fill: var(--color-primary-white);
   /* выше на flex-Родителе .icon-link-ul   
@@ -928,8 +932,6 @@ address li {
   /* иконки как текст при навдении, мб ненадо, в UIKit один цвет иконок, но разный цвет текста рядом есть */
   fill: var(--color-primary-blue);
 }
-
-
 
 .copyrigt {
   /* иначе a от p не подвинулось, только mrgn-top */
