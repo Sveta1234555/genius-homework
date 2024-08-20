@@ -71,9 +71,7 @@
 
 /* Base */
 
-*,
-*::before,
-*::after {
+* {
   /* размеры блока padding  border  отсчитывать внутрь блока */
   box-sizing: border-box;
 }
@@ -105,12 +103,6 @@ h5,
 h6,
 p {
   margin-top: 0;
-}
-
-a {
-  /* всем ссылкам, чтобы сделать ссылку блоковой. Т.е. в нем буду работать размеры,
-    но оно останется строчный(рядковым) . т.е. не будет растягиваться на всю ширину родительского элемента. */
-  display: inline-block;
 }
 
 address {
@@ -839,12 +831,9 @@ h3 {
   background-repeat: no-repeat;
   background-position: center top;
   /* background-size: cover; */
-
-  padding: 56px;
 }
 
-
-.footer-container-my0 {
+.footer-container {
   /*  общий внешний .container 1440x278 */
   /* этот .footer-container 1240x166 */
   /* background-color: red; */
@@ -871,28 +860,6 @@ h3 {
   /* margin: 0 auto; */
 }
 
-.footer-container {
-  display: flex;
-  /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
-  gap: 20px;
-}
-
-.footer-nav,
-.footer-address {
-  /* .footer-nav -  для логотип и список ul стали в один ряд */
-  /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
-  display: flex;
-  flex-basis: 50%;
-  /* между блоками- элементами flex каждого родительского. попарно */
-  gap: 20px;
-}
-
-.footer-logo,
-.footer-menu {
-  /* для логотип и список ul заняли по 50% в своем flex*/
-  flex-grow: 1;
-}
-
 .footer-link {
   color: var(--color-primary-white);
   font-size: 16px;
@@ -909,14 +876,12 @@ h3 {
   margin-bottom: 0;
 }
 
-
-
-/* .footer-address-ul {
-  сузить блок адресов
+.footer-address-ul {
+  /* сузить блок адресов */
   max-width: 192px;
   max-height: 166px;
   width: 100%;
-} */
+}
 
 /* .footer-address-ul li:last-child {
   max-width: 203;
@@ -926,13 +891,6 @@ h3 {
 address li {
   margin-bottom: 16px;
 }
-
-.address-lists,
-.address-info {
-  /* во 2м flex address - 2 внутренних элемента ( div .address-lists  и .address-info) занимают по 50% */
-  flex-grow: 1;
-}
-
 
 .icon-link-ul {
   /* 174x42 */
