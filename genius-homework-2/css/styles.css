@@ -445,7 +445,7 @@ h2 span {
 /* About-us-text */
 
 /* .about-us-p { */
-/* Класс у параграфов  в section about-us  можно убрать .
+/* Класс у параграфов  в section about-us  можно убрать . Убрала.
 Шрифт задать от родительского div*/
 .about-us-content p {
   font-size: 22px;
@@ -589,12 +589,15 @@ h2 span {
 }
 
 .why-us-img {
+  /* для icon из  svg можно убрать все width-height */
   max-width: 48px;
   max-height: 48px;
   margin-bottom: 8px;
-  /* так в ф12 рас чет 48х48 отражает,     без этого -40ч44 */
+  /* так в ф12 расчет 48х48 отражает, без этого -40x44 */
   width: 100%;
   /* margin: 5px 102px 8px 102px; */
+  /* Это пока и иконки тоже, а они обесцвечены */
+  fill: var(--color-primary-blue);
 }
 
 .section-why-us-p {
@@ -603,7 +606,12 @@ h2 span {
   color: var(--color-black);
   /* 18/12=1.3 */
   line-height: 1.3;
-  text-align: center;
+  /* после max-width это не центрирует. доб-н здесь же  margin: 0 auto; */
+  /* text-align: center; */
+  /* для переноса текста как на макете */
+  max-width: 252px;
+  /* после max-width стало не по центру. исправить так */
+  margin: 0 auto;
 }
 
 /* Section 4 - procedure */
@@ -657,12 +665,10 @@ h2 span {
   /* пока так градиент на 3х картинках процедур. позже слоями наверное */
   /* max-width: 344px;
   height: 456px; */
-  background-image: linear-gradient(
-    180.05deg,
-    rgba(1, 28, 68, 0) 48.53%,
-    rgba(1, 28, 68, 0.725825) 84.61%,
-    #011c44 101.39%
-  );
+  background-image: linear-gradient(180.05deg,
+      rgba(1, 28, 68, 0) 48.53%,
+      rgba(1, 28, 68, 0.725825) 84.61%,
+      #011c44 101.39%);
   border-radius: 4px 120px;
 }
 
