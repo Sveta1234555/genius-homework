@@ -420,7 +420,7 @@ h2 span {
 .about-us-content {
   /* ширина блока с текстом на макете так. */
   max-width: 709px;
-  /*+ justify-content: space-between; .about-us-container  */
+  /*+ justify-content: space-between; в .about-us-container  */
 }
 
 /* About-us-title */
@@ -443,7 +443,11 @@ h2 span {
 }
 
 /* About-us-text */
-.about-us-p {
+
+/* .about-us-p { */
+/* Класс у параграфов  в section about-us  можно убрать .
+Шрифт задать от родительского div*/
+.about-us-content p {
   font-size: 22px;
   /* font-weight: 400; наследует */
 
@@ -459,7 +463,12 @@ h2 span {
   margin-bottom: 0px;
 } */
 
-.section-about-us p:last-of-type {
+/* А чего это я аж от самого верхнего уровня .section-about-us  до p добиралась.
+  Навернео не было еще столько div внутри .
+  Поближе div взять */
+/* .section-about-us p:last-of-type { */
+
+.about-us-content p:last-of-type {
   /* последнему параграфу обнулить отступ снизу (или можно всем параграфам секции 2 обнулить отступ снизу в .about-us-p {}).
         Чтобы потом НЕПОСЛЕДНИМ p сделать отступ margin-bottom 40) */
   /* Легче здесь было бы - параграфам сделать margin-top=40, margin-bottom=0 , 
@@ -473,10 +482,12 @@ h2 span {
   /* max-width: 603px; для перенести на2ю строку "та"*/
 }
 
-/* Так - все элементы, и звездочки. Тип p надо выделить */
+/* Так (если от section идти к p)-  все элементы - тэги, и img звездочки . Тип p надо выделить */
 /* .section-about-us :not(:last-child) { */
 
-.section-about-us p:not(:last-of-type) {
+/* .section-about-us p:not(:last-of-type) {   поближе div взять*/
+
+.about-us-content p:not(:last-of-type) {
   /* параграф от следующего отделяется 40 px. НЕ ПОСЛЕДНИЙ. вдруг добавят параграф, добавляла -ок) */
   margin-bottom: 40px;
   /* для переноса текста в p1 - как на макете, буква "з догляду" на 2й строке . или br*/
@@ -646,10 +657,12 @@ h2 span {
   /* пока так градиент на 3х картинках процедур. позже слоями наверное */
   /* max-width: 344px;
   height: 456px; */
-  background-image: linear-gradient(180.05deg,
-      rgba(1, 28, 68, 0) 48.53%,
-      rgba(1, 28, 68, 0.725825) 84.61%,
-      #011c44 101.39%);
+  background-image: linear-gradient(
+    180.05deg,
+    rgba(1, 28, 68, 0) 48.53%,
+    rgba(1, 28, 68, 0.725825) 84.61%,
+    #011c44 101.39%
+  );
   border-radius: 4px 120px;
 }
 
@@ -843,7 +856,6 @@ h3 {
   padding: 56px;
 }
 
-
 .footer-container-my0 {
   /*  общий внешний .container 1440x278 */
   /* этот .footer-container 1240x166 */
@@ -909,8 +921,6 @@ h3 {
   margin-bottom: 0;
 }
 
-
-
 /* .footer-address-ul {
   сузить блок адресов
   max-width: 192px;
@@ -932,7 +942,6 @@ address li {
   /* во 2м flex address - 2 внутренних элемента ( div .address-lists  и .address-info) занимают по 50% */
   flex-grow: 1;
 }
-
 
 .icon-link-ul {
   /* 174x42 */
