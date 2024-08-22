@@ -94,6 +94,12 @@ body {
 
   /* по-умолч margin body есть. убрать */
   margin: 0;
+  background-image: linear-gradient(
+    38.2deg,
+    rgba(43, 127, 255, 0.2) 39.74%,
+    rgba(43, 127, 255, 0) 54.16%,
+    rgba(43, 127, 255, 0) 66.66%
+  );
 }
 
 /* УБрать дефолт margin-top всем заголовкам и параграфам*/
@@ -203,9 +209,18 @@ ul {
     gap: 0px;
     opacity: 0px; */
   padding: 123px 729px 157px 244px;
-  background-color: burlywood;
+  /* background-color: burlywood; */
+  /* позже наверное слоями позиционированием */
+  background-image: linear-gradient(
+    89.38deg,
+    var(--color-primary-white) 30.62%,
+    rgba(255, 255, 255, 0.850898) 41.31%,
+    rgba(255, 255, 255, 0.193204) 58.65%,
+    rgba(255, 255, 255, 0) 72.78%
+  );
   background-image: url("../images/hero-section-background.jpg");
   background-repeat: no-repeat;
+
   /* позиционирвоание - позже , h1 ездит , img большая  */
   background-position: center bottom;
   background-size: cover;
@@ -665,10 +680,12 @@ h2 span {
   /* пока так градиент на 3х картинках процедур. позже слоями наверное */
   /* max-width: 344px;
   height: 456px; */
-  background-image: linear-gradient(180.05deg,
-      rgba(1, 28, 68, 0) 48.53%,
-      rgba(1, 28, 68, 0.725825) 84.61%,
-      #011c44 101.39%);
+  background-image: linear-gradient(
+    180.05deg,
+    rgba(1, 28, 68, 0) 48.53%,
+    rgba(1, 28, 68, 0.725825) 84.61%,
+    #011c44 101.39%
+  );
   border-radius: 4px 120px;
 }
 
