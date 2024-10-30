@@ -909,7 +909,35 @@ h3 {
   background-position: center top;
   /* background-size: cover; */
 
-  padding: 56px;
+  /* padding: 56px; убрать отступы слева справа*/
+  padding: 56px 0;
+  /* Слева- спрва в уроке убрали. Но можно 100 поставить, если Надо. Не меняет при resize визуально  ничего */
+  /* padding: 56px 100px; */
+
+  /* для пары к   position: absolute;  к ::after  картинке бутылочек*/
+  position: relative;
+}
+
+.footer::after {
+  /* картинка бутылочки внизу справа  */
+  position: absolute;
+  /* png - Прозрачная картинка */
+  background-image: url(../images/PhotoRoom.png);
+  /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
+  content: "";
+  /* добавлением размера фона картинка не появилась */
+  /* background-size: 247px 152px; */
+  /* размеры задать явно*/
+  width: 247px;
+  height: 152px;
+  /* размеры задали явно, поэтому меняем на 100% */
+  /* background-size: 100%; */
+  /* убрали 100% т.к. доавили no-repeat */
+  background-repeat: no-repeat;
+
+  /* поместить в нижний правый угол after */
+  bottom: 0;
+  right: 0;
 }
 
 .footer-container-my0 {
