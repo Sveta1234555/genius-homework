@@ -159,6 +159,11 @@ ul {
 .header {
   /* для замеч по дз2 по высоте header -пока так. делается позже в уроках с позициоирвоаием, и мод12 прозрачность */
   padding-top: 32px;
+  /* прозрачное меню , но надо еще бело-прозрачность меню добавить!!*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header-container {
@@ -1083,4 +1088,60 @@ address li {
   margin-bottom: 0;
   font-size: 13px;
   color: var(--color-secondary-greylight);
+}
+
+/* Мodal */
+.backdrop {
+  /* затемененный фон под активным модальным окном-  фиксированный элемент */
+  position: fixed;
+  /* растягиваться на всю ширину экрана. */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* фон - с макета  */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(1, 31, 74, 0.4);
+
+  /* для расположить модальное окно modal  по центру родителя-backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* модальное окно отодвинуть от границ  - относительно родительского  Padding-Ом */
+  padding: 20px 0;
+  /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.backdrop.is-hidden {
+  /* когда к backdrop добавляется класс 'is-hidden', надо его- (backdrop c окном) прятать: */
+  /* display: none; так потом не будет работать анимация - передеоать в вар2:*/
+
+  /* в2 реализации  */
+  /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
+  opacity: 0;
+  /* чтобы нельзя нажать на элементы скрытой формы */
+  /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
+  visibility: hidden;
+  /* чтобы вообще нельзя было нажать на окно */
+  pointer-events: none;
+}
+
+.modal {
+  /* модальное окно 723х681*/
+  width: 723px;
+  height: 681px;
+  background-color: var(--color-primary-bluedark);
+  /* background: #011C44;   */
+  border-radius: 48px;
+
+  /* для расположить относительно него кнопку крестик close */
+  position: relative;
+}
+
+.modal-btn-close {
+  /* кнопка крестик close */
+  position: absolute;
+  top: 42px;
+  right: 42px;
 }
