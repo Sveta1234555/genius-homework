@@ -112,7 +112,9 @@
         <h3 class="hero-title-big">beauty zone</h3> -->
 
           <!-- <div> -->
-          <button class="button-primary" type="button">Замовити дзвінок</button>
+          <button class="button-primary modal-btn-open" type="button">
+            Замовити дзвінок
+          </button>
           <p class="under-button">
             Запишись та отримай безкоштовну консультацію нашого косметолога
           </p>
@@ -126,6 +128,17 @@
       <section class="section-about-us section" id="section-about-us">
         <div class="container">
           <div class="about-us-container">
+            <!-- <svg class="star2" width="15" height="16"> -->
+            <svg class="star2">
+              <use href="./images/icons.svg#icon-star2mid"></use>
+            </svg>
+            <svg class="star1">
+              <use href="./images/icons.svg#icon-star1big"></use>
+            </svg>
+            <svg class="star3">
+              <use href="./images/icons.svg#icon-star3small"></use>
+            </svg>
+
             <div class="about-us-content">
               <h2 class="about-us-title">
                 Перевтілюйтесь в
@@ -159,14 +172,14 @@
               </li>
             </ul>
           </div>
-          <!-- Для фона будет звездочки-->
+          <!--  звездочки-->
           <!-- Оптимизированная , так не отражается <svg></svg> -->
-          <svg width="15" height="16">
+          <!-- <svg width="15" height="16">
             <use href="./images/star3small.svg"></use>
-          </svg>
+          </svg> -->
 
           <!-- так видно из спрайта , но здоровенные нецветные. уменьшила wh. позже  -->
-          <svg width="15" height="16">
+          <!-- <svg width="15" height="16">
             <use href="./images/icons.svg#icon-star3small"></use>
           </svg>
           <svg width="15" height="16">
@@ -176,24 +189,13 @@
             <use href="./images/icons.svg#icon-star1big"></use>
           </svg>
 
-          <img
-            width="15"
-            height="16"
-            src="./images/star3small.svg"
-            alt="star3 for design small"
-          />
-          <img
-            width="35"
-            height="35"
-            src="./images/star2mid.svg"
-            alt="star2 for design middle"
-          />
+          
           <img
             width="56"
             height="56"
             src="./images/star1big.svg"
             alt="star1 for design big"
-          />
+          /> -->
         </div>
       </section>
       <section class="section" id="section-why-us">
@@ -453,5 +455,13 @@
         <!-- </div> -->
       </div>
     </footer>
+
+    <div class="backdrop">
+      <div class="modal">
+        <button class="modal-btn-close" type="button">Close</button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
