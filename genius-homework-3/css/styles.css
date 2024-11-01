@@ -451,6 +451,65 @@ h2 span {
   justify-content: space-between;
   /* между div c  текстами слева и ul c картинками справа */
   gap: 34px;
+  /* для star */
+  position: relative;
+}
+
+/* Star */
+
+.star1 {
+  max-height: 64px;
+  max-width: 64px;
+  width: 100%;
+  height: 100%;
+  /* Это иконки, а они обесцвечены */
+  fill: var(--color-secondary-bluedark);
+  /* background: #011F4A; */
+  rotate: 30deg;
+
+  position: absolute;
+  /* Минус пол-звезды  64/2 =32,  Сверху 336 -32 =304,Справа 295-32=263 */
+  /* top: 304px;
+  right: 206px; */
+  /* Минус пол-звезды  - выше, наезжает при Resize на картинку. делаю без вычитания 
+  ВИзуально - без выичитания пол-звезды - как на макете. так остаить*/
+  top: 336px;
+  right: 295px;
+}
+
+.star2 {
+  max-height: 40px;
+  max-width: 40px;
+  /* так в ф12 расчет 48х48 отражает, без этого -40x44 */
+  width: 100%;
+  height: 100%;
+  /* Это иконки, а они обесцвечены */
+  fill: var(--color-primary-blue);
+  /* background: #ffd02b; */
+  rotate: -30deg;
+
+  position: absolute;
+  /* margin-bottom: 32px; */
+  /* или 12=32-20пол-звездочки  по соотношению на макете - похоже на 32 , а не на 12 по факту 
+  Но по right видно - надо вычитать пол-звезды */
+  top: 32px;
+  /* по right понятно , что до центра расчет */
+  right: -20px;
+}
+
+.star3 {
+  max-height: 16px;
+  max-width: 16px;
+  width: 100%;
+  height: 100%;
+  /* Это иконки, а они обесцвечены */
+  fill: var(--color-secondary-greylight);
+  rotate: 23deg;
+
+  position: absolute;
+  /* Минус пол-звезды  16/2 =8,  Сверху 270 -8 =262,Справа 6 */
+  top: 270px;
+  right: 6px;
 }
 
 .about-us-content {
@@ -593,6 +652,9 @@ h2 span {
       - послденее назначение срабатывает.
       Или надо выдеить при назначении margin-bottom: 40px; тип – список li, исключив картиинку . 
       да. указание типа первого дочернего li помогло, исключив img из .about-us-ul-img: first-child */
+
+  /* в круг картинку (ф12 подбирала, потом размер/2  327/2=163)*/
+  border-radius: 163px;
 }
 
 /* Section 3 Why us */
