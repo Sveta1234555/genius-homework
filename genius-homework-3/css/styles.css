@@ -158,12 +158,16 @@ ul {
 
 .header {
   /* для замеч по дз2 по высоте header -пока так. делается позже в уроках с позициоирвоаием, и мод12 прозрачность */
-  padding-top: 32px;
+  padding: 32px;
   /* прозрачное меню , но надо еще бело-прозрачность меню добавить!!*/
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  /* прозрачность меню header */
+  background: rgba(255, 255, 255, 0.25);
+  /* --color-primary-white */
+  backdrop-filter: blur(5px);
 }
 
 .header-container {
