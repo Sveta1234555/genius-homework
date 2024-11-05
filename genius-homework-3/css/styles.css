@@ -516,6 +516,33 @@ h2 span {
   right: 6px;
 }
 
+/* одновременно вращени и масштабирование звездочек */
+.star1,
+.star2,
+.star3 {
+  animation: ScaleRotate 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes ScaleRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Остановка анимации при наведении */
+.star1:hover,
+.star2:hover,
+.star3:hover {
+  animation-play-state: paused;
+}
+
 .about-us-content {
   /* ширина блока с текстом на макете так. */
   max-width: 709px;
