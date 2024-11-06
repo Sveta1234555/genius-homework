@@ -86,7 +86,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   color: var(--color-primary-bluedark);
-  /* 21/18=1.2 */
+  /* 21 /18=1.2 */
   line-height: 1.2;
   /* center в доминантные задают? нужен в 1. .under-button 2. section h2 3.  .section-why-us-p 4. h3 ...
   ПОка убираю здесь . м.б. отменять его будет больше , чем назначать. ПОзже  */
@@ -334,14 +334,19 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   color: var(--color-primary-bluedark);
   /* font-size: 18px; */
   text-decoration: none;
+  /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+  /* transition: color 0.2s; */
+  transition: color 0.2s, font-weight 0.2s;
 }
 
-.header-link:hover {
+.header-link:hover,
+.footer-link:hover {
   color: var(--color-primary-blue);
   /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
    Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
    Лучше - убрать увеличение шрифта при наведении hover. Выделения цветом достаточно */
-  /* font-weight: 700; */
+
+  font-weight: 700;
 
   /* text-decoration: underline; */
 }
@@ -1101,7 +1106,19 @@ h3 {
   font-size: 16px;
   /* 16/19 =1.18  1.2 default */
   text-decoration: none;
+  /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+  /* transition: color 0.2s; */
+  transition: color 0.2s, font-weight 0.2s;
 }
+
+/* вопрос - в макете ничем не отличается выделенный элемент меню нвигации footer
+Сделан, как header-link:hover*/
+/* перенесен к .header-link:hover  Через запятую */
+/* .footer-link:hover { */
+/* color: var(--color-primary-blue); */
+/* text-decoration: underline; */
+/* font-weight: 700; */
+/* } */
 
 /* между Li -ссылками - снизу 16, кроме последнего */
 .footer-ul li:not(:last-child) {
@@ -1148,12 +1165,6 @@ address li {
 /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
 .icon-link-ul li {
   margin-bottom: 0;
-}
-
-/* вопрос - в макете ничем не отличается выделенный элемент меню нвигации */
-.footer-link:hover {
-  color: var(--color-primary-blue);
-  /* text-decoration: underline; */
 }
 
 .icon-link-ul img {
@@ -1212,7 +1223,7 @@ address li {
   /* модальное окно отодвинуть от границ  - относительно родительского  Padding-Ом */
   padding: 20px 0;
   /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
-  transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.2s, visibility 0.2s;
 }
 
 .backdrop.is-hidden {
@@ -1220,19 +1231,31 @@ address li {
   /* display: none; так потом не будет работать анимация - передеоать в вар2:*/
 
   /* в2 реализации  */
+  /*  анимация ПЕРЕХОД  transition к opacity и visibility  -  в .backdrop, выше
+    transition: opacity 0.2s, visibility 0.2s;  */
+
   /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
   opacity: 0;
   /* чтобы нельзя нажать на элементы скрытой формы */
   /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
   visibility: hidden;
+
   /* чтобы вообще нельзя было нажать на окно */
   pointer-events: none;
 }
 
 .modal {
   /* модальное окно 723х681*/
-  width: 723px;
-  height: 681px;
+
+  /* для больших экранов не больше 723х681px модальное окно */
+  /* если окно меньше 723х681 то модальное окно будет занимать 100% окна по ширине*/
+  /* width: 723px; */
+  width: 100%;
+  max-width: 723px;
+  /* height: 681px; */
+  height: 100%;
+  max-height: 681px;
+
   background-color: var(--color-primary-bluedark);
   /* background: #011C44;   */
   border-radius: 48px;
