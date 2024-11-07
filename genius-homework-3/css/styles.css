@@ -393,6 +393,9 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
   /* gap: 10px; */
   /* opacity: 0px; */
+
+  /* анимация переход цвета button при hover - плавно меняется цвет текста и фон*/
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .button-primary:hover {
@@ -994,6 +997,13 @@ h3 {
   /* height: 53px; */
   /* отступ снизу до параграфа под кнопкой */
   margin-bottom: 8px;
+}
+
+/* стиль .button-primary у 2х кнопок - .hero-section  и на форме .signup-free
+но форма - синяя, буквы такие же при hover невидно текста.
+в uikit нет стиля. поэтому так  - цвет фона здесь не транспарант, а мепнять на синенький*/
+.signup-free .button-primary:hover {
+  background-color: var(--color-primary-blue);
 }
 
 .signup-free .under-button {
