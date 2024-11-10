@@ -879,6 +879,12 @@ h3 {
   fill: var(--color-primary-bluedark);
 }
 
+.carousel-button.next {
+  /* повернуть круглую кнопку-стрелку справа НАПРАВО */
+  transform: rotate(180deg);
+}
+
+
 .carousel-button:hover {
   /* наведение на кнопку круглую со стрелкой - фон синий */
   background-color: var(--color-primary-blue);
