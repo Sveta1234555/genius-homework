@@ -94,10 +94,12 @@ body {
 
   /* по-умолч margin body есть. убрать */
   margin: 0;
-  background-image: linear-gradient(38.2deg,
-      rgba(43, 127, 255, 0.2) 39.74%,
-      rgba(43, 127, 255, 0) 54.16%,
-      rgba(43, 127, 255, 0) 66.66%);
+  background-image: linear-gradient(
+    38.2deg,
+    rgba(43, 127, 255, 0.2) 39.74%,
+    rgba(43, 127, 255, 0) 54.16%,
+    rgba(43, 127, 255, 0) 66.66%
+  );
 }
 
 /* УБрать дефолт margin-top всем заголовкам и параграфам*/
@@ -244,11 +246,13 @@ ul {
 
   /* background-color: burlywood; */
   /* позже наверное слоями позиционированием */
-  background-image: linear-gradient(89.38deg,
+  background-image: linear-gradient(
+      89.38deg,
       var(--color-primary-white) 30.62%,
       rgba(255, 255, 255, 0.850898) 41.31%,
       rgba(255, 255, 255, 0.193204) 58.65%,
-      rgba(255, 255, 255, 0) 72.78%),
+      rgba(255, 255, 255, 0) 72.78%
+    ),
     url("../images/hero-section-background.jpg");
   /* background-image: url("../images/hero-section-background.jpg"); через запятую сделан к градиенту */
   background-repeat: no-repeat;
@@ -455,7 +459,9 @@ section h2 {
   text-align: center;
 }
 
-h2 span {
+/* h2 span { */
+.text-brand {
+  /* все span заколовки , которые такого цвета - с этим классом .text-brand */
   color: var(--color-primary-blue);
 }
 
@@ -814,7 +820,6 @@ h2 span {
   /* на всю ширину распределить (отцентрировалось) */
   /* justify-content: space-between;  тоже ненадо для ширины 3х карточек */
   /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
-
 }
 
 .procedure-item {
@@ -837,10 +842,12 @@ h2 span {
   position: relative;
   /* max-width: 344px;*/
   height: 456px;
-  background-image: linear-gradient(180.05deg,
-      rgba(1, 28, 68, 0) 48.53%,
-      rgba(1, 28, 68, 0.725825) 84.61%,
-      var(--color-primary-bluedark) 101.39%);
+  background-image: linear-gradient(
+    180.05deg,
+    rgba(1, 28, 68, 0) 48.53%,
+    rgba(1, 28, 68, 0.725825) 84.61%,
+    var(--color-primary-bluedark) 101.39%
+  );
   border-radius: 4px 120px;
 
   /* для расположить текст на карточке к нижнему краю, был к верхнему */
@@ -848,7 +855,6 @@ h2 span {
   flex-direction: column;
   justify-content: flex-end;
 }
-
 
 .procedure-item img {
   /* перенесено в .procedure-card-image но карточка исчезла - делать по мод14 завтра*/
@@ -872,7 +878,6 @@ h2 span {
   z-index: -1;
   /* max-width: 344px; */
   /* max-height: 456px; */
-
 }
 
 /* h3 без класса, других h3 нет. только На картинках процедур */
@@ -1010,11 +1015,14 @@ h3 {
   color: var(--color-primary-white);
 }
 
-.signup-free-p-free {
-  /* или .signup-free-p span{} */
-  /* span "безкоштовно" на форме  */
-  color: var(--color-primary-blue);
-}
+/* signup-free-p-free  -> text-brand,
+ из .css убрать .signup-free-p-free. 
+ Будет работать существующий теперь .text-brand */
+/* .signup-free-p-free { */
+/* или .signup-free-p span{} */
+/* span "безкоштовно" на форме  */
+/* color: var(--color-primary-blue); */
+/* } */
 
 /* .signup-free-p span {
   background-color: red;
@@ -1321,12 +1329,18 @@ address li {
   height: 100%;
   max-height: 681px;
 
+  /* на макете вокруг заголовка - формы такие отступы 144 слева-справа, 42 – сверху- снизу
+ (В пекарне - брали с 3-х сторон отступы128 , низ другой 187 - отдельно не задавали) */
+  padding: 42px 144px;
+
   background-color: var(--color-primary-bluedark);
   /* background: #011C44;   */
   border-radius: 48px;
 
   /* для расположить относительно него кнопку крестик close */
   position: relative;
+  /* чтобы скроллилось модальное окно когда не помещается содержимаое (input...)*/
+  overflow-y: auto;
 }
 
 .modal-btn-close {
@@ -1334,4 +1348,71 @@ address li {
   position: absolute;
   top: 42px;
   right: 42px;
+}
+
+.modal-title {
+  /* Заголовок H2 модальнйо формы - белый (на странице - синие все) */
+  color: var(--color-primary-white);
+
+  /* background-color: var(--color-primary-light); */
+  font-family: "Play", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  /*  74.05px /64px  =1.16  округл 1.2   Это доминантный */
+  /* line-height: 1.2; */
+  margin: 0;
+  text-align: center;
+  max-width: 435px;
+  padding-bottom: 40px;
+  /*Это текст копией с макета - наверное ненадо
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none; */
+}
+
+.modal__text {
+  /* абзац p модальнйо формы - белый (на странице - синие все) */
+  color: var(--color-primary-white);
+
+  /* background-color: var(--color-primary-light); */
+
+  /* roboto доминантный */
+  /* font-family: "Roboto", sans-serif;   */
+  font-size: 22px;
+  font-weight: 600;
+  /* 26px /22px  =1.18  округл 1.2   Это доминантный */
+  /* line-height: 1.2; */
+  /* margin: 0; */
+  text-align: center;
+  max-width: 274px;
+  /* без этого не центрируется после max-width */
+  margin: 0 auto 32px;
+
+  /* font-style: normal; */
+}
+
+.modal__form-field {
+  /* отступы между div (label+input) */
+  margin-bottom: 24px;
+}
+
+/* Form */
+.input__control {
+  padding: 18px 32px;
+  /* растянуть input ппо всей ширине */
+  width: 100%;
+
+  border: 2px solid var(--color-secondary-greylight);
+  border-radius: 32px;
+  /* фон поля ввода input прозрачный */
+  background-color: transparent;
+}
+
+.input__control:focus {
+  background-color: var(--color-secondary-greylight);
+  /* убрать обводку синюю по-умолч от браузера, иначен невидно  border в фокусе поля ввода */
+  outline: none;
+}
+
+.input-label {
+  display: block;
 }
