@@ -487,7 +487,7 @@
 
         <form name="contact-form" autocomplete="off" novalidate>
           <div class="modal__form-field input">
-            <label label class="input__label" for="user-name"
+            <label label class="input__label visually-hidden" for="user-name"
               >Ваше ім'я та прізвище</label
             >
             <input
@@ -495,11 +495,12 @@
               type="text"
               id="user-name"
               name="user-name"
+              placeholder="Ваше ім'я та прізвище"
             />
           </div>
 
           <div class="modal__form-field input">
-            <label label class="input__label" for="user-tel"
+            <label label class="input__label visually-hidden" for="user-tel"
               >Ваш номер телефону</label
             >
             <input
@@ -507,11 +508,12 @@
               type="tel"
               id="user-tel"
               name="user-tel"
+              placeholder="Ваш номер телефону"
             />
           </div>
 
           <div class="modal__form-field input">
-            <label label class="input__label" for="user-email"
+            <label label class="input__label visually-hidden" for="user-email"
               >Ваша електронна пошта</label
             >
             <input
@@ -519,10 +521,11 @@
               type="email"
               id="user-email"
               name="user-email"
+              placeholder="Ваша електронна пошта"
             />
           </div>
 
-          <button class="modal__button button" type="submit">
+          <button class="modal__button button-primary" type="submit">
             Записатись безкоштовно
           </button>
 
