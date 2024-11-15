@@ -143,15 +143,20 @@
             <div class="about-us-content">
               <h2 class="about-us-title">
                 Перевтілюйтесь в
-                <span class="beauty-zone-h2" lang="en">beauty zone!</span>
+                <span class="text-brand beauty-zone-h2" lang="en"
+                  >beauty zone!</span
+                >
               </h2>
               <p>
                 Наша косметологічна клініка пропонує вам професійні послуги з
                 догляду за шкірою обличчя та тіла.
               </p>
               <p>
-                B <span class="beauty-zone" lang="en">beauty zone</span> ми
-                гарантуємо найвищі стандарти якості <br />та приємний сервіс.
+                B
+                <span class="text-brand beauty-zone" lang="en"
+                  >beauty zone</span
+                >
+                ми гарантуємо найвищі стандарти якості <br />та приємний сервіс.
                 Наші косметологічні процедури та препарати допоможуть вам
                 підтримувати свою красу та молодість. <br />З нами краса
                 назавжди!
@@ -203,7 +208,7 @@
         <div class="container">
           <h2 class="why-us-title">
             Чому люди
-            <span>обирають нас</span>
+            <span class="text-brand">обирають нас</span>
           </h2>
           <!-- <article></article> -->
           <ul class="why-us-list">
@@ -261,7 +266,9 @@
       </section>
       <section class="procedure-section section" id="section-our-procedures">
         <div class="container">
-          <h2 class="procedure-section__title">Наші <span>процедури</span></h2>
+          <h2 class="procedure-section__title">
+            Наші <span class="text-brand">процедури</span>
+          </h2>
           <div class="procedures-container">
             <!-- <h2>Наші <span>процедури</span></h2> -->
             <!-- <div></div> -->
@@ -329,7 +336,7 @@
       </section>
       <section class="contact-section section" id="section-contacts">
         <div class="container">
-          <h2>Як нас <span>знайти</span></h2>
+          <h2>Як нас <span class="text-brand">знайти</span></h2>
           <div class="contacts-container">
             <iframe
               class="contact-map"
@@ -343,7 +350,7 @@
             <div class="signup-free">
               <p class="signup-free-p">
                 Запишіться
-                <span class="signup-free-p-free">безкоштовно</span> та отримайте
+                <span class="text-brand">безкоштовно</span> та отримайте
                 подарунок
               </p>
               <p class="signup-free-input">Ваше ім'я та прізвище</p>
@@ -467,9 +474,64 @@
       </div>
     </footer>
 
-    <div class="backdrop is-hidden">
+    <div class="backdrop">
+      <!-- Пока убрать is-hidden на время разработки формы . Вернуть is-hidden потом!!! -->
+      <!-- <div class="backdrop is-hidden"> -->
       <div class="modal">
         <button class="modal-btn-close" type="button">Close</button>
+        <h2 class="modal-title">Замовити дзвінок</h2>
+        <p class="modal__text">
+          Запишіться <span class="text-brand">безкоштовно</span> та отримайте
+          подарунок
+        </p>
+
+        <form name="contact-form" autocomplete="off" novalidate>
+          <div class="modal__form-field input">
+            <label label class="input__label" for="user-name"
+              >Ваше ім'я та прізвище</label
+            >
+            <input
+              class="input__control"
+              type="text"
+              id="user-name"
+              name="user-name"
+            />
+          </div>
+
+          <div class="modal__form-field input">
+            <label label class="input__label" for="user-tel"
+              >Ваш номер телефону</label
+            >
+            <input
+              class="input__control"
+              type="tel"
+              id="user-tel"
+              name="user-tel"
+            />
+          </div>
+
+          <div class="modal__form-field input">
+            <label label class="input__label" for="user-email"
+              >Ваша електронна пошта</label
+            >
+            <input
+              class="input__control"
+              type="email"
+              id="user-email"
+              name="user-email"
+            />
+          </div>
+
+          <button class="modal__button button" type="submit">
+            Записатись безкоштовно
+          </button>
+
+          <p class="form-terms">
+            Натискаючи на кнопку я погоджуюсь з
+            <!-- <a class="form-terms-link" href="#">політикою конфіденційності</a> -->
+            <a class="form-terms__link" href="#">політикою конфіденційності</a>
+          </p>
+        </form>
       </div>
     </div>
 
