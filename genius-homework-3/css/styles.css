@@ -94,12 +94,10 @@ body {
 
   /* по-умолч margin body есть. убрать */
   margin: 0;
-  background-image: linear-gradient(
-    38.2deg,
-    rgba(43, 127, 255, 0.2) 39.74%,
-    rgba(43, 127, 255, 0) 54.16%,
-    rgba(43, 127, 255, 0) 66.66%
-  );
+  background-image: linear-gradient(38.2deg,
+      rgba(43, 127, 255, 0.2) 39.74%,
+      rgba(43, 127, 255, 0) 54.16%,
+      rgba(43, 127, 255, 0) 66.66%);
 }
 
 /* УБрать дефолт margin-top всем заголовкам и параграфам*/
@@ -246,13 +244,11 @@ ul {
 
   /* background-color: burlywood; */
   /* позже наверное слоями позиционированием */
-  background-image: linear-gradient(
-      89.38deg,
+  background-image: linear-gradient(89.38deg,
       var(--color-primary-white) 30.62%,
       rgba(255, 255, 255, 0.850898) 41.31%,
       rgba(255, 255, 255, 0.193204) 58.65%,
-      rgba(255, 255, 255, 0) 72.78%
-    ),
+      rgba(255, 255, 255, 0) 72.78%),
     url("../images/hero-section-background.jpg");
   /* background-image: url("../images/hero-section-background.jpg"); через запятую сделан к градиенту */
   background-repeat: no-repeat;
@@ -842,12 +838,10 @@ section h2 {
   position: relative;
   /* max-width: 344px;*/
   height: 456px;
-  background-image: linear-gradient(
-    180.05deg,
-    rgba(1, 28, 68, 0) 48.53%,
-    rgba(1, 28, 68, 0.725825) 84.61%,
-    var(--color-primary-bluedark) 101.39%
-  );
+  background-image: linear-gradient(180.05deg,
+      rgba(1, 28, 68, 0) 48.53%,
+      rgba(1, 28, 68, 0.725825) 84.61%,
+      var(--color-primary-bluedark) 101.39%);
   border-radius: 4px 120px;
 
   /* для расположить текст на карточке к нижнему краю, был к верхнему */
@@ -1405,6 +1399,13 @@ address li {
   border-radius: 32px;
   /* фон поля ввода input прозрачный */
   background-color: transparent;
+  /* фонт Input сделать как у placeholder.Размеры и так такие такие (наверное т.к. задавли размер input padding-ами),
+    но цвет белый */
+  color: var(--color-primary-white);
+  font-size: 13px;
+  /* line-height  15/13=1.15 = 1.2 доминантный */
+  line-height: 1.15;
+  /* font-weight: 400;  наследуется */
 }
 
 .input__control:focus {
@@ -1413,6 +1414,52 @@ address li {
   outline: none;
 }
 
+.input__control::placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-primary-white);
+  font-size: 13px;
+  /* line-height  15/13=1.15 = 1.2 доминантный */
+  line-height: 1.15;
+  /* font-weight: 400;  наследуется */
+}
+
 .input-label {
   display: block;
+}
+
+.modal .button-primary {
+  /* 2 button in page. И1 на модальном окне-форме. width -разные */
+  /* также сделано в .hero-section .button-primary */
+  /* width: 281px; */
+  width: 100%;
+  max-width: 281px;
+  /* Но – на форме на странице тоже 281х53 */
+
+  /* отступ снизу до параграфа под кнопкой */
+  margin-bottom: 8px;
+}
+
+.modal__button {
+  /* центрировать кнопку на форме */
+  /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
+  /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
+  display: block;
+  margin: 0 auto;
+}
+
+.modal__button:hover {
+  /* Hover – цвет текста поменять для модальной формы.
+   Не видно текст при наведении.
+   Он по button-ptimary для кнопок на странице – темно-синий (так на странице надо и норм)
+    А на модальной форме – одинак с фоном */
+  color: var(--color-primary-blue);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
