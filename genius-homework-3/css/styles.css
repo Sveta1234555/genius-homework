@@ -1436,7 +1436,7 @@ address li {
   /* Но – на форме на странице тоже 281х53 */
 
   /* отступ снизу до параграфа под кнопкой */
-  margin-bottom: 8px;
+  /* margin-bottom: 8px;  -в modal__button делано  -  margin: 0 auto 8px;*/
 }
 
 .modal__button {
@@ -1444,7 +1444,8 @@ address li {
   /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
   /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
   display: block;
-  margin: 0 auto;
+  /* доб 8 px снизу до параграфа отступ от кнопки */
+  margin: 0 auto 8px;
 }
 
 .modal__button:hover {
@@ -1462,4 +1463,26 @@ address li {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+
+.form-terms {
+  /* текст под кнопкой на форме */
+  /* Для Центрирвоать текст под кнопкой – margin: 0 auto */
+  margin: 0 auto;
+  max-width: 213px;
+  /* font-weight: 400; доминантный*/
+  font-size: 12px;
+  /* 1.5=18/12 */
+  line-height: 1.5;
+  color: var(--color-secondary-greylight);
+  text-align: center;
+}
+
+
+.form-terms__link {
+  /* по-умолч ссылка - фиолет, поменять на цвет по дизайну */
+  color: var(--color-secondary-greylight);
+  /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
+  text-underline-offset: 2px;
 }
