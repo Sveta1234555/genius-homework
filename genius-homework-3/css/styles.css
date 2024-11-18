@@ -1345,6 +1345,19 @@ address li {
   position: absolute;
   top: 42px;
   right: 42px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  fill: transparent;
+  /* так крестик видно, а не песочные часы */
+  stroke: var(--color-primary-white);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
 }
 
 .modal-title {
