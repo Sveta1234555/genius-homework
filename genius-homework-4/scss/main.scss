@@ -136,6 +136,18 @@
 
 @import './base';
 
+///* Для скрыть визуально label. Но для браузера останется. так надо */
+// .visually-hidden {
+//     position: absolute;
+//     left: -10000px;
+//     top: auto;
+//     width: 1px;
+//     height: 1px;
+//     overflow: hidden;
+// }
+
+@import './utils/utils';
+
 
 /* Section all  */
 /* одинаковый класс всем секциям, кроме header,footer,hero-section */
@@ -340,28 +352,41 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
   white-space: nowrap; */
 }
 
+
+// .link {
+//     // к обеим ссылкам в footer и header
+//     text-decoration: none;
+//     /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+//     /* transition: color 0.2s; */
+//     transition: color 0.2s, font-weight 0.2s;
+// }
+
+
+// .header-link:hover,
+// .footer-link:hover 
+// .link:hover {
+//     color: var(--color-primary-blue);
+//     /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
+//    Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
+//    Лучше - убрать увеличение шрифта при наведении hover. Выделения цветом достаточно */
+
+//     font-weight: 700;
+
+//     /* text-decoration: underline; */
+// }
+
+@import './components/links';
+
 /* Header */
 .header-link {
     /* color: var(--color-primary-bluedark); доминантный/ Но не отработало без указания здесь цвета . М.б. это нажатый ранее цвет ссылки. Нет. доббавляла нов li - цвет неправильный*/
     color: var(--color-primary-bluedark);
     /* font-size: 18px; */
-    text-decoration: none;
+    // text-decoration: none;   //перенесено в класс .link
     /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
-    /* transition: color 0.2s; */
-    transition: color 0.2s, font-weight 0.2s;
+    // transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
 }
 
-.header-link:hover,
-.footer-link:hover {
-    color: var(--color-primary-blue);
-    /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
-   Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
-   Лучше - убрать увеличение шрифта при наведении hover. Выделения цветом достаточно */
-
-    font-weight: 700;
-
-    /* text-decoration: underline; */
-}
 
 /* .header-link:visited {
   color: var(--color-primary-blue);
@@ -376,57 +401,59 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 }
 
 /* Main */
-/* Main Button*/
-.button {
-    /* button1 Замовити дзвінок         Roboto 600 18/21   219x53  mrg-bt снизу 14
-     button2 Записатись безкоштовно   Roboto 600 18/21   281x53  mrg-bt снизу 8 */
+// /* Main Button*/
+// .button {
+//     /* button1 Замовити дзвінок         Roboto 600 18/21   219x53  mrg-bt снизу 14
+//      button2 Записатись безкоштовно   Roboto 600 18/21   281x53  mrg-bt снизу 8 */
 
-    font-family: inherit;
-    /* font-family: "Roboto", sans-serif; button не наследует стиль font от body. что лучше по опыту- inherit или заново указывать font? */
-    font-size: 18px;
-    /*доминантные  18px и 1.2,но не унаследовались от body . ф12 дает 13px, а не 18*/
-    /* и не помещается 18 при указанных width height кнопкт???  помещается font 16 */
-    font-weight: 600;
-    /* 21/18=1.2 */
-    line-height: 1.2;
-    /* ТОже непонятно - line-height наследует или нет. скорее нет */
+//     font-family: inherit;
+//     /* font-family: "Roboto", sans-serif; button не наследует стиль font от body. что лучше по опыту- inherit или заново указывать font? */
+//     font-size: 18px;
+//     /*доминантные  18px и 1.2,но не унаследовались от body . ф12 дает 13px, а не 18*/
+//     /* и не помещается 18 при указанных width height кнопкт???  помещается font 16 */
+//     font-weight: 600;
+//     /* 21/18=1.2 */
+//     line-height: 1.2;
+//     /* ТОже непонятно - line-height наследует или нет. скорее нет */
 
-    /* до текста кнопки */
-    /* padding: 16px 32px; сделать на 2 меньше из-за border 2px*/
-    padding: 14px 30px;
-    /* width: 219px;
-  height: 53px; */
-    color: var(--color-primary-white);
+//     /* до текста кнопки */
+//     /* padding: 16px 32px; сделать на 2 меньше из-за border 2px*/
+//     padding: 14px 30px;
+//     /* width: 219px;
+//   height: 53px; */
+//     color: var(--color-primary-white);
 
-    background-color: var(--color-primary-blue);
-    /* border: 1px solid var(--color-black); */
-    border-radius: 32px;
-    /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
+//     background-color: var(--color-primary-blue);
+//     /* border: 1px solid var(--color-black); */
+//     border-radius: 32px;
+//     /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
 
-    /* gap: 10px; */
-    /* opacity: 0px; */
+//     /* gap: 10px; */
+//     /* opacity: 0px; */
 
-    /* анимация переход цвета button при hover - плавно меняется цвет текста и фон*/
-    transition: color 0.2s, background-color 0.2s;
-}
+//     /* анимация переход цвета button при hover - плавно меняется цвет текста и фон*/
+//     transition: color 0.2s, background-color 0.2s;
+// }
 
-.button:hover {
-    background-color: transparent;
-    color: var(--color-primary-bluedark);
-    cursor: pointer;
+// .button:hover {
+//     background-color: transparent;
+//     color: var(--color-primary-bluedark);
+//     cursor: pointer;
 
-    border: 2px solid var(--color-primary-blue);
-    /* border-radius: 32px; наследует от самой кнопки */
-    /* padding: 16px 32px; наследует от самой кнопки */
-    /* width: 219px;
-  height: 53px; 
-   top: 102px;
-  left: 20px; 
+//     border: 2px solid var(--color-primary-blue);
+//     /* border-radius: 32px; наследует от самой кнопки */
+//     /* padding: 16px 32px; наследует от самой кнопки */
+//     /* width: 219px;
+//   height: 53px; 
+//    top: 102px;
+//   left: 20px; 
 
-  gap: 10px;
-  opacity: 0px;
-*/
-}
+//   gap: 10px;
+//   opacity: 0px;
+// */
+// }
+
+@import './components/buttons';
 
 .hero-section .button {
     /* 2 button in page. width -разные */
@@ -1183,10 +1210,9 @@ h3 {
     color: var(--color-primary-white);
     font-size: 16px;
     /* 16/19 =1.18  1.2 default */
-    text-decoration: none;
+    //text-decoration: none; //перенесено в класс .link
     /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
-    /* transition: color 0.2s; */
-    transition: color 0.2s, font-weight 0.2s;
+    //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
 }
 
 /* вопрос - в макете ничем не отличается выделенный элемент меню нвигации footer
@@ -1480,14 +1506,7 @@ address li {
     color: var(--color-primary-blue);
 }
 
-.visually-hidden {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
+
 
 .form-terms {
     /* текст под кнопкой на форме */
