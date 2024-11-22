@@ -149,210 +149,296 @@
 @import './utils/utils';
 
 
-/* Section all  */
-/* одинаковый класс всем секциям, кроме header,footer,hero-section */
-.section {
-    /* расстояния 96 между секциями - по 48 вертикальным отступам каждый соседний 
-  1.верхняя секция padding-bottom и 2. Нижняя соседняя секция padding-top  */
-    /* горизонтальные- 0 */
-    padding: 48px 0;
-}
+// /* Section all  */
+// /* одинаковый класс всем секциям, кроме header,footer,hero-section */
+// .section {
+//     /* расстояния 96 между секциями - по 48 вертикальным отступам каждый соседний 
+//   1.верхняя секция padding-bottom и 2. Нижняя соседняя секция padding-top  */
+//     /* горизонтальные- 0 */
+//     padding: 48px 0;
+// }
 
-/* Container for center общий, у всех секци одинаковый*/
-.container {
-    /* width: 1240px; */
-    /* надо чтобы сайт не менял размеры при изменении адаптив-размеров (экрана)  */
-    width: 100%;
-    /* max-width: 1240px; */
-    /* 1288=1240+24*2   т.к. padiing (ниже установлен "padding: 0 24px;") из-за установленного box-sizing (отсчет отступов вовнутрь) не учитываются, их надо добавить */
-    max-width: 1288px;
-    /* центрировать контейнер container относително макс размера горизонтально */
-    margin: 0 auto;
-    /* чтобы слева-справа не прирлипал к границе - внутренний отступ  в контейнере сделать: */
-    padding: 0 24px;
-}
-
-/* Header */
-
-.header {
-    /* для замеч по дз2 по высоте header -пока так. делается позже в уроках с позициоирвоаием, и мод12 прозрачность */
-    padding: 32px;
-    /* прозрачное меню , но надо еще бело-прозрачность меню добавить!!*/
-    /* меню над фоном слоем */
-    position: absolute;
-    /* к левому верхнему углу body.
-       Для absolute
-      Відлік значень top,  left, bottom і right 
-      ведеться щодо найближчого предка з позиціонуванням,
-        відмінного від static. Якщо такого предка не буде,
-        то відлік від меж body*/
-    top: 0;
-    left: 0;
-    /* Растянуть header по ширине на 100%  */
-    width: 100%;
-    /* прозрачность меню header */
-    background: rgba(255, 255, 255, 0.25);
-    /* --color-primary-white */
-    backdrop-filter: blur(5px);
-}
-
-.header-container {
-    /* 2 блока (логотип+ меню   и   иконки) стали горизонтально рядом
-    но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
-    display: flex;
-    /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
-    align-items: center;
-    /* для разделить nav и иконки при уменьшении размера экрана */
-    gap: 40px;
-}
-
-.header-nav {
-    /* для расположить горизонтально рядом лого и меню в nav навигации */
-    display: flex;
-    /* лого и меню - центрированной по вертикали*/
-    align-items: center;
-    /* nav занял все соб. место, 3 лого связи уехали вправо */
-    flex-grow: 1;
-    /* для разделить в nav лого и меню (слева)  при уменьшении размера экрана */
-    gap: 40px;
-}
-
-.header-menu {
-    /* Элементы меню расположить горизонтально */
-    display: flex;
-    /* для задать расстояние между элементами меню */
-    gap: 56px;
-    /* Чтобы меню заняло все свободно место в родительском элементе nav (класс  .header-nav) :   часть займет лого, а все оставшееся - меню ul */
-    flex-grow: 1;
-    /* выравнять элементы меню по главной горизонтальной оси (в рамках занятого им (меню) места nav) */
-    justify-content: center;
-}
-
-.address-icon-header {
-    fill: var(--color-primary-bluedark);
-}
-
-.address-icon-header :hover {
-    /* так - срабатывал hover только при наведении на саму линию на иконке( цвет менялся) */
-    fill: var(--color-primary-blue);
-}
-
-.icon-link-ul :hover {
-    /* При наведені на іконки hover зʼявляється тільки коли наводиш саме на лінію іконки, а коли курсор в середині іконки (на білому фоні) hover не працює. Думаю треба ховер задати "коробочці" іконки, тегу li наприклад */
-
-    /* Выделяется при наведенеии только на свой квдратик самого значка, между ними (если это все для браузеоа - ul) – не срабаывает. 
-  ок */
-    /* Причем – это и хедер и в футер – один класс на ul */
-    /* так - норм. при наведении  */
-    fill: var(--color-primary-blue);
-}
-
-/* Hero-section*/
-
-.hero-section {
-    /* к Блок1 */
-    /* padding: 1358px 1175px 337px 397px; */
-    /* к «Group 46196» */
-    /* width: 1501.96px;
-    height: 687.93px;
-    top: -0.6px;
-    left: -38px;
-    gap: 0px;
-    opacity: 0px; */
-
-    /* padding: 123px 729px 157px 244px; перенесено в .hero-title */
-
-    /* background-color: burlywood; */
-    /* позже наверное слоями позиционированием */
-    background-image: linear-gradient(89.38deg,
-            var(--color-primary-white) 30.62%,
-            rgba(255, 255, 255, 0.850898) 41.31%,
-            rgba(255, 255, 255, 0.193204) 58.65%,
-            rgba(255, 255, 255, 0) 72.78%),
-        url("../images/hero-section-background.jpg");
-    /* background-image: url("../images/hero-section-background.jpg"); через запятую сделан к градиенту */
-    background-repeat: no-repeat;
-
-    /* позиционирвоание - позже , h1 ездит , img большая  */
-    /* background-position: center bottom; */
-    /* Голова помещается */
-    background-position: center top;
-    background-size: cover;
-}
-
-.hero-title {
-    padding: 123px 729px 157px 244px;
-}
-
-/* .above-title {
-  font-size: 18px;
-} */
-
-/* Hero-title */
-
-/* Плохой вариант  (единый h1  = mini + span big),
-не нравится мне пока
-1. Шрифт мелкий все равно браузером увеличиватеся. А он доминантный,
-заново задавать здесь дял вернуть на доминантный или … 
-a. Менять доминантный – уже что-то на этом основано ниже. Не буду пока 
-2. 16px между обеспечивать – пробовала – пока без div никак,
-span –плохо, br … 
-Пока оставлю p mini + h1 big .
- Потом вса-равно блоки из них делать,
-чтобы позиционировать квадратиком по всем грницам. */
-
-/*  Hero   h1 отдельно:  
-p mini "Косметологічна клініка" + h1 big "beauty zone" */
-
-/*1. Косметологічна клініка   mini-text  p параграфом*/
-.hero-title-mini {
-    /* меняем дефолтный для <p> margin-bottom 18px на 16 px по дизайну*/
-    margin-bottom: 16px;
-    /* font все из доминанта 18px 400  1.2 */
-    color: var(--color-primary-bluedark);
-    /* тени нет */
-    /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-/*2. Hero h1   -  big beauty zone*/
-
-.hero-title-big {
-    /* УБрать дефолт margin-bottom этому заголовку (аж 116 был дефолт)*/
-    /* Пока оставлю 40 - снизу до кнопки, пменять потом мб на 0!!!!!!!! После div */
-    margin-bottom: 40px;
-
-    color: var(--color-primary-blue);
-    font-family: Play, sans-serif;
-    text-align: left;
-    font-weight: 700;
-    text-transform: capitalize;
-    font-size: 140px;
-    /*Line height  114 / font-size 140  */
-    line-height: 0.81;
-    /* в 2 строки beauty zone big */
-    max-width: 530px;
-
-    /* border-radius: 2px 2px 2px 116px; */
-    /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
-    /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
-    /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
-  text-stroke: 4px rgba(0, 0, 0, 0.25); */
-    /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
-    /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
-
-    /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
-    /* margin-top: 16px; */
-    /* padding-top: 16px; */
-
-    /* font-style: italic; */
-    /* text-transform: capitalize; */
-    /* text-shadow: 2px 2px 4px violet;
-  letter-spacing: 4px;
-  word-spacing: 4px;
-  white-space: nowrap; */
-}
+@import './layouts/section';
 
 
+// /* Container for center общий, у всех секци одинаковый*/
+// .container {
+//     /* width: 1240px; */
+//     /* надо чтобы сайт не менял размеры при изменении адаптив-размеров (экрана)  */
+//     width: 100%;
+//     /* max-width: 1240px; */
+//     /* 1288=1240+24*2   т.к. padiing (ниже установлен "padding: 0 24px;") из-за установленного box-sizing (отсчет отступов вовнутрь) не учитываются, их надо добавить */
+//     max-width: 1288px;
+//     /* центрировать контейнер container относително макс размера горизонтально */
+//     margin: 0 auto;
+//     /* чтобы слева-справа не прирлипал к границе - внутренний отступ  в контейнере сделать: */
+//     padding: 0 24px;
+// }
+
+@import './layouts/container';
+
+
+// /* Header */
+
+// .header {
+//     /* для замеч по дз2 по высоте header -пока так. делается позже в уроках с позициоирвоаием, и мод12 прозрачность */
+//     padding: 32px;
+//     /* прозрачное меню , но надо еще бело-прозрачность меню добавить!!*/
+//     /* меню над фоном слоем */
+//     position: absolute;
+//     /* к левому верхнему углу body.
+//        Для absolute
+//       Відлік значень top,  left, bottom і right 
+//       ведеться щодо найближчого предка з позиціонуванням,
+//         відмінного від static. Якщо такого предка не буде,
+//         то відлік від меж body*/
+//     top: 0;
+//     left: 0;
+//     /* Растянуть header по ширине на 100%  */
+//     width: 100%;
+//     /* прозрачность меню header */
+//     background: rgba(255, 255, 255, 0.25);
+//     /* --color-primary-white */
+//     backdrop-filter: blur(5px);
+// }
+
+// .header-container {
+//     /* 2 блока (логотип+ меню   и   иконки) стали горизонтально рядом
+//     но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
+//     display: flex;
+//     /* сделать область иконок не растянутой stretch (по-умолч), а центрированной по вертикали */
+//     align-items: center;
+//     /* для разделить nav и иконки при уменьшении размера экрана */
+//     gap: 40px;
+// }
+
+// .header-nav {
+//     /* для расположить горизонтально рядом лого и меню в nav навигации */
+//     display: flex;
+//     /* лого и меню - центрированной по вертикали*/
+//     align-items: center;
+//     /* nav занял все соб. место, 3 лого связи уехали вправо */
+//     flex-grow: 1;
+//     /* для разделить в nav лого и меню (слева)  при уменьшении размера экрана */
+//     gap: 40px;
+// }
+
+// .header-menu {
+//     /* Элементы меню расположить горизонтально */
+//     display: flex;
+//     /* для задать расстояние между элементами меню */
+//     gap: 56px;
+//     /* Чтобы меню заняло все свободно место в родительском элементе nav (класс  .header-nav) :   часть займет лого, а все оставшееся - меню ul */
+//     flex-grow: 1;
+//     /* выравнять элементы меню по главной горизонтальной оси (в рамках занятого им (меню) места nav) */
+//     justify-content: center;
+// }
+
+// .address-icon-header {
+//     fill: var(--color-primary-bluedark);
+// }
+
+// .address-icon-header :hover {
+//     /* так - срабатывал hover только при наведении на саму линию на иконке( цвет менялся) */
+//     fill: var(--color-primary-blue);
+// }
+
+// /* Header */
+// .header-link {
+//     /* color: var(--color-primary-bluedark); доминантный/ Но не отработало без указания здесь цвета . М.б. это нажатый ранее цвет ссылки. Нет. доббавляла нов li - цвет неправильный*/
+//     color: var(--color-primary-bluedark);
+//     /* font-size: 18px; */
+//     // text-decoration: none;   //перенесено в класс .link
+//     /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+//     // transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
+// }
+
+
+// /* .header-link:visited {
+//   color: var(--color-primary-blue);
+// } */
+
+@import './components/header';
+
+// // их 2 класса было с одним названием - перенесла сюда (в header)  из footer
+// .icon-link-ul {
+//     // от header
+//     display: flex;
+//     flex-flow: row wrap;
+//     /* вернуться!!! */
+//     background: white;
+//     /* background: transparent; */
+
+//     // от footer-a
+//     /* 174x42 */
+//     max-width: 174px;
+//     max-height: 42px;
+//     width: 100%;
+//     justify-content: space-between;
+//     /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
+//     /* по Mod10 иконки svg backcolor белый, теперь это надо */
+//     background-color: transparent;
+// }
+
+// .icon-link-ul :hover {
+//     /* При наведені на іконки hover зʼявляється тільки коли наводиш саме на лінію іконки, а коли курсор в середині іконки (на білому фоні) hover не працює. Думаю треба ховер задати "коробочці" іконки, тегу li наприклад */
+
+//     /* Выделяется при наведенеии только на свой квдратик самого значка, между ними (если это все для браузеоа - ul) – не срабаывает. 
+//   ок */
+//     /* Причем – это и хедер и в футер – один класс на ul */
+//     /* так - норм. при наведении  */
+//     fill: var(--color-primary-blue);
+// }
+
+// //перенесла в _header.scss пока. может потом выделю icon-link-ul
+// /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
+// нужен в футере только по идее (в хедере этого родителя address нет , mrgn-bt=0 итак) но ничего не ломает. пусть
+// .icon-link-ul li {
+//     margin-bottom: 0;
+// }
+
+// Img нет. Img cделано svg – можно убрать :
+// .icon-link-ul img {
+//     /* margin-bottom: 0; */
+//     /* ??? */
+//     /* картинку как 42 42 сдеать? max-width: 42px; */
+//     max-height: 42px;
+//     width: 100%;
+// }
+
+@import './components/icon-link-ul';
+
+// /* Hero-section*/
+
+// .hero-section {
+//     /* к Блок1 */
+//     /* padding: 1358px 1175px 337px 397px; */
+//     /* к «Group 46196» */
+//     /* width: 1501.96px;
+//     height: 687.93px;
+//     top: -0.6px;
+//     left: -38px;
+//     gap: 0px;
+//     opacity: 0px; */
+
+//     /* padding: 123px 729px 157px 244px; перенесено в .hero-title */
+
+//     /* background-color: burlywood; */
+//     /* позже наверное слоями позиционированием */
+//     background-image: linear-gradient(89.38deg,
+//             var(--color-primary-white) 30.62%,
+//             rgba(255, 255, 255, 0.850898) 41.31%,
+//             rgba(255, 255, 255, 0.193204) 58.65%,
+//             rgba(255, 255, 255, 0) 72.78%),
+//         url("../images/hero-section-background.jpg");
+//     /* background-image: url("../images/hero-section-background.jpg"); через запятую сделан к градиенту */
+//     background-repeat: no-repeat;
+
+//     /* позиционирвоание - позже , h1 ездит , img большая  */
+//     /* background-position: center bottom; */
+//     /* Голова помещается */
+//     background-position: center top;
+//     background-size: cover;
+// }
+
+// .hero-title {
+//     padding: 123px 729px 157px 244px;
+// }
+
+// /* .above-title {
+//   font-size: 18px;
+// } */
+
+// /* Hero-title */
+
+// /* Плохой вариант  (единый h1  = mini + span big),
+// не нравится мне пока
+// 1. Шрифт мелкий все равно браузером увеличиватеся. А он доминантный,
+// заново задавать здесь дял вернуть на доминантный или … 
+// a. Менять доминантный – уже что-то на этом основано ниже. Не буду пока 
+// 2. 16px между обеспечивать – пробовала – пока без div никак,
+// span –плохо, br … 
+// Пока оставлю p mini + h1 big .
+//  Потом вса-равно блоки из них делать,
+// чтобы позиционировать квадратиком по всем грницам. */
+
+// /*  Hero   h1 отдельно:  
+// p mini "Косметологічна клініка" + h1 big "beauty zone" */
+
+// /*1. Косметологічна клініка   mini-text  p параграфом*/
+// .hero-title-mini {
+//     /* меняем дефолтный для <p> margin-bottom 18px на 16 px по дизайну*/
+//     margin-bottom: 16px;
+//     /* font все из доминанта 18px 400  1.2 */
+//     color: var(--color-primary-bluedark);
+//     /* тени нет */
+//     /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+// }
+
+// /*2. Hero h1   -  big beauty zone*/
+
+// .hero-title-big {
+//     /* УБрать дефолт margin-bottom этому заголовку (аж 116 был дефолт)*/
+//     /* Пока оставлю 40 - снизу до кнопки, пменять потом мб на 0!!!!!!!! После div */
+//     margin-bottom: 40px;
+
+//     color: var(--color-primary-blue);
+//     font-family: Play, sans-serif;
+//     text-align: left;
+//     font-weight: 700;
+//     text-transform: capitalize;
+//     font-size: 140px;
+//     /*Line height  114 / font-size 140  */
+//     line-height: 0.81;
+//     /* в 2 строки beauty zone big */
+//     max-width: 530px;
+
+//     /* border-radius: 2px 2px 2px 116px; */
+//     /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
+//     /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
+//     /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
+//   text-stroke: 4px rgba(0, 0, 0, 0.25); */
+//     /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
+//     /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
+
+//     /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
+//     /* margin-top: 16px; */
+//     /* padding-top: 16px; */
+
+//     /* font-style: italic; */
+//     /* text-transform: capitalize; */
+//     /* text-shadow: 2px 2px 4px violet;
+//   letter-spacing: 4px;
+//   word-spacing: 4px;
+//   white-space: nowrap; */
+// }
+
+//были ниже, под button, перенесла сюда в hero-section
+// .hero-section .button {
+//     /* 2 button in page. width -разные */
+//     /* width: 219px; */
+//     width: 100%;
+//     max-width: 219px;
+//     /* отступ снизу до параграфа под кнопкой */
+//     margin-bottom: 14px;
+// }
+
+// .under-button {
+//     margin-bottom: 0;
+//     /* font-family: "Roboto", sans-serif; */
+//     font-size: 12px;
+//     color: var(--color-secondary-grey1);
+//     /* 18/12=1.5 */
+//     line-height: 1.5;
+//     /* текст ограничить по ширине вмесТо br, чтобы перенос на 2ю строку был  */
+//     max-width: 238px;
+//     text-align: center;
+// }
+
+@import './components/hero-section';
+
+
+/* Link */
 // .link {
 //     // к обеим ссылкам в footer и header
 //     text-decoration: none;
@@ -377,28 +463,6 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
 @import './components/links';
 
-/* Header */
-.header-link {
-    /* color: var(--color-primary-bluedark); доминантный/ Но не отработало без указания здесь цвета . М.б. это нажатый ранее цвет ссылки. Нет. доббавляла нов li - цвет неправильный*/
-    color: var(--color-primary-bluedark);
-    /* font-size: 18px; */
-    // text-decoration: none;   //перенесено в класс .link
-    /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
-    // transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
-}
-
-
-/* .header-link:visited {
-  color: var(--color-primary-blue);
-} */
-
-.icon-link-ul {
-    display: flex;
-    flex-flow: row wrap;
-    /* вернуться!!! */
-    background: white;
-    /* background: transparent; */
-}
 
 /* Main */
 // /* Main Button*/
@@ -455,26 +519,6 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
 @import './components/buttons';
 
-.hero-section .button {
-    /* 2 button in page. width -разные */
-    /* width: 219px; */
-    width: 100%;
-    max-width: 219px;
-    /* отступ снизу до параграфа под кнопкой */
-    margin-bottom: 14px;
-}
-
-.under-button {
-    margin-bottom: 0;
-    /* font-family: "Roboto", sans-serif; */
-    font-size: 12px;
-    color: var(--color-secondary-grey1);
-    /* 18/12=1.5 */
-    line-height: 1.5;
-    /* текст ограничить по ширине вмесТо br, чтобы перенос на 2ю строку был  */
-    max-width: 238px;
-    text-align: center;
-}
 
 /* Main h2*/
 /* Для всех section h2  : */
@@ -1255,29 +1299,32 @@ address li {
     flex-grow: 1;
 }
 
-.icon-link-ul {
-    /* 174x42 */
-    max-width: 174px;
-    max-height: 42px;
-    width: 100%;
-    justify-content: space-between;
-    /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
-    /* по Mod10 иконки svg backcolor белый, теперь это надо */
-    background-color: transparent;
-}
+// // их 2 класса было с одним названием - переношу в header  отсюда  (из footer)
+// .icon-link-ul {
+//     // от footer-a
+//     /* 174x42 */
+//     max-width: 174px;
+//     max-height: 42px;
+//     width: 100%;
+//     justify-content: space-between;
+//     /* иконки на синем фоне - нет так. свовсем не видно!!!! вернуться */
+//     /* по Mod10 иконки svg backcolor белый, теперь это надо */
+//     background-color: transparent;
+// }
 
-/* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
-.icon-link-ul li {
-    margin-bottom: 0;
-}
+// //перенесла в _header.scss пока. может потом выделю icon-link-ul
+// /* иконки в header и footer одинак с mrgn-bt=0. взял 16 от "address li". Обнулить */
+// .icon-link-ul li {
+//     margin-bottom: 0;
+// }
 
-.icon-link-ul img {
-    /* margin-bottom: 0; */
-    /* ??? */
-    /* картинку как 42 42 сдеать? max-width: 42px; */
-    max-height: 42px;
-    width: 100%;
-}
+// .icon-link-ul img {
+//     /* margin-bottom: 0; */
+//     /* ??? */
+//     /* картинку как 42 42 сдеать? max-width: 42px; */
+//     max-height: 42px;
+//     width: 100%;
+// }
 
 /* .footer-last li:not(:last-child) { */
 /* .confidens { */
