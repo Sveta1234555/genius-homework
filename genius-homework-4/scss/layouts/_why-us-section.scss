@@ -1,5 +1,18 @@
 /* Section 3 Why us */
 
+// .why-us-section {
+//     // для волны относительно этой секции
+//     position: relative;
+// }
+
+// .why-us-container {
+//     // для волны относительно этоuj container-a
+//     // position: relative;
+
+// }
+
+
+
 .why-us-title {
     /* h2 в 2 строки */
     /* так с br - в 2 строки и с отступом снизу */
@@ -24,6 +37,10 @@
     gap: 56px;
     /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
     flex-wrap: wrap;
+
+    // иначе 1240, а по макету 1060
+    max-width: 1060px;
+    margin: 0px auto;
 }
 
 .why-us-item {
@@ -32,7 +49,8 @@
     /*remove временный*/
     border-radius: 32px;
     /* Из макета: */
-    box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+    //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+    box-shadow: 0px 4px 4px $color-primary-bluelight;
     padding: 24px 32px;
     /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
     flex-basis: calc((100% - 112px) / 3);
@@ -42,6 +60,9 @@
      Думаю – предмет разговора с дизайнером). И некритично. !!!
      Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
     можно будет padding-top для ul задать одинаково больше. */
+
+    // фон карточки - белый
+    background-color: var(--color-primary-white);
 }
 
 .why-us-img {
