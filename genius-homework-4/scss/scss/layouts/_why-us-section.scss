@@ -7,7 +7,8 @@
 
 // .why-us-container {
 //     // для волны относительно этоuj container-a
-//     position: relative;
+//     // position: relative;
+
 // }
 
 
@@ -36,6 +37,10 @@
     gap: 56px;
     /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
     flex-wrap: wrap;
+
+    // иначе 1240, а по макету 1060
+    max-width: 1060px;
+    margin: 0px auto;
 }
 
 .why-us-item {

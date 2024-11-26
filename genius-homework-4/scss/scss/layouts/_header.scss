@@ -22,7 +22,8 @@
     backdrop-filter: blur(5px);
 }
 
-.header-container {
+// .header-container {
+.header__container {
     /* 2 блока (логотип+ меню   и   иконки) стали горизонтально рядом
     но align-items=stretch по-умолч - поэтому растянут общий список  иконок по вертикали на всю высоту строки - родительского элемента */
     display: flex;
@@ -32,7 +33,8 @@
     gap: 40px;
 }
 
-.header-nav {
+// .header-nav {
+.header__nav {
     /* для расположить горизонтально рядом лого и меню в nav навигации */
     display: flex;
     /* лого и меню - центрированной по вертикали*/
@@ -43,7 +45,8 @@
     gap: 40px;
 }
 
-.header-menu {
+// .header-menu {
+.header__menu {
     /* Элементы меню расположить горизонтально */
     display: flex;
     /* для задать расстояние между элементами меню */
@@ -66,7 +69,8 @@
 
 
 /* Header */
-.header-link {
+// .header-link {
+.header__link {
     /* color: var(--color-primary-bluedark); доминантный/ Но не отработало без указания здесь цвета . М.б. это нажатый ранее цвет ссылки. Нет. доббавляла нов li - цвет неправильный*/
     color: var(--color-primary-bluedark);
     /* font-size: 18px; */
