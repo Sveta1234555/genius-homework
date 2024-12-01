@@ -168,17 +168,20 @@
     display: block;
 }
 
-.modal .button {
-    /* 2 button in page. И1 на модальном окне-форме. width -разные */
-    /* также сделано в .hero-section .button */
-    /* width: 281px; */
-    width: 100%;
-    max-width: 281px;
-    /* Но – на форме на странице тоже 281х53 */
+// .modal .button {
+//     /* 2 button in page. И1 на модальном окне-форме. width -разные */
+//     /* также сделано в .hero-section .button */
+//     /* width: 281px; */
+//
+//     //!!! f12 - убрать эти оба width, эти 281 сами получаются
+//     //( .hero-section .button тоже убрала в _hero-section.scss)
+// ---     width: 100%;
+// ---    max-width: 281px;
+//     /* еще – на форме на странице тоже 281х53 */
 
-    /* отступ снизу до параграфа под кнопкой */
-    /* margin-bottom: 8px;  -в modal__button делано  -  margin: 0 auto 8px;*/
-}
+//     /* отступ снизу до параграфа под кнопкой */
+//     /* margin-bottom: 8px;  -в modal__button делано  -  margin: 0 auto 8px;*/
+// }
 
 .modal__button {
     /* центрировать кнопку на форме */

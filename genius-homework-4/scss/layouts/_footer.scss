@@ -172,7 +172,13 @@ address li {
 /* margin-bottom: 16px; */
 /* } */
 
-.address-icon {
+
+
+/* .address-icon */
+// .address-icon -> .footer__address-icon
+
+// .address-icon {
+.footer__address-icon {
     fill: var(--color-primary-white);
     /* выше на flex-Родителе .icon-link-ul   
   background: transparent; */
@@ -180,7 +186,8 @@ address li {
     /* stroke: red; */
 }
 
-.address-icon :hover {
+// .address-icon :hover {
+.footer__address-icon :hover {
     /* иконки как текст при навдении, мб ненадо, в UIKit один цвет иконок, но разный цвет текста рядом есть */
     fill: var(--color-primary-blue);
 }
