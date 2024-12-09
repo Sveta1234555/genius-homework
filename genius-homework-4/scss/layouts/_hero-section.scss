@@ -97,8 +97,9 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
             color: var(--color-primary-blue);
             font-family: Play, sans-serif;
             text-align: left;
+            // text-bold можно в index .   // убрала font-weight 700 здесь, но он сам в вычислено 700 пишет. от h2 из section__title  font-width 700
             font-weight: 700;
-            text-transform: capitalize;
+            // text-transform: capitalize; //.text-capitalize
             font-size: 140px;
             /*Line height  114 / font-size 140  */
             line-height: 0.81;
