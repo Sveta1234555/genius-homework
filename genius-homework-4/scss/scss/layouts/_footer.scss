@@ -16,30 +16,143 @@
 
     /* для пары к   position: absolute;  к ::after  картинке бутылочек*/
     position: relative;
+
+    // .footer::after {
+    &::after {
+        /* картинка бутылочки внизу справа  */
+        position: absolute;
+        /* png - Прозрачная картинка */
+        background-image: url(../images/PhotoRoom.png);
+        /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
+        content: "";
+        /* добавлением размера фона картинка не появилась */
+        /* background-size: 247px 152px; */
+        /* размеры задать явно*/
+        width: 247px;
+        height: 152px;
+        /* размеры задали явно, поэтому меняем на 100% */
+        /* background-size: 100%; */
+        /* убрали 100% т.к. доавили no-repeat */
+        background-repeat: no-repeat;
+
+        /* поместить в нижний правый угол after */
+        bottom: 0;
+        right: 0;
+    }
+
+
+    //вверх
+    // .footer-container {
+    // .footer__container {
+    &__container {
+        display: flex;
+        /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
+        gap: 20px;
+    }
+
+    // .footer-nav,  .footer-address {
+    // .footer__nav, .footer__address {
+    &__nav,
+    &__address {
+        /* .footer-nav -  для логотип и список ul стали в один ряд */
+        /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
+        display: flex;
+        flex-basis: 50%;
+        /* между блоками- элементами flex каждого родительского. попарно */
+        gap: 20px;
+    }
+
+
+    // .footer-logo,.footer-menu {
+    // .footer__logo, .footer__menu {
+    &__logo,
+    &__menu {
+        /* для логотип и список ul заняли по 50% в своем flex*/
+        flex-grow: 1;
+    }
+
+    // .footer-link {
+    // .footer__link {
+    &__link {
+        color: var(--color-primary-white);
+        font-size: 16px;
+        /* 16/19 =1.18  1.2 default */
+        //text-decoration: none; //перенесено в класс .link
+        /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+        //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
+    }
+
+
+    // .address-lists, .address-info {
+    // .footer__address-lists, .footer_address-info {
+    &__address-lists,
+    &__address-info {
+        /* во 2м flex address - 2 внутренних элемента ( div .address-lists  и .address-info) занимают по 50% */
+        flex-grow: 1;
+    }
+
+    //вверх на уровень footer
+    /* .address-icon */
+    // .address-icon -> .footer__address-icon
+    // .address-icon {
+    // .footer__address-icon {
+    &__address-icon {
+        fill: var(--color-primary-white);
+        /* выше на flex-Родителе .icon-link-ul   
+  background: transparent; */
+        /* обводка иконки нет */
+        /* stroke: red; */
+
+        //вверх на уровено address-icon
+        // .address-icon :hover {
+        // .footer__address-icon :hover {
+        // &__address-icon :hover {
+        & :hover {
+            /* иконки как текст при навдении, мб ненадо, в UIKit один цвет иконок, но разный цвет текста рядом есть */
+            fill: var(--color-primary-blue);
+        }
+    }
+
+
+    // .copyrigt {
+    // .footer__copyrigt {
+    &__copyrigt {
+        /* иначе a от p не подвинулось, только mrgn-top */
+        margin-top: 16px;
+        margin-bottom: 0;
+        font-size: 13px;
+        color: var(--color-secondary-greylight);
+    }
+
+
 }
 
-.footer::after {
-    /* картинка бутылочки внизу справа  */
-    position: absolute;
-    /* png - Прозрачная картинка */
-    background-image: url(../images/PhotoRoom.png);
-    /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
-    content: "";
-    /* добавлением размера фона картинка не появилась */
-    /* background-size: 247px 152px; */
-    /* размеры задать явно*/
-    width: 247px;
-    height: 152px;
-    /* размеры задали явно, поэтому меняем на 100% */
-    /* background-size: 100%; */
-    /* убрали 100% т.к. доавили no-repeat */
-    background-repeat: no-repeat;
+// //вверх
+// // .footer::after {
+// &::after {
+//     /* картинка бутылочки внизу справа  */
+//     position: absolute;
+//     /* png - Прозрачная картинка */
+//     background-image: url(../images/PhotoRoom.png);
+//     /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
+//     content: "";
+//     /* добавлением размера фона картинка не появилась */
+//     /* background-size: 247px 152px; */
+//     /* размеры задать явно*/
+//     width: 247px;
+//     height: 152px;
+//     /* размеры задали явно, поэтому меняем на 100% */
+//     /* background-size: 100%; */
+//     /* убрали 100% т.к. доавили no-repeat */
+//     background-repeat: no-repeat;
 
-    /* поместить в нижний правый угол after */
-    bottom: 0;
-    right: 0;
-}
+//     /* поместить в нижний правый угол after */
+//     bottom: 0;
+//     right: 0;
+// }
 
+
+//этот никуда не поднимала, не используется пока
 .footer-container-my0 {
     /*  общий внешний .container 1440x278 */
     /* этот .footer-container 1240x166 */
@@ -67,36 +180,52 @@
     /* margin: 0 auto; */
 }
 
-.footer-container {
-    display: flex;
-    /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
-    gap: 20px;
-}
 
-.footer-nav,
-.footer-address {
-    /* .footer-nav -  для логотип и список ul стали в один ряд */
-    /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
-    display: flex;
-    flex-basis: 50%;
-    /* между блоками- элементами flex каждого родительского. попарно */
-    gap: 20px;
-}
+// //вверх
+// // .footer-container {
+// // .footer__container {
+// &__container {
+//     display: flex;
+//     /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
+//     gap: 20px;
+// }
 
-.footer-logo,
-.footer-menu {
-    /* для логотип и список ul заняли по 50% в своем flex*/
-    flex-grow: 1;
-}
+// //вверх
+// // .footer-nav,  .footer-address {
+// // .footer__nav, .footer__address {
+// &__nav,
+// &__address {
+//     /* .footer-nav -  для логотип и список ul стали в один ряд */
+//     /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
+//     display: flex;
+//     flex-basis: 50%;
+//     /* между блоками- элементами flex каждого родительского. попарно */
+//     gap: 20px;
+// }
 
-.footer-link {
-    color: var(--color-primary-white);
-    font-size: 16px;
-    /* 16/19 =1.18  1.2 default */
-    //text-decoration: none; //перенесено в класс .link
-    /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
-    //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
-}
+
+// //вверх
+// // .footer-logo,.footer-menu {
+// // .footer__logo, .footer__menu {
+// &__logo,
+// &__menu {
+//     /* для логотип и список ul заняли по 50% в своем flex*/
+//     flex-grow: 1;
+// }
+
+
+
+// //вверх
+// // .footer-link {
+// // .footer__link {
+// &__link {
+//     color: var(--color-primary-white);
+//     font-size: 16px;
+//     /* 16/19 =1.18  1.2 default */
+//     //text-decoration: none; //перенесено в класс .link
+//     /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+//     //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
+// }
 
 /* вопрос - в макете ничем не отличается выделенный элемент меню нвигации footer
 Сделан, как header-link:hover*/
@@ -132,11 +261,15 @@ address li {
     margin-bottom: 16px;
 }
 
-.address-lists,
-.address-info {
-    /* во 2м flex address - 2 внутренних элемента ( div .address-lists  и .address-info) занимают по 50% */
-    flex-grow: 1;
-}
+
+// //вверх
+// // .address-lists, .address-info {
+// // .footer__address-lists, .footer_address-info {
+// &__address-lists,
+// &__address-info {
+//     /* во 2м flex address - 2 внутренних элемента ( div .address-lists  и .address-info) занимают по 50% */
+//     flex-grow: 1;
+// }
 
 // // их 2 класса было с одним названием - переношу в header  отсюда  (из footer)
 // .icon-link-ul {
@@ -172,23 +305,37 @@ address li {
 /* margin-bottom: 16px; */
 /* } */
 
-.address-icon {
-    fill: var(--color-primary-white);
-    /* выше на flex-Родителе .icon-link-ul   
-  background: transparent; */
-    /* обводка иконки нет */
-    /* stroke: red; */
-}
 
-.address-icon :hover {
-    /* иконки как текст при навдении, мб ненадо, в UIKit один цвет иконок, но разный цвет текста рядом есть */
-    fill: var(--color-primary-blue);
-}
+// //вверх на уровень footer
+// /* .address-icon */
+// // .address-icon -> .footer__address-icon
+// // .address-icon {
+// // .footer__address-icon {
+// &__address-icon {
+//     fill: var(--color-primary-white);
+//     /* выше на flex-Родителе .icon-link-ul   
+//   background: transparent; */
+//     /* обводка иконки нет */
+//     /* stroke: red; */
+// }
 
-.copyrigt {
-    /* иначе a от p не подвинулось, только mrgn-top */
-    margin-top: 16px;
-    margin-bottom: 0;
-    font-size: 13px;
-    color: var(--color-secondary-greylight);
-}
+// //вверх на уровено address-icon
+// // .address-icon :hover {
+// // .footer__address-icon :hover {
+// // &__address-icon :hover {
+// & :hover {
+//     /* иконки как текст при навдении, мб ненадо, в UIKit один цвет иконок, но разный цвет текста рядом есть */
+//     fill: var(--color-primary-blue);
+// }
+
+
+// //вверх
+// // .copyrigt {
+// // .footer__copyrigt {
+// &__copyrigt {
+//     /* иначе a от p не подвинулось, только mrgn-top */
+//     margin-top: 16px;
+//     margin-bottom: 0;
+//     font-size: 13px;
+//     color: var(--color-secondary-greylight);
+// }

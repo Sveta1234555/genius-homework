@@ -12,81 +12,202 @@
 // }
 
 
+.why-us-section {
+    // для  БЭМ  к этому уровню
 
-.why-us-title {
-    /* h2 в 2 строки */
-    /* так с br - в 2 строки и с отступом снизу */
-    /* margin-bottom: 48px; */
-    /* text-align: center; */
 
-    /* 2 строки – ограничением ширины
+    // .why-us-title {
+    // .why-us-section__title {
+    &__title {
+        /* h2 в 2 строки */
+        /* так с br - в 2 строки и с отступом снизу */
+        /* margin-bottom: 48px; */
+        /* text-align: center; */
+
+        /* 2 строки – ограничением ширины
  (max-width убирает центрирвоание text-align: center;
   Без max-width центрируется)*/
 
-    /* без br */
-    /* центрирование - margin. 48 от h2 до  ul  */
-    margin: 0px auto 48px;
-    /* 2 строки – ограничением ширины max-width*/
-    max-width: 442px;
+        /* без br */
+        /* центрирование - margin. 48 от h2 до  ul  */
+        margin: 0px auto 48px;
+        /* 2 строки – ограничением ширины max-width*/
+        max-width: 442px;
+    }
+
+
+    // .why-us-list {
+    // .why-us-section__list {
+    &__list {
+        /* расположить список горизоантально */
+        display: flex;
+        /*на макете так:*/
+        gap: 56px;
+        /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
+        flex-wrap: wrap;
+
+        // иначе 1240, а по макету 1060
+        max-width: 1060px;
+        margin: 0px auto;
+    }
+
+
+    // .why-us-item {
+    // .why-us-section__item {
+    &__item {
+
+        /* border: 1px solid lightgray; */
+        border: 1px solid var(--color-primary-white);
+        /*remove временный*/
+        border-radius: 32px;
+        /* Из макета: */
+        //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+        box-shadow: 0px 4px 4px $color-primary-bluelight;
+        padding: 24px 32px;
+        /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
+        flex-basis: calc((100% - 112px) / 3);
+        text-align: center;
+        /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
+        5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
+         Думаю – предмет разговора с дизайнером). И некритично. !!!
+         Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
+        можно будет padding-top для ul задать одинаково больше. */
+
+        // фон карточки - белый
+        background-color: var(--color-primary-white);
+    }
+
+
+    // .why-us-img {
+    // .why-us-section__img {
+    &__img {
+        /* для icon из  svg можно убрать все width-height */
+        max-width: 48px;
+        max-height: 48px;
+        margin-bottom: 8px;
+        /* так в ф12 расчет 48х48 отражает, без этого -40x44 */
+        width: 100%;
+        /* margin: 5px 102px 8px 102px; */
+        /* Это пока и иконки тоже, а они обесцвечены */
+        fill: var(--color-primary-blue);
+    }
+
+    // .section-why-us-p {
+    // .why-us-section__p {
+    &__p {
+        /* <p> дефолтный убрать mrg-b*/
+        margin-bottom: 0;
+        color: var(--color-black);
+        /* 18/12=1.3 */
+        line-height: 1.3;
+        /* после max-width это не центрирует. доб-н здесь же  margin: 0 auto; */
+        /* text-align: center; */
+        /* для переноса текста как на макете */
+        max-width: 252px;
+        /* после max-width стало не по центру. исправить так */
+        margin: 0 auto;
+    }
+
 }
 
-.why-us-list {
-    /* расположить список горизоантально */
-    display: flex;
-    /*на макете так:*/
-    gap: 56px;
-    /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
-    flex-wrap: wrap;
+// .why-us -> .why-us-section
 
-    // иначе 1240, а по макету 1060
-    max-width: 1060px;
-    margin: 0px auto;
-}
+// //вверх в .why-us-section
+// // .why-us-title {
+// // .why-us-section__title {
+// &__title {
+//     /* h2 в 2 строки */
+//     /* так с br - в 2 строки и с отступом снизу */
+//     /* margin-bottom: 48px; */
+//     /* text-align: center; */
 
-.why-us-item {
-    /* border: 1px solid lightgray; */
-    border: 1px solid var(--color-primary-white);
-    /*remove временный*/
-    border-radius: 32px;
-    /* Из макета: */
-    //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
-    box-shadow: 0px 4px 4px $color-primary-bluelight;
-    padding: 24px 32px;
-    /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
-    flex-basis: calc((100% - 112px) / 3);
-    text-align: center;
-    /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
-    5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
-     Думаю – предмет разговора с дизайнером). И некритично. !!!
-     Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
-    можно будет padding-top для ul задать одинаково больше. */
+//     /* 2 строки – ограничением ширины
+//  (max-width убирает центрирвоание text-align: center;
+//   Без max-width центрируется)*/
 
-    // фон карточки - белый
-    background-color: var(--color-primary-white);
-}
+//     /* без br */
+//     /* центрирование - margin. 48 от h2 до  ul  */
+//     margin: 0px auto 48px;
+//     /* 2 строки – ограничением ширины max-width*/
+//     max-width: 442px;
+// }
 
-.why-us-img {
-    /* для icon из  svg можно убрать все width-height */
-    max-width: 48px;
-    max-height: 48px;
-    margin-bottom: 8px;
-    /* так в ф12 расчет 48х48 отражает, без этого -40x44 */
-    width: 100%;
-    /* margin: 5px 102px 8px 102px; */
-    /* Это пока и иконки тоже, а они обесцвечены */
-    fill: var(--color-primary-blue);
-}
 
-.section-why-us-p {
-    /* <p> дефолтный убрать mrg-b*/
-    margin-bottom: 0;
-    color: var(--color-black);
-    /* 18/12=1.3 */
-    line-height: 1.3;
-    /* после max-width это не центрирует. доб-н здесь же  margin: 0 auto; */
-    /* text-align: center; */
-    /* для переноса текста как на макете */
-    max-width: 252px;
-    /* после max-width стало не по центру. исправить так */
-    margin: 0 auto;
-}
+// //вверх в .why-us-section
+// // .why-us-list {
+// // .why-us-section__list {
+// &__list {
+//     /* расположить список горизоантально */
+//     display: flex;
+//     /*на макете так:*/
+//     gap: 56px;
+//     /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
+//     flex-wrap: wrap;
+
+//     // иначе 1240, а по макету 1060
+//     max-width: 1060px;
+//     margin: 0px auto;
+// }
+
+
+
+// //вверх в .why-us-section
+// // .why-us-item {
+// // .why-us-section__item {
+// &__item {
+
+//     /* border: 1px solid lightgray; */
+//     border: 1px solid var(--color-primary-white);
+//     /*remove временный*/
+//     border-radius: 32px;
+//     /* Из макета: */
+//     //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+//     box-shadow: 0px 4px 4px $color-primary-bluelight;
+//     padding: 24px 32px;
+//     /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
+//     flex-basis: calc((100% - 112px) / 3);
+//     text-align: center;
+//     /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
+//     5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
+//      Думаю – предмет разговора с дизайнером). И некритично. !!!
+//      Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
+//     можно будет padding-top для ul задать одинаково больше. */
+
+//     // фон карточки - белый
+//     background-color: var(--color-primary-white);
+// }
+
+
+
+// //вверх в .why-us-section
+// // .why-us-img {
+// // .why-us-section__img {
+// &__img {
+//     /* для icon из  svg можно убрать все width-height */
+//     max-width: 48px;
+//     max-height: 48px;
+//     margin-bottom: 8px;
+//     /* так в ф12 расчет 48х48 отражает, без этого -40x44 */
+//     width: 100%;
+//     /* margin: 5px 102px 8px 102px; */
+//     /* Это пока и иконки тоже, а они обесцвечены */
+//     fill: var(--color-primary-blue);
+// }
+
+
+// //вверх в .why-us-section
+// // .section-why-us-p {
+// // .why-us-section__p {
+// &__p {
+//     /* <p> дефолтный убрать mrg-b*/
+//     margin-bottom: 0;
+//     color: var(--color-black);
+//     /* 18/12=1.3 */
+//     line-height: 1.3;
+//     /* после max-width это не центрирует. доб-н здесь же  margin: 0 auto; */
+//     /* text-align: center; */
+//     /* для переноса текста как на макете */
+//     max-width: 252px;
+//     /* после max-width стало не по центру. исправить так */
+//     margin: 0 auto;
+// }
