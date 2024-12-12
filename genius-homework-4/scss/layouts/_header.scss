@@ -76,18 +76,24 @@
 
     // .address-icon-header {
     // .header__address-icon {
-    &__address-icon {
+    // &__address-icon {
+    &__socials-icon {
         fill: var(--color-primary-bluedark);
+        transition: fill 0.2s;
+
+        // .address-icon-header :hover {
+        // .header__address-icon :hover {
+        // &__socials-icon {
+        & :hover {
+            /* так - срабатывал hover только при наведении на саму линию на иконке( цвет менялся) */
+            // добавлено родителю цвет ( .icon-link-ul: hover)
+            fill: var(--color-primary-blue);
+        }
     }
 
-    // .address-icon-header :hover {
-    // .header__address-icon :hover {
-    &__address-icon :hover {
-        /* так - срабатывал hover только при наведении на саму линию на иконке( цвет менялся) */
-        // добавлено родителю цвет ( .icon-link-ul: hover)
-        fill: var(--color-primary-blue);
-    }
 }
+
+
 
 
 //перенесен выше внутрь .container-a
