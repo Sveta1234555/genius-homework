@@ -2,9 +2,13 @@
 /* 1059x602 */
 // .contact-section {
 .contacts-section {
-  /* только последней секции, для обеспечить расстояние до футера 96
+  padding-bottom: 0px;
+
+  @media screen and (min-width: $bp-desktop) {
+    /* только последней секции, для обеспечить расстояние до футера 96
   эти 96 и установить, а не 48 пополам , как было для отступов между секциями выше */
-  padding-bottom: 96px;
+    padding-bottom: 96px;
+  }
 
   // .contacts-container {
   // .contacts-section__container {

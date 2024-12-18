@@ -10,8 +10,11 @@
     left: -38px;
     gap: 0px;
     opacity: 0px; */
-
-    /* padding: 123px 729px 157px 244px; перенесено в .hero-title */
+    //чтобы заголовок мобильный центрировался от краянего лева
+    // padding-left: 0px;
+    // padding: 71px 0 0 0px;
+    //до след. секции about-us снизу 56px
+    padding: 71px 0 56px 0px;
 
     /* background-color: burlywood; */
     /* позже наверное слоями позиционированием */
@@ -30,10 +33,30 @@
     background-position: center top;
     background-size: cover;
 
+    // иначе для таблет накрывается верхний текст  меню прозрачным от headera
+    //Убрать прозрачность дл меню для таблет, меню -то там нет!!!
+    //хотя не должно 123 от desktop, а до desktop д.б. 71. Но почему-то нет
+    @media screen and (min-width: $bp-tablet) {
+        /* padding: 123px 729px 157px 244px; перенесено в .hero-title . нет, здесьнадо*/
+        // padding: 71px 0 0 0;
+        //до след. секции about-us снизу 56px
+        padding: 71px 0 56px 0px;
+
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+        /* padding: 123px 729px 157px 244px; перенесено в .hero-title . нет, здесьнадо*/
+        // padding: 123px 0 0 206px;
+        //для отстсупа между hero-section и about-us 126.48
+        padding: 123px 0 126px 206px;
+        // margin-bottom: 126px;  лучше padding - тогда волна видна
+    }
 
     // .under-button {
     &__under-button {
-        margin-bottom: 0;
+        // margin-bottom: 0;  // для чего-то надо было (по-умолч убрать может, выдерживать этот 0 снизу)
+        // Для центрировать текст под кнопкой в моб версии. при указании max-width для переноса без br пкрестает работать text-align: center;
+        margin: 0 auto;
         /* font-family: "Roboto", sans-serif; */
         font-size: 12px;
         color: var(--color-secondary-grey1);
@@ -47,13 +70,25 @@
         // было margin-bottom: 14px;
         // это сделано padding-top у параграфа .under-button
         padding-top: 14px;
+
+        @media screen and (min-width: $bp-desktop) {
+            // margin-bottom: 0;
+            // без этого в десктопе влево не центрируется текcт под кнопкой после установки  max-width
+            margin: 0px;
+        }
     }
 
 
     // .hero-title {
     // .hero-section__title {
     &__title {
-        padding: 123px 729px 157px 244px;
+        // padding: 123px 729px 157px 244px;
+        // 123 - top. 244 - 206+38(отступ фона) надо по фигме left. Беру 206 (экспорт картинки  с волной 1440х725, а не 1501х688)
+        // padding: 123px 729px 157px 206px;
+        //таки padding от hero-section внутрь надо - перенессла вверх в hero-section
+        // padding: 123px 0 0 206px;
+        // снова сюда  . если вверху оставить, потом адаптив мобильного центрируется не от всего, не от самомго лева
+        // а так - непохоже расположение на макетнон - сноа вверх убрала
 
         /* Hero-title */
 
@@ -68,6 +103,15 @@ span –плохо, br …
  Потом вса-равно блоки из них делать,
 чтобы позиционировать квадратиком по всем грницам. */
 
+        //так в моб - все тексты -=и заголовки центрируются
+        text-align: center;
+
+        @media screen and (min-width: $bp-desktop) {
+            max-width: 530px;
+            width: 100%;
+            text-align: left;
+        }
+
         /*  Hero   h1 отдельно:  
 p mini "Косметологічна клініка" + h1 big "beauty zone" */
 
@@ -76,12 +120,26 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
         // .hero-section__title--mini {
         // &_title--mini {
         &--mini {
+            font-size: 12px;
+            /* 18 /12=1.5 */
+            line-height: 1.5;
             /* меняем дефолтный для <p> margin-bottom 18px на 16 px по дизайну*/
-            margin-bottom: 16px;
+            margin-bottom: 0px;
+            margin-top: 25px;
             /* font все из доминанта 18px 400  1.2 */
             color: var(--color-primary-bluedark);
             /* тени нет */
             /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+
+            @media screen and (min-width: $bp-desktop) {
+                //доминантные, но после моби 1-го 12 надо восстановить, само не берет наследование 18
+                font-size: 18px;
+                /* 21 /18=1.2 */
+                line-height: 1.2;
+                /* меняем дефолтный для <p> margin-bottom 18px на 16 px по дизайну*/
+                margin-bottom: 16px;
+                margin-top: 16px;
+            }
         }
 
         /*2. Hero h1   -  big beauty zone*/
@@ -90,40 +148,52 @@ p mini "Косметологічна клініка" + h1 big "beauty zone" */
         // .hero-section__title--big {
         // &__title--big {
         &--big {
-            /* УБрать дефолт margin-bottom этому заголовку (аж 116 был дефолт)*/
-            /* Пока оставлю 40 - снизу до кнопки, пменять потом мб на 0!!!!!!!! После div */
-            margin-bottom: 40px;
-
+            margin-bottom: 32px;
             color: var(--color-primary-blue);
             font-family: Play, sans-serif;
-            text-align: left;
-            // text-bold можно в index .   // убрала font-weight 700 здесь, но он сам в вычислено 700 пишет. от h2 из section__title  font-width 700
-            font-weight: 700;
-            // text-transform: capitalize; //.text-capitalize
-            font-size: 140px;
-            /*Line height  114 / font-size 140  */
-            line-height: 0.81;
-            /* в 2 строки beauty zone big */
-            max-width: 530px;
+            // text-align: center;   н уровне родител центрирутеся
+            font-size: 54px;
+            /*Line height  46 / font-size 54    46/54= 0.86 */
+            line-height: 0.86;
+            /* в 1 строкe beauty zone big */
+            // max-width: 530px;  для моб ненадо, мешает центрированию
 
-            /* border-radius: 2px 2px 2px 116px; */
-            /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
-            /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
-            /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
+            @media screen and (min-width: $bp-desktop) {
+                /* УБрать дефолт margin-bottom этому заголовку (аж 116 был дефолт)*/
+                /* Пока оставлю 40 - снизу до кнопки, пменять потом мб на 0!!!!!!!! После div */
+                margin-bottom: 40px;
+
+                // color: var(--color-primary-blue);
+                // font-family: Play, sans-serif;
+                // text-align: left;  на уровне родитеял - все  влево
+                // text-bold можно в index .   // убрала font-weight 700 здесь, но он сам в вычислено 700 пишет. от h2 из section__title  font-width 700
+                // font-weight: 700;
+                // text-transform: capitalize; //.text-capitalize
+                font-size: 140px;
+                /*Line height  114 / font-size 140  */
+                line-height: 0.81;
+                /* в 2 строки beauty zone big */
+                max-width: 530px;
+
+                /* border-radius: 2px 2px 2px 116px; */
+                /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   из макета . Не работает*/
+                /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
+                /* -moz-text-decoration-line: 4px rgba(0, 0, 0, 0.25);
   text-stroke: 4px rgba(0, 0, 0, 0.25); */
-            /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
-            /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
+                /* у меня визуально был шрифт с обрамлением. в макете - таки нет. */
+                /* -webkit-text-stroke: 4px rgba(0, 0, 0, 0.25); */
 
-            /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
-            /* margin-top: 16px; */
-            /* padding-top: 16px; */
+                /* 16px между minn and big-SPAN не получается ни margin-top: 16px; ни  padding-top: 16px; */
+                /* margin-top: 16px; */
+                /* padding-top: 16px; */
 
-            /* font-style: italic; */
-            /* text-transform: capitalize; */
-            /* text-shadow: 2px 2px 4px violet;
+                /* font-style: italic; */
+                /* text-transform: capitalize; */
+                /* text-shadow: 2px 2px 4px violet;
   letter-spacing: 4px;
   word-spacing: 4px;
   white-space: nowrap; */
+            }
         }
 
     }
