@@ -1,0 +1,222 @@
+ /* Мodal */
+ .backdrop {
+     /* затемененный фон под активным модальным окном-  фиксированный элемент */
+     position: fixed;
+     /* растягиваться на всю ширину экрана. */
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     /* фон - с макета  */
+     /* background-color: rgba(0, 0, 0, 0.5); */
+     background-color: rgba(1, 31, 74, 0.4);
+
+     /* для расположить модальное окно modal  по центру родителя-backdrop */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* модальное окно отодвинуть от границ  - относительно родительского  Padding-Ом */
+     padding: 20px 0;
+     /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
+     transition: opacity 0.2s, visibility 0.2s;
+ }
+
+ .backdrop.is-hidden {
+     /* когда к backdrop добавляется класс 'is-hidden', надо его- (backdrop c окном) прятать: */
+     /* display: none; так потом не будет работать анимация - передеоать в вар2:*/
+
+     /* в2 реализации  */
+     /*  анимация ПЕРЕХОД  transition к opacity и visibility  -  в .backdrop, выше
+     transition: opacity 0.2s, visibility 0.2s;  */
+
+     /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
+     opacity: 0;
+     /* чтобы нельзя нажать на элементы скрытой формы */
+     /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
+     visibility: hidden;
+
+     /* чтобы вообще нельзя было нажать на окно */
+     pointer-events: none;
+ }
+
+ .modal {
+     /* модальное окно 723х681*/
+
+     /* для больших экранов не больше 723х681px модальное окно */
+     /* если окно меньше 723х681 то модальное окно будет занимать 100% окна по ширине*/
+     /* width: 723px; */
+     width: 100%;
+     max-width: 723px;
+     /* height: 681px; */
+     height: 100%;
+     max-height: 681px;
+
+     /* на макете вокруг заголовка - формы такие отступы 144 слева-справа, 42 – сверху- снизу
+  (В пекарне - брали с 3-х сторон отступы128 , низ другой 187 - отдельно не задавали) */
+     padding: 42px 144px;
+
+     background-color: var(--color-primary-bluedark);
+     /* background: #011C44;   */
+     border-radius: 48px;
+
+     /* для расположить относительно него кнопку крестик close */
+     position: relative;
+     /* чтобы скроллилось модальное окно когда не помещается содержимаое (input...)*/
+     overflow-y: auto;
+ }
+
+ .modal-btn-close {
+     /* кнопка крестик close */
+     position: absolute;
+     top: 42px;
+     right: 42px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0;
+     fill: transparent;
+     /* так крестик видно, а не песочные часы */
+     stroke: var(--color-primary-white);
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+ }
+
+ .modal-title {
+     /* Заголовок H2 модальнйо формы - белый (на странице - синие все) */
+     color: var(--color-primary-white);
+
+     /* background-color: var(--color-primary-light); */
+     font-family: "Play", sans-serif;
+     font-size: 64px;
+     font-weight: 700;
+     /*  74.05px /64px  =1.16  округл 1.2   Это доминантный */
+     /* line-height: 1.2; */
+     margin: 0;
+     text-align: center;
+     max-width: 435px;
+     padding-bottom: 40px;
+     /*Это текст копией с макета - наверное ненадо
+   text-underline-position: from-font;
+   text-decoration-skip-ink: none; */
+ }
+
+ .modal__text {
+     /* абзац p модальнйо формы - белый (на странице - синие все) */
+     color: var(--color-primary-white);
+
+     /* background-color: var(--color-primary-light); */
+
+     /* roboto доминантный */
+     /* font-family: "Roboto", sans-serif;   */
+     font-size: 22px;
+     font-weight: 600;
+     /* 26px /22px  =1.18  округл 1.2   Это доминантный */
+     /* line-height: 1.2; */
+     /* margin: 0; */
+     text-align: center;
+     max-width: 274px;
+     /* без этого не центрируется после max-width */
+     margin: 0 auto 32px;
+
+     /* font-style: normal; */
+ }
+
+ .modal__form-field {
+     /* отступы между div (label+input) */
+     margin-bottom: 24px;
+ }
+
+ /* Form */
+ .input__control {
+     padding: 18px 32px;
+     /* растянуть input ппо всей ширине */
+     width: 100%;
+
+     border: 2px solid var(--color-secondary-greylight);
+     border-radius: 32px;
+     /* фон поля ввода input прозрачный */
+     background-color: transparent;
+     /* фонт Input сделать как у placeholder.Размеры и так такие такие (наверное т.к. задавли размер input padding-ами),
+     но цвет белый */
+     color: var(--color-primary-white);
+     font-size: 13px;
+     /* line-height  15/13=1.15 = 1.2 доминантный */
+     line-height: 1.15;
+     /* font-weight: 400;  наследуется */
+     /* дз3 - плавно input.	Додати CSS-переходи до інтерактивних елементів (посилань, кнопок, полей вводу, тд). Час переходи встановити 0.2s. */
+     transition: background-color 0.2s;
+ }
+
+ .input__control:focus {
+     background-color: var(--color-secondary-greylight);
+     /* убрать обводку синюю по-умолч от браузера, иначе невидно  border в фокусе поля ввода */
+     outline: none;
+ }
+
+ .input__control::placeholder {
+     /* ПОдсказка вместо label внутри поля ввода input */
+     color: var(--color-primary-white);
+     font-size: 13px;
+     /* line-height  15/13=1.15 = 1.2 доминантный */
+     line-height: 1.15;
+     /* font-weight: 400;  наследуется */
+ }
+
+ .input-label {
+     display: block;
+ }
+
+ .modal .button {
+     /* 2 button in page. И1 на модальном окне-форме. width -разные */
+     /* также сделано в .hero-section .button */
+     /* width: 281px; */
+     width: 100%;
+     max-width: 281px;
+     /* Но – на форме на странице тоже 281х53 */
+
+     /* отступ снизу до параграфа под кнопкой */
+     /* margin-bottom: 8px;  -в modal__button делано  -  margin: 0 auto 8px;*/
+ }
+
+ .modal__button {
+     /* центрировать кнопку на форме */
+     /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
+     /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
+     display: block;
+     /* доб 8 px снизу до параграфа отступ от кнопки */
+     margin: 0 auto 8px;
+ }
+
+ .modal__button:hover {
+     /* Hover – цвет текста поменять для модальной формы.
+    Не видно текст при наведении.
+    Он по button-ptimary для кнопок на странице – темно-синий (так на странице надо и норм)
+     А на модальной форме – одинак с фоном */
+     color: var(--color-primary-blue);
+ }
+
+
+
+ .form-terms {
+     /* текст под кнопкой на форме */
+     /* Для Центрирвоать текст под кнопкой – margin: 0 auto */
+     margin: 0 auto;
+     max-width: 213px;
+     /* font-weight: 400; доминантный*/
+     font-size: 12px;
+     /* 1.5=18/12 */
+     line-height: 1.5;
+     color: var(--color-secondary-greylight);
+     text-align: center;
+ }
+
+ .form-terms__link {
+     /* по-умолч ссылка - фиолет, поменять на цвет по дизайну */
+     color: var(--color-secondary-greylight);
+     /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
+     text-underline-offset: 2px;
+ }
+
+ @import './layouts/modal';
