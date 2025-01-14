@@ -18,6 +18,34 @@
     text-transform: capitalize;
 }
 
+
+.logo-width {
+    //размеры лого разные. в 5 местах (по index – в 3х, еще 2 – это адаптив хедера и футера)
+    //3 мобильные - одинак (моб хедер, моб футер, моб меню)
+    width: $logo-mob;
+
+    &__header {
+        //верхний моб (без --header) не берет при использовании класса logo-width--header
+        // ни так __, ни так --. Прилшлось повторять
+        width: $logo-mob;
+
+        @media screen and (min-width: $bp-desktop) {
+            width: $logo-header;
+        }
+    }
+
+    &__footer {
+        width: $logo-mob;
+        margin-bottom: 22px; //от лого до 1-го меню мобверсии. В образце нет - ненадо выдерживать отступ?
+        //по макету 42px. есть gap 20px. ДОб. 22px до 42 мобверсии
+
+        @media screen and (min-width: $bp-desktop) {
+            width: $logo-footer;
+        }
+    }
+
+}
+
 // .text-uppercase {
 //     text-transform: uppercase;
 // }
