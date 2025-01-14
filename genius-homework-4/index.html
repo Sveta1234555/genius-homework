@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
+    <!-- <div class="wave1"></div> -->
     <header class="header">
       <div class="container">
         <!-- <div class="header-container"> -->
@@ -36,6 +37,7 @@
             <!-- Logo and menu  -->
             <a href="#">
               <img
+                class="logo-width__header"
                 src="./images/logo.svg"
                 alt="Логотип косметологічної клініки Beauty Zone"
             /></a>
@@ -125,12 +127,100 @@
       <img src="./images/facebook.svg" alt="Иконка facebook" />
       <img src="./images/instagram.svg" alt="Иконка Instagram" /> -->
 
-          <button class="header__burger" type="button">
+          <button class="header__burger menu-btn-open" type="button">
             <!-- меню бургер  3 черточки мобильного  -->
             <svg width="24" height="24">
               <use href="./images/icons.svg#icon-menu"></use>
             </svg>
           </button>
+          <div class="mobile-menu">
+            <!-- class="mobile-menu__btn-close modal__btn-close menu-btn-close" -->
+            <button class="mobile-menu__btn-close menu-btn-close" type="button">
+              <svg width="24" height="24">
+                <use href="./images/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+            <a class="mobile-menu__logo" href="/">
+              <!--img  class="mobile-menu__logo__img" -->
+              <img
+                class="logo-width"
+                src="./images/logo.svg"
+                alt="Логотип косметологічної клініки Beauty Zone"
+              />
+            </a>
+            <ul class="mobile-menu__list">
+              <li>
+                <a class="mobile-menu__link" href="#section-about-us">
+                  Про нас
+                </a>
+              </li>
+              <li>
+                <a class="mobile-menu__link" href="#section-why-us">Чому ми </a>
+              </li>
+              <li>
+                <a class="mobile-menu__link" href="#section-our-procedures"
+                  >Наші процедури</a
+                >
+              </li>
+              <li>
+                <a class="mobile-menu__link" href="#section-contacts"
+                  >Контакти
+                </a>
+              </li>
+            </ul>
+            <ul class="mobile-menu__socials socials">
+              <!-- класс li добавить для hover на li - ненадо. срабатывает hover на icon-link-ul. причем отдельно для своего значка, между ними - нет . ok-->
+              <li>
+                <!-- <a class="icon-link" href="tel:+38(096)0000007"> -->
+                <a href="tel:+38(096)0000007">
+                  <!-- <img
+                  src="./images/telephone.svg"
+                  alt="Иконка телефона + 38 (096) 000 00 07"
+                /> -->
+                  <!-- <svg width="27" height="30" viewBox="0 0 32 32"> -->
+                  <!-- address-icon-header -> header__address-icon -->
+                  <!-- <svg class="header__address-icon" width="32" height="32"> -->
+                  <svg class="header__socials-icon" width="32" height="32">
+                    <use href="images/icons.svg#icon-telephone"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <!-- <a class="icon-link" href=""> -->
+                <!-- class="icon-link" -->
+                <a
+                  href="https://www.facebook.com/"
+                  title="Facebook"
+                  target="_blank"
+                >
+                  <!-- <svg width="16" height="28" viewBox="0 0 32 32"> -->
+                  <!-- <svg width="32" height="32" viewBox="0 0 32 32"> -->
+                  <!-- <svg class="header__address-icon" width="32" height="32"> -->
+                  <svg class="header__socials-icon" width="32" height="32">
+                    <use href="images/icons.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+                <!-- <img src="./images/facebook.svg" alt="Иконка facebook" /> -->
+              </li>
+              <li>
+                <!-- <a class="icon-link" href=""> -->
+                <!-- class="icon-link" -->
+                <a
+                  rel="noopener noreferrer"
+                  href="https://www.instagram.com/"
+                  title="Instagram"
+                  target="_blank"
+                >
+                  <!-- <svg width="25" height="25" viewBox="0 0 32 32"> -->
+                  <!-- <svg class="header__address-icon" width="32" height="32"> -->
+                  <svg class="header__socials-icon" width="32" height="32">
+                    <use href="images/icons.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+                <!-- <img src="./images/instagram.svg" alt="Иконка Instagram" /> -->
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -186,7 +276,7 @@
           <!-- <div class="about-us-container"> -->
           <div class="about-us-section__container">
             <!-- <svg class="star2" width="15" height="16"> -->
-            <svg class="star2">
+            <!-- <svg class="star2">
               <use href="./images/icons.svg#icon-star2mid"></use>
             </svg>
             <svg class="star1">
@@ -194,7 +284,7 @@
             </svg>
             <svg class="star3">
               <use href="./images/icons.svg#icon-star3small"></use>
-            </svg>
+            </svg> -->
 
             <!-- <div class="about-us-content"> -->
             <div class="about-us-section__content">
@@ -231,6 +321,9 @@
                 підтримувати свою красу та молодість. <br />З нами краса
                 назавжди!
               </p>
+              <svg class="star4">
+                <use href="./images/icons.svg#icon-star1big"></use>
+              </svg>
             </div>
 
             <!-- <ul class="about-us-ul-img"> -->
@@ -250,7 +343,18 @@
                 />
               </li>
             </ul>
+
+            <svg class="star2">
+              <use href="./images/icons.svg#icon-star2mid"></use>
+            </svg>
+            <svg class="star1">
+              <use href="./images/icons.svg#icon-star1big"></use>
+            </svg>
+            <svg class="star3">
+              <use href="./images/icons.svg#icon-star3small"></use>
+            </svg>
           </div>
+
           <!--  звездочки-->
           <!-- Оптимизированная , так не отражается <svg></svg> -->
           <!-- <svg width="15" height="16">
@@ -361,7 +465,10 @@
             <!-- <h2>Наші <span>процедури</span></h2> -->
             <!-- <div></div> -->
 
-            <button class="carousel-button" type="button">
+            <button
+              class="carousel-button procedure-section__button"
+              type="button"
+            >
               <!-- <svg class="carousel-arrow" width="16" height="16"> -->
               <svg width="16" height="16">
                 <use href="./images/icons.svg#icon-arrow"></use>
@@ -371,7 +478,7 @@
             <!-- <ul class="procedure-list"> -->
             <ul class="procedure-section__list">
               <!-- <li class="procedure-item"> -->
-              <li class="procedure-section__item">
+              <li class="procedure-section__item procedure-section__item--show">
                 <!-- <article><h3>Маски для обличчя</h3></article> -->
                 <!-- <img
                   src="./images/faceprocMask1.jpg"
@@ -393,7 +500,8 @@
                 </article>
               </li>
               <!-- <li class="procedure-item"> -->
-              <li class="procedure-section__item">
+              <!-- <li class="procedure-section__item procedure-section__item--hide"> -->
+              <li class="procedure-section__item procedure-section__item--hide">
                 <article class="procedure-card">
                   <img
                     class="procedure-card__image"
@@ -407,7 +515,7 @@
                 </article>
               </li>
               <!-- <li class="procedure-item"> -->
-              <li class="procedure-section__item">
+              <li class="procedure-section__item procedure-section__item--hide">
                 <article class="procedure-card">
                   <img
                     class="procedure-card__image"
@@ -419,7 +527,10 @@
               </li>
             </ul>
 
-            <button class="carousel-button next" type="button">
+            <button
+              class="carousel-button procedure-section__button next"
+              type="button"
+            >
               <!-- класс next добавлен для повернуть стрелку-кнопку вправо  -->
               <svg width="16" height="16">
                 <use href="./images/icons.svg#icon-arrow"></use>
@@ -440,8 +551,6 @@
             <iframe
               class="contacts-section__map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.475793194495!2d30.77264847677266!3d50.50671337160295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d97de411b701%3A0x48116b28f7f00d94!2z0YPQuy4g0KLQsNGA0LDRgdCwINCo0LXQstGH0LXQvdC60L4sIDUsINCR0YDQvtCy0LDRgNGLLCDQmtC40LXQstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAwNzQwMA!5e0!3m2!1sru!2sua!4v1718629078866!5m2!1sru!2sua"
-              width="605"
-              height="481"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -514,7 +623,8 @@
                   />
                 </div>
 
-                <button class="modal__button button" type="submit">
+                <!-- <button class="modal__button button" type="submit"> -->
+                <button class="contacts-section__button button" type="submit">
                   Записатись безкоштовно
                 </button>
 
@@ -564,12 +674,14 @@
             <div class="footer__logo">
               <a href="#">
                 <img
+                  class="logo-width__footer"
                   src="./images/logo.svg"
                   alt="Логотип косметологічної клініки Beauty Zone"
               /></a>
             </div>
             <!-- <ul class="footer-menu footer--ul"> -->
-            <ul class="footer__menu footer__ul">
+            <!-- <ul class="footer__menu footer__ul"> убрала footer__ul был только отстпу 16 для li-->
+            <ul class="footer__menu">
               <li>
                 <!-- <a class="footer-link link" href="#section-about-us"> -->
                 <a class="footer__link link" href="#section-about-us">
@@ -597,13 +709,14 @@
           <!-- <address class="footer-address footer-address-ul"> -->
           <!-- <address class="footer__address footer-address-ul"> -->
           <!-- <address class="footer__address footer__ul"> -->
-          <address class="footer__address">
+          <address class="footer__address footer__address-mob-gap">
             <!-- <div class="address-lists"> -->
             <!-- <div class="footer__address-lists"> -->
             <div class="footer__contacts">
               <!-- <ul class="address-list"> -->
               <!-- <ul class="footer_address-list"> -->
-              <ul class="footer__ul">
+              <!-- <ul class="footer__ul"> -->
+              <ul class="footer__address-list">
                 <li>
                   <!-- <a class="footer-link link" href="tel:+38(096)0000007"                   -->
                   <a class="footer__link link" href="tel:+38(096)0000007"
@@ -629,10 +742,17 @@
                 </li>
               </ul>
 
+              <!-- Если надо в моб версии  реально так, - socials между  политикаКонф  и copyright, (а не как в футере десктоп -  политикаКонф  и copyright рядом) -->
+              <a
+                class="footer__link footer__poltk-mob--show link"
+                href="#"
+                target="_blank"
+                >Політика конфіденційності</a
+              >
               <!-- <ul class="icon-link-ul footer__social-before"> -->
               <!-- <ul class="icon-link-ul footer__ul"> -->
               <!-- <ul class="icon-link-ul"> -->
-              <ul class="socials">
+              <ul class="socials footer__socials-before">
                 <li>
                   <!-- <a class="icon-link" href="tel:+38(096)0000007"> -->
                   <a href="tel:+38(096)0000007">
@@ -687,12 +807,15 @@
             <!-- <div class="address-info"> -->
             <div class="footer__address-info">
               <!-- <a class="footer-link link" href="#" target="_blank" -->
-              <a class="footer__link link" href="#" target="_blank"
+              <a
+                class="footer__link footer__poltk-mob--hide link"
+                href="#"
+                target="_blank"
                 >Політика конфіденційності</a
               >
 
-              <!-- <p class="copyrigt">&copy; 2022 Дані захищені</p> -->
-              <p class="footer__copyrigt">&copy; 2022 Дані захищені</p>
+              <!-- <p class="copyright">&copy; 2022 Дані захищені</p> -->
+              <p class="footer__copyright">&copy; 2022 Дані захищені</p>
             </div>
           </address>
         </div>
@@ -782,6 +905,7 @@
       </div>
     </div>
 
+    <script src="./js/mobile-menu.js"></script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
