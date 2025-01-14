@@ -11,16 +11,15 @@
 
     // .input__control {
     &__control {
-        padding: 18px 32px;
+        padding: 16px 24px;
         /* растянуть input ппо всей ширине */
         width: 100%;
-
-        border: 2px solid var(--color-secondary-greylight);
-        border-radius: 32px;
+        border: 1.5px solid var(--color-secondary-greylight);
+        border-radius: 24px;
         /* фон поля ввода input прозрачный */
         background-color: transparent;
         /* фонт Input сделать как у placeholder.Размеры и так такие такие (наверное т.к. задавли размер input padding-ами),
-        но цвет белый */
+                            но цвет белый */
         color: var(--color-primary-white);
         font-size: 13px;
         /* line-height  15/13=1.15 = 1.2 доминантный */
@@ -28,6 +27,26 @@
         /* font-weight: 400;  наследуется */
         /* дз3 - плавно input.	Додати CSS-переходи до інтерактивних елементів (посилань, кнопок, полей вводу, тд). Час переходи встановити 0.2s. */
         transition: background-color 0.2s;
+
+        @media screen and (min-width: $bp-desktop) {
+            padding: 18px 32px;
+            // /* растянуть input ппо всей ширине */
+            // width: 100%;
+
+            border: 2px solid var(--color-secondary-greylight);
+            border-radius: 32px;
+            // /* фон поля ввода input прозрачный */
+            // background-color: transparent;  вверх в моб.
+            //     /* фонт Input сделать как у placeholder.Размеры и так такие такие (наверное т.к. задавли размер input padding-ами),
+            // но цвет белый */
+            //     color: var(--color-primary-white); вверх в моб.
+            // font-size: 13px;
+            // /* line-height  15/13=1.15 = 1.2 доминантный */
+            // line-height: 1.15;
+            // /* font-weight: 400;  наследуется */
+            // /* дз3 - плавно input.	Додати CSS-переходи до інтерактивних елементів (посилань, кнопок, полей вводу, тд). Час переходи встановити 0.2s. */
+            // transition: background-color 0.2s;
+        }
 
         // .input__control:focus {
         // &__control:focus {

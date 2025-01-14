@@ -20,7 +20,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    // }
+    //  /* плавнее увеличение размера карточки при Hover */
+    transition: transform 0.3s;
+    overflow: hidden;
+
+    :hover {
+        transform: scale(1.05);
+    }
 
 
     // .procedure-card-image {
@@ -70,5 +76,6 @@
       чтобы «для” на другой строке было */
         max-width: 152px;
         align-self: center;
+
     }
 }
