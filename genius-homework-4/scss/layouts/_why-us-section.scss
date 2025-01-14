@@ -19,43 +19,61 @@
     // .why-us-title {
     // .why-us-section__title {
     &__title {
-        /* h2 в 2 строки */
-        /* так с br - в 2 строки и с отступом снизу */
-        /* margin-bottom: 48px; */
-        /* text-align: center; */
+        /* без br */
+        /* центрирование - margin. 24 от h2 до  ul  */
+        margin: 0px auto 24px;
+        /* 2 строки – ограничением ширины max-width*/
+        max-width: 210px;
 
-        /* 2 строки – ограничением ширины
+        @media screen and (min-width: $bp-desktop) {
+            /* h2 в 2 строки */
+            /* так с br - в 2 строки и с отступом снизу */
+            /* margin-bottom: 48px; */
+            /* text-align: center; */
+
+            /* 2 строки – ограничением ширины
  (max-width убирает центрирвоание text-align: center;
   Без max-width центрируется)*/
 
-        /* без br */
-        /* центрирование - margin. 48 от h2 до  ul  */
-        margin: 0px auto 48px;
-        /* 2 строки – ограничением ширины max-width*/
-        max-width: 442px;
+            /* без br */
+            /* центрирование - margin. 48 от h2 до  ul  */
+            margin: 0px auto 48px;
+            /* 2 строки – ограничением ширины max-width*/
+            max-width: 442px;
+        }
     }
 
 
     // .why-us-list {
     // .why-us-section__list {
     &__list {
-        /* расположить список горизоантально */
         display: flex;
-        /*на макете так:*/
-        gap: 56px;
-        /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
-        flex-wrap: wrap;
-
-        // иначе 1240, а по макету 1060
-        max-width: 1060px;
+        /* расположить список вертикально */
+        flex-direction: column;
+        gap: 16px;
+        max-width: 316px; // Без этого -на всю ширину каждая карточка
+        //центрир
         margin: 0px auto;
+
+        @media screen and (min-width: $bp-desktop) {
+            /* расположить список горизоантально */
+            // display: flex;   //вверх в моб
+            flex-direction: row;
+            /*на макете так:*/
+            gap: 56px;
+            /* +flex-basis: calc((100% - 112px) / 3); чтобы переносились на след. строку по 3 в ряд*/
+            flex-wrap: wrap;
+
+            // иначе 1240, а по макету 1060
+            max-width: 1060px;
+            // margin: 0px auto; //вверх в моб
+        }
     }
 
 
     // .why-us-item {
     // .why-us-section__item {
     &__item {
-
         /* border: 1px solid lightgray; */
         border: 1px solid var(--color-primary-white);
         /*remove временный*/
@@ -64,17 +82,31 @@
         //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
         box-shadow: 0px 4px 4px $color-primary-bluelight;
         padding: 24px 32px;
-        /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
-        flex-basis: calc((100% - 112px) / 3);
         text-align: center;
-        /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
+        // фон карточки - белый
+        background-color: var(--color-primary-white);
+
+        @media screen and (min-width: $bp-desktop) {
+            // /* border: 1px solid lightgray; */
+            // border: 1px solid var(--color-primary-white);
+            // /*remove временный*/
+            // border-radius: 32px;
+            // /* Из макета: */
+            // //  box-shadow: 0px 4px 4px rgba(168, 198, 245, 0.38);
+            // box-shadow: 0px 4px 4px $color-primary-bluelight;
+            // padding: 24px 32px;
+            /* 112 px это 2 gap по 56 px . Гибкое расстояние меду блочками*/
+            flex-basis: calc((100% - 112px) / 3);
+            // text-align: center;
+            /* Отступ от картинки до внутренней рамки (Frame 14559, заданной paddin вначале) – разное у 3х каринок – 5 2,
         5 1px. У 3-й - снизу до текста 12, а не 8, как у первых 2х.
          Думаю – предмет разговора с дизайнером). И некритично. !!!
          Делаю 8 margin-bottom до текста от картинки одинаково всем 3м. сверху – оставляю 0. Если надо,
         можно будет padding-top для ul задать одинаково больше. */
 
-        // фон карточки - белый
-        background-color: var(--color-primary-white);
+            // // фон карточки - белый
+            // background-color: var(--color-primary-white);
+        }
     }
 
 

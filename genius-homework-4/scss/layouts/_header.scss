@@ -124,7 +124,12 @@
 
     &__burger {
         // добавить кнопку 3 черточки меню для моб версии до ширины 768  px
-        display: block;
+        // display: block;              кнопка burger и так блочная width: 24px;
+        height: 24px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        fill: var(--color-primary-white); //линии стали белые (были черные)
 
         @media screen and (min-width: $bp-desktop) {
             // на десктопе >768px кнопки мобильнонго меню нет

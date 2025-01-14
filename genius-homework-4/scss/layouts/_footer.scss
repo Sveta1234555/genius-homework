@@ -8,117 +8,234 @@
     background-repeat: no-repeat;
     background-position: center top;
     /* background-size: cover; */
+    padding: 32px 0px 66px;
 
-    /* padding: 56px; убрать отступы слева справа*/
-    padding: 56px 0;
-    /* Слева- спрва в уроке убрали. Но можно 100 поставить, если Надо. Не меняет при resize визуально  ничего */
-    /* padding: 56px 100px; */
+    @media screen and (min-width: $bp-desktop) {
+        /* padding: 56px; убрать отступы слева справа*/
+        padding: 56px 0;
+        /* Слева- спрва в уроке убрали. Но можно 100 поставить, если Надо. Не меняет при resize визуально  ничего */
+        /* padding: 56px 100px; */
 
-    /* для пары к   position: absolute;  к ::after  картинке бутылочек*/
-    position: relative;
-
-    // .footer::after {
-    &::after {
-        /* картинка бутылочки внизу справа  */
-        position: absolute;
-        /* png - Прозрачная картинка */
-        background-image: url(../images/PhotoRoom.png);
-        /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
-        content: "";
-        /* добавлением размера фона картинка не появилась */
-        /* background-size: 247px 152px; */
-        /* размеры задать явно*/
-        width: 247px;
-        height: 152px;
-        /* размеры задали явно, поэтому меняем на 100% */
-        /* background-size: 100%; */
-        /* убрали 100% т.к. доавили no-repeat */
-        background-repeat: no-repeat;
-
-        /* поместить в нижний правый угол after */
-        bottom: 0;
-        right: 0;
+        /* для пары к   position: absolute;  к ::after  картинке бутылочек*/
+        position: relative;
+        //картинка только в десктоп версии
     }
 
 
-    //вверх
+
+    // .footer::after {
+    &::after {
+
+        //в моб версии картиник в футере нет.
+        //Можно display none - display block добавить. Но работает и так
+        @media screen and (min-width: $bp-desktop) {
+            /* картинка бутылочки внизу справа  */
+            position: absolute;
+            /* png - Прозрачная картинка */
+            background-image: url(../images/PhotoRoom.png);
+            /* т.к. это – декор, ненадо добавлять через разметку html тэгом img, а делаем псевдоэлементом after. */
+            content: "";
+            /* добавлением размера фона картинка не появилась */
+            /* background-size: 247px 152px; */
+            /* размеры задать явно*/
+            width: 247px;
+            height: 152px;
+            /* размеры задали явно, поэтому меняем на 100% */
+            /* background-size: 100%; */
+            /* убрали 100% т.к. доавили no-repeat */
+            background-repeat: no-repeat;
+
+            /* поместить в нижний правый угол after */
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+
     // .footer-container {
     // .footer__container {
     &__container {
         display: flex;
+        flex-direction: column; //для моб. - вертикs
         /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
-        gap: 20px;
+        // между контакты и Политика 16 (из-за socials между Политика и coptight)
+        gap: 16px;
+
+        @media screen and (min-width: $bp-desktop) {
+            flex-direction: row; //для десктоп. - гориз
+            gap: 20px;
+        }
     }
 
     // .footer-nav,  .footer-address {
     // .footer__nav, .footer__address {
     &__nav,
     &__address {
-        /* .footer-nav -  для логотип и список ul стали в один ряд */
-        /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
         display: flex;
-        flex-basis: 50%;
-        /* между блоками- элементами flex каждого родительского. попарно */
+        flex-direction: column; //для моб. - вертик
+        /* между блоками- элементами flex каждого родительского. попарно 
+        //nav : logo - menu, в address:  contacts  -  address-info ) */
         gap: 20px;
-    }
+        text-align: center; //для моб. надо центрировать .  сюда - чтобы наследовалось на все элементы
 
-
-    // .footer-logo,.footer-menu {
-    // .footer__logo, .footer__menu {
-    &__logo,
-    &__menu {
-        /* для логотип и список ul заняли по 50% в своем flex*/
-        flex-grow: 1;
-    }
-
-    &__ul {
-        // для отступов между меню навигации и адреса 16
-        // index - <ul class="footer__ul">
-        //причем - всех списков в футере (навигации, адресов)
-        // background-color: aqua;
-
-        // // /* между Li -ссылками - снизу 16, кроме последнего */
-        // // .footer-ul li:not(:last-child) {
-        // // .footer__ul li:not(:last-child) {
-        // // &__ul li:not(:last-child) {
-        // // & li:not(:last-child) {
-        // & li:not(:last-child) {
-        //     margin-bottom: 16px;
-        //     // background-color: chartreuse;
-        // }
-
-        // // .footer-ul li:last-child {
-        // // &__ul li:last-child {
-        // & li:last-child {
-        //     margin-bottom: 0;
-        // }
-
-        // /* между Li -ссылками - снизу 16, включая последний */
-        // Будет везде под элементами списков 16 в футере. Под последним у навигации тоже. НО – там визуально много места,
-        // неважно. Но – если надо – там (последнему li меню –списку навигации) отдельный класс сделать,
-        // убирающий этот отступ для последнего элемента меню
-
-
-        // & { так не рабюотает (без li). 
-        // И li без пробела не сработал,
-        // он (footer_ul в indeх) далеко от1-го уровня вложенности в index (<address class="footer__address footer__ul">).address-icon
-        //и близко не сработал без пробела <ul class="footer__ul">
-        & li {
-            margin-bottom: 16px;
-            // background-color: chartreuse;
+        @media screen and (min-width: $bp-desktop) {
+            /* .footer-nav -  для логотип и список ul стали в один ряд */
+            /* .footer-address -  чтобы ul и addres-info (copyright и ...) стали в ряд */
+            // display: flex;    //вверх в моб.
+            flex-direction: row; //для десктоп. - гориз
+            flex-basis: 50%;
+            /* между блоками- элементами flex каждого родительского. попарно */
+            // gap: 20px; //вверх в моб.
+            text-align: left;
         }
 
     }
+
+    &__address-mob-gap {
+        // <address class="footer__address footer__address-mob-gap">
+        //в моб версии для особого расположения socials (над copyright) 
+        //эти 8px - это Gap 
+        //( а в десктопной 16 - margin-top от copyright)
+        gap: 8px;
+
+        @media screen and (min-width: $bp-desktop) {
+            gap: 20px;
+        }
+    }
+
+    // .footer-logo,.footer-menu {
+    // .footer__logo, .footer__menu {
+    //разделяю исходник &__logo,  &__menu. Для убрать footer__ul li - чисто отступ, и все, в2= местах был. СДелать flex footer__menu   footer__address-list
+    // &__logo,
+    // &__menu {
+    //     /* для логотип и список ul заняли по 50% в своем flex*/
+    //     flex-grow: 1;
+    // }
+
+
+    &__logo {
+        /* для логотип и список ul заняли по 50% в своем flex-родителе footer__nav*/
+        // у &__menu тоже останется flex-grow: 1;
+        flex-grow: 1;
+    }
+
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        /* для логотип и список ul заняли по 50% в своем flex-родителе footer__nav*/
+        // у &__logo тоже останется flex-grow: 1;
+        flex-grow: 1;
+    }
+
+
+    // //    Убрала footer__ul li - это был чисто отступ 16,      и все,
+    // //     в2-х местах был. СДелать flex footer__menu footer__address-list и там gap 16
+    // &__ul {
+    //     // для отступов между меню навигации и адреса 16
+    //     // index - <ul class="footer__ul">
+    //     //причем - всех списков в футере (навигации, адресов)
+    //     // background-color: aqua;
+
+    //     // // /* между Li -ссылками - снизу 16, кроме последнего */
+    //     // // .footer-ul li:not(:last-child) {
+    //     // // .footer__ul li:not(:last-child) {
+    //     // // &__ul li:not(:last-child) {
+    //     // // & li:not(:last-child) {
+    //     // & li:not(:last-child) {
+    //     //     margin-bottom: 16px;
+    //     //     // background-color: chartreuse;
+    //     // }
+
+    //     // // .footer-ul li:last-child {
+    //     // // &__ul li:last-child {
+    //     // & li:last-child {
+    //     //     margin-bottom: 0;
+    //     // }
+
+    //     // /* между Li -ссылками - снизу 16, включая последний */
+    //     // Будет везде под элементами списков 16 в футере. Под последним у навигации тоже. НО – там визуально много места,
+    //     // неважно. Но – если надо – там (последнему li меню –списку навигации) отдельный класс сделать,
+    //     // убирающий этот отступ для последнего элемента меню
+
+
+    //     // & { так не рабюотает (без li). 
+    //     // И li без пробела не сработал,
+    //     // он (footer_ul в indeх) далеко от1-го уровня вложенности в index (<address class="footer__address footer__ul">).address-icon
+    //     //и близко не сработал без пробела <ul class="footer__ul">
+    //     & li {
+    //         margin-bottom: 16px;
+    //         // background-color: chartreuse;
+    //     }
+
+    //     //    Убрала footer__ul li - это был чисто отступ 16,      и все,
+    //     //     в2-х местах был. СДелать flex footer__menu footer__address-list и там gap 16
+
+    // }
 
     // .footer-link {
     // .footer__link {
     &__link {
         color: var(--color-primary-white);
-        font-size: 16px;
-        /* 16/19 =1.18  1.2 default */
-        //text-decoration: none; //перенесено в класс .link
-        /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
-        //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
+        font-size: 14px;
+        // font-weight: 400  наслед
+        /* 14/16,4 ~1.17  1.2 default */
+        // display: none;--
+
+        @media screen and (min-width: $bp-desktop) {
+            font-size: 16px;
+            /* 16/19 =1.18  1.2 default */
+            //text-decoration: none; //перенесено в класс .link
+            /* анимация переход цвета ссылки при hover - плавно меняется цвет текста и фонт*/
+            //transition: color 0.2s, font-weight 0.2s; //перенесено в класс .link
+            // display: inline-block;--
+        }
+
+        // &--mob {
+        //     display: block;
+
+        //     // < !-- Если надо в моб версии реально так,
+        //     // - иконки socials между политикаКонф и copyright,
+        //     // (а не как в футере десктоп - политикаКонф и copyright рядом) -->
+        //     @media screen and (min-width: $bp-desktop) {
+        //         display: none;
+        //     }
+        // }
+    }
+
+    &__poltk-mob {
+        // Внимание ! Класс footer__link используется в других списках footer,
+        // его не меняю. Добавляю отд. Новый класс footer__poltk-mob--hide и --show.
+
+        // display: block;
+
+        // // < !-- Если надо в моб версии реально так,
+        // // - иконки socials между политикаКонф и copyright,
+        // // (а не как в футере десктоп - политикаКонф и copyright рядом) -->
+        // @media screen and (min-width: $bp-desktop) {
+        //     display: none;
+        // }
+
+        &--show {
+            // <a Політика>  в  <div class="footer__contacts">  после "footer__address-list"
+            //1. моб - показать Политик над соц, десктоп -скрыть 
+            display: block;
+
+            @media screen and (min-width: $bp-desktop) {
+                display: none;
+            }
+        }
+
+        &--hide {
+            // <a Політика> в <div class="footer__address-info">
+            //2. моб - спрятать Политик под соц, десктоп - показать
+            display: none;
+
+            @media screen and (min-width: $bp-desktop) {
+                display: inline-block;
+            }
+        }
     }
 
 
@@ -134,6 +251,33 @@
     }
 
 
+    //   &__address-list,
+    //   &__address-info {
+    &__address-list {
+        display: none;
+
+        @media screen and (min-width: $bp-desktop) {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 16px;
+        }
+
+    }
+
+    //   &__address-list,
+    //   &__address-info {
+    //       flex-grow: 1;
+    //   }
+
+    // &__address-info  у меня не flex 
+    &__socials-before {
+        //между адресами address-list и группой иконок socials (над иконками)
+        margin-top: 16px;
+    }
+
+
+
     //это чисто тэги были   address li
     /* между Li -адресами - снизу 16 у всех, включая последний */
     //теперь - 1. расстояние между li 16 с пом. footer__ul 
@@ -144,9 +288,10 @@
     //         2.1.1 одному последнему Li  в меню навигации - отдельный класс можно (убрать отступ снизу). Но визуально - там неважно, много места снизу, можно оставить с отступом после последнго li
     // address li {
     // .footer__social-before li {
-    &__social-before li {
-        margin-bottom: 16px;
-    }
+    //убрала - выше есть &__socials-before
+    // &__social-before li {
+    //     margin-bottom: 16px;
+    // }
 
 
     //вверх на уровень footer
@@ -156,12 +301,19 @@
     // .footer__address-icon {
     // &__address-icon {
     &__socials-icon {
+        width: 32px;
+        height: 100%;
+
         fill: var(--color-primary-white);
         transition: fill 0.2s;
         /* выше на flex-Родителе .icon-link-ul   
   background: transparent; */
         /* обводка иконки нет */
         /* stroke: red; */
+
+        @media screen and (min-width: $bp-desktop) {
+            width: 42px;
+        }
 
         //вверх на уровено address-icon
         // .address-icon :hover {
@@ -174,14 +326,25 @@
     }
 
 
-    // .copyrigt {
-    // .footer__copyrigt {
-    &__copyrigt {
-        /* иначе a от p не подвинулось, только mrgn-top */
-        margin-top: 16px;
-        margin-bottom: 0;
-        font-size: 13px;
+    // .copyright {
+    // .footer__copyright {
+    &__copyright {
         color: var(--color-secondary-greylight);
+        font-size: 12px;
+        //18/12 =1.5
+        line-height: 1.5;
+        margin-bottom: 0;
+
+        @media screen and (min-width: $bp-desktop) {
+            /* иначе a от p не подвинулось, только mrgn-top */
+            margin-top: 16px;
+            // margin-bottom: 0;  вверх
+            font-size: 13px;
+            //15,2/13 =1.17 ~1.2 наслед
+            //но надо вернуть после моб версии 1.5 (иначе 19 , а не 15)
+            line-height: 1.17;
+            // color: var(--color-secondary-greylight);  вверх
+        }
     }
 
 
@@ -404,9 +567,9 @@
 
 
 // //вверх
-// // .copyrigt {
-// // .footer__copyrigt {
-// &__copyrigt {
+// // .copyright {
+// // .footer__copyright {
+// &__copyright {
 //     /* иначе a от p не подвинулось, только mrgn-top */
 //     margin-top: 16px;
 //     margin-bottom: 0;
