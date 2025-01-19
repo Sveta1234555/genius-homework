@@ -7,12 +7,16 @@
   //  104=84этот +20 будет в след секц  - отличается для между  2about-us и 3why-us секц
   padding-bottom: 104px;
 
+  margin-top: 50px; //по замеч по дз4
+
   @media screen and (min-width: $bp-desktop) {
     /* убрать от одинаковых отступов между .section для между 1-2 отступ. тут иначе, пока неясно как /
   pad-bot=0  остается для 2-й, надо*/
     padding-top: 0;
     /*между 2 и 3й секциями не 96, а 176. 128=176-48 (pdgtop 3й секции  одинаковые)*/
     padding-bottom: 128px;
+
+    margin-top: 96px; //по замеч по дз4
 
     // index.html
     // < !-- убрала section из классов about0us-section - он делает только padding 48 0. 
