@@ -1,9 +1,0 @@
-
-10.08.2024  23:32             3 957 icons0.svg		- 4 первых иконки обесцвеченные, оптимизированные. 1я копия icons.svg до доабвления 3х иконок whyus
-10.08.2024  23:32             3 957 icons4.svg		- копия icons.svg (=icons0.svg)
-21.08.2024  16:33             9 887 icons_whyus.svg	- 3 иконки секции why-us. обесцвеченные. НЕ оптимизированные
-21.08.2024  16:43            13 728 icons.svg		- icons.svg (=icons0.svg) + icons_whyus (неоптимиз, добавлена в текстовом режиме. как добавить через icomoon не знаю)
-
-atom1        из  game-icons_materials-science.svg
-equipment2   из  medicinecosmeticsbottletreatment_109776 1.svg
-krown3       из ph_crown-light.svg
